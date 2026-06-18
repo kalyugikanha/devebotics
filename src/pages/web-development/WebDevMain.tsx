@@ -28,24 +28,24 @@ const FAQ_ITEMS = [
 ];
 
 const SERVICES = [
-  { t: "Shopify Stores", img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80", tags: ["Liquid", "Headless", "Hydrogen"] },
-  { t: "Next.js Apps", img: "https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800&q=80", tags: ["React", "SSR", "Vercel"] },
-  { t: "SaaS Platforms", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", tags: ["Node.js", "Stripe", "Auth"] },
-  { t: "WordPress Sites", img: "https://images.unsplash.com/photo-1616423640778-28d1b53229bd?w=800&q=80", tags: ["Custom Themes", "ACF"] },
-  { t: "E-commerce", img: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80", tags: ["WooCommerce", "B2B"] },
-  { t: "Custom Web Apps", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80", tags: ["Full-Stack", "API"] }
+  { t: "Shopify Stores", img: "/images/generic-1.png", tags: ["Liquid", "Headless", "Hydrogen"] },
+  { t: "Next.js Apps", img: "/images/generic-2.png", tags: ["React", "SSR", "Vercel"] },
+  { t: "SaaS Platforms", img: "/images/generic-1.png", tags: ["Node.js", "Stripe", "Auth"] },
+  { t: "WordPress Sites", img: "/images/generic-2.png", tags: ["Custom Themes", "ACF"] },
+  { t: "E-commerce", img: "/images/generic-1.png", tags: ["WooCommerce", "B2B"] },
+  { t: "Custom Web Apps", img: "/images/generic-2.png", tags: ["Full-Stack", "API"] }
 ];
 
 const PORTFOLIO = [
-  { name: "Fintech Dashboard", industry: "Finance", metric: "340% revenue increase", stack: ["Next.js", "Tailwind"], img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" },
-  { name: "Eco Commerce", industry: "Retail", metric: "1.2s avg load time", stack: ["Shopify", "Liquid"], img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80" },
-  { name: "Health Tech Portal", industry: "Healthcare", metric: "HIPAA Compliant", stack: ["React", "Node.js"], img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" },
+  { name: "Fintech Dashboard", industry: "Finance", metric: "340% revenue increase", stack: ["Next.js", "Tailwind"], img: "/images/generic-1.png" },
+  { name: "Eco Commerce", industry: "Retail", metric: "1.2s avg load time", stack: ["Shopify", "Liquid"], img: "/images/generic-2.png" },
+  { name: "Health Tech Portal", industry: "Healthcare", metric: "HIPAA Compliant", stack: ["React", "Node.js"], img: "/images/generic-1.png" },
 ];
 
 const BLOG_POSTS = [
-  { category: "Performance", title: "The Architecture Behind Sub-Second Page Loads", date: "Oct 12", readTime: "5 min read", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" },
-  { category: "Design Systems", title: "Building Scalable Component Libraries in React", date: "Oct 08", readTime: "8 min read", img: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" },
-  { category: "E-Commerce", title: "Headless Shopify vs Standard: What to Choose", date: "Sep 28", readTime: "6 min read", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" }
+  { category: "Performance", title: "The Architecture Behind Sub-Second Page Loads", date: "Oct 12", readTime: "5 min read", img: "/images/generic-2.png" },
+  { category: "Design Systems", title: "Building Scalable Component Libraries in React", date: "Oct 08", readTime: "8 min read", img: "/images/generic-1.png" },
+  { category: "E-Commerce", title: "Headless Shopify vs Standard: What to Choose", date: "Sep 28", readTime: "6 min read", img: "/images/generic-2.png" }
 ];
 
 const TECH_CATEGORIES = [
@@ -100,7 +100,7 @@ function Hero3DMockup() {
            </div>
            {/* Content */}
            <div className="relative w-full h-[calc(100%-40px)]">
-             <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=800&q=80" className="w-full h-full object-cover opacity-90 mix-blend-multiply" alt="Dashboard" />
+             <img src="/images/generic-1.png" className="w-full h-full object-cover opacity-90 mix-blend-multiply" alt="Dashboard" />
              <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
            </div>
         </div>
@@ -117,13 +117,13 @@ function Hero3DMockup() {
               <BarChart2 size={18} className="text-[#0A0B0D]" />
             </div>
             <div>
-              <div className="text-[10px] font-medium text-[#6B6F76] uppercase tracking-wider">Revenue</div>
+              <div className="text-[10px] font-medium text-[#4B5563] uppercase tracking-wider">Revenue</div>
               <div className="text-sm font-black text-[#0A0B0D]">+$12,450</div>
             </div>
           </div>
           <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
             <motion.div 
-              className="h-full bg-[#E8FF47] w-3/4 rounded-full"
+              className="h-full bg-[#1F8844] w-3/4 rounded-full"
               initial={{ width: 0 }}
               animate={{ width: "75%" }}
               transition={{ duration: 1.5, delay: 0.5 }}
@@ -133,7 +133,7 @@ function Hero3DMockup() {
 
         {/* Floating Code Snippet */}
         <motion.div 
-          className="absolute -left-16 bottom-1/4 w-56 bg-[#0A0B0D]/95 backdrop-blur-xl p-4 rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] border border-[#1C1E21]"
+          className="absolute -left-16 bottom-1/4 w-56 bg-[#0A0B0D]/95 backdrop-blur-xl p-4 rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] border border-[#E5E7EB]"
           style={{ transform: 'translateZ(90px)' }}
           animate={{ y: [5, -5, 5] }}
           transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.5 }}
@@ -154,13 +154,13 @@ function Hero3DMockup() {
 
         {/* Floating Accent Spheres */}
         <motion.div 
-          className="absolute -top-12 -right-8 w-24 h-24 rounded-full bg-gradient-to-tr from-[#E8FF47] to-white opacity-60 blur-md mix-blend-multiply"
+          className="absolute -top-12 -right-8 w-24 h-24 rounded-full bg-gradient-to-tr from-[#1F8844] to-white opacity-60 blur-md mix-blend-multiply"
           style={{ transform: 'translateZ(-60px)' }}
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ repeat: Infinity, duration: 3 }}
         />
         <motion.div 
-          className="absolute -bottom-8 -left-8 w-16 h-16 rounded-full bg-gradient-to-tr from-[#E8FF47] to-transparent opacity-40 blur-lg"
+          className="absolute -bottom-8 -left-8 w-16 h-16 rounded-full bg-gradient-to-tr from-[#1F8844] to-transparent opacity-40 blur-lg"
           style={{ transform: 'translateZ(40px)' }}
         />
       </motion.div>
@@ -230,7 +230,7 @@ function Portfolio3DGrid() {
           transition={{ duration: 0.8, delay: i * 0.2 }}
         >
           <motion.div 
-            className="bg-white rounded-[2rem] p-4 shadow-xl shadow-gray-200/50 border border-gray-100 transform-style-3d transition-all duration-500 hover:shadow-2xl hover:shadow-[#E8FF47]/20"
+            className="bg-white rounded-[2rem] p-4 shadow-xl shadow-gray-200/50 border border-gray-100 transform-style-3d transition-all duration-500 hover:shadow-2xl hover:shadow-[#1F8844]/20"
             whileHover={{ rotateX: 5, rotateY: -5, translateZ: 20 }}
           >
             {/* 3D Animated Device Mockup */}
@@ -253,7 +253,7 @@ function Portfolio3DGrid() {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 pointer-events-none" />
               <div className="absolute bottom-4 left-4 z-20">
-                <div className="bg-[#E8FF47] text-[#0A0B0D] px-3 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1 shadow-lg">
+                <div className="bg-[#1F8844] text-[#0A0B0D] px-3 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1 shadow-lg">
                   <ArrowUpRight size={14} /> {item.metric}
                 </div>
               </div>
@@ -261,7 +261,7 @@ function Portfolio3DGrid() {
             
             {/* Content */}
             <div className="px-2 pb-2" style={{ transform: 'translateZ(30px)' }}>
-              <div className="text-xs font-bold text-[#6B6F76] uppercase tracking-widest mb-2">{item.industry}</div>
+              <div className="text-xs font-bold text-[#4B5563] uppercase tracking-widest mb-2">{item.industry}</div>
               <h3 className="text-2xl font-black text-[#0A0B0D] mb-4">{item.name}</h3>
               <div className="flex gap-2 flex-wrap">
                 {item.stack.map(s => (
@@ -306,7 +306,7 @@ export default function WebDevMain() {
   }, []);
 
   return (
-    <div className="bg-[#FAFAFA] min-h-screen text-[#0A0B0D] font-sans selection:bg-[#E8FF47] selection:text-black overflow-x-hidden pt-20">
+    <div className="bg-[#FAFAFA] min-h-screen text-[#0A0B0D] font-sans selection:bg-[#1F8844] selection:text-black overflow-x-hidden pt-20">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
         
@@ -333,7 +333,7 @@ export default function WebDevMain() {
         }
 
         .text-gradient {
-          background: linear-gradient(135deg, #0A0B0D 0%, #3A3D42 100%);
+          background: linear-gradient(135deg, #0A0B0D 0%, #9CA3AF 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -348,24 +348,24 @@ export default function WebDevMain() {
         <div className="max-w-[1400px] mx-auto px-6 w-full relative z-10 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-bold text-[#6B6F76] uppercase tracking-[0.2em]">Web Development Services</span>
+              <span className="text-xs font-bold text-[#4B5563] uppercase tracking-[0.2em]">Web Development Services</span>
               <div className="h-px bg-gray-200 w-12" />
             </div>
             
             <h1 className="text-[clamp(48px,6vw,80px)] leading-[1.05] font-black text-[#0A0B0D] tracking-tight mb-8">
-              Engineering the Next <br/>Digital <span className="italic relative inline-block">Standard.<span className="absolute bottom-2 left-0 w-full h-4 bg-[#E8FF47] -z-10 mix-blend-multiply rounded-sm" /></span>
+              Engineering the Next <br/>Digital <span className="italic relative inline-block">Standard.<span className="absolute bottom-2 left-0 w-full h-4 bg-[#1F8844] -z-10 mix-blend-multiply rounded-sm" /></span>
             </h1>
             
-            <p className="text-lg text-[#6B6F76] leading-[1.7] max-w-xl mb-10 font-medium">
+            <p className="text-lg text-[#4B5563] leading-[1.7] max-w-xl mb-10 font-medium">
               Leveraging precision-built design systems to reduce complexity. We transform bloated websites into lean, scalable, and performant platforms.
             </p>
             
             <div className="flex flex-wrap items-center gap-6">
-              <Link to="/portfolio" className="bg-[#0A0B0D] text-white px-8 py-4 font-bold text-sm tracking-wide rounded-none hover:bg-[#E8FF47] hover:text-[#0A0B0D] transition-colors duration-300 flex items-center gap-2 group">
+              <Link to="/portfolio" className="bg-[#0A0B0D] text-white px-8 py-4 font-bold text-sm tracking-wide rounded-none hover:bg-[#1F8844] hover:text-[#0A0B0D] transition-colors duration-300 flex items-center gap-2 group">
                 VIEW OUR WORK <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
-                <CheckCircle2 size={16} className="text-[#E8FF47] fill-black" />
+                <CheckCircle2 size={16} className="text-[#1F8844] fill-black" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#0A0B0D]">Tech Accredited</span>
               </div>
             </div>
@@ -381,9 +381,9 @@ export default function WebDevMain() {
       <section className="border-y border-gray-200 bg-white relative z-20">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-200">
           {[
-            { num: "150+", label: "Websites Shipped", icon: <Globe className="text-[#E8FF47] w-6 h-6 fill-black/10" /> },
-            { num: "98%", label: "Lighthouse Score", icon: <Zap className="text-[#E8FF47] w-6 h-6 fill-black/10" /> },
-            { num: "4.9★", label: "Client Rated", icon: <Star className="text-[#E8FF47] w-6 h-6 fill-black/10" /> }
+            { num: "150+", label: "Websites Shipped", icon: <Globe className="text-[#1F8844] w-6 h-6 fill-black/10" /> },
+            { num: "98%", label: "Lighthouse Score", icon: <Zap className="text-[#1F8844] w-6 h-6 fill-black/10" /> },
+            { num: "4.9★", label: "Client Rated", icon: <Star className="text-[#1F8844] w-6 h-6 fill-black/10" /> }
           ].map((m, i) => (
             <div key={i} className="flex-1 py-8 px-6 flex items-center justify-center gap-6 group cursor-default">
               <div className="p-3 bg-gray-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
@@ -391,7 +391,7 @@ export default function WebDevMain() {
               </div>
               <div>
                 <div className="text-4xl font-black text-[#0A0B0D] mb-1 tracking-tight">{m.num}</div>
-                <div className="text-xs font-bold text-[#6B6F76] uppercase tracking-widest">{m.label}</div>
+                <div className="text-xs font-bold text-[#4B5563] uppercase tracking-widest">{m.label}</div>
               </div>
             </div>
           ))}
@@ -403,9 +403,9 @@ export default function WebDevMain() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="mb-20">
             <div className="inline-block relative">
-              <span className="text-xs font-bold text-[#6B6F76] uppercase tracking-[0.2em]">Core Expertise</span>
+              <span className="text-xs font-bold text-[#4B5563] uppercase tracking-[0.2em]">Core Expertise</span>
               <motion.div 
-                className="absolute -bottom-2 left-0 h-0.5 bg-[#E8FF47]"
+                className="absolute -bottom-2 left-0 h-0.5 bg-[#1F8844]"
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
                 viewport={{ once: true }}
@@ -440,16 +440,16 @@ export default function WebDevMain() {
                       {exp.icon === 'brain' && <Cpu className="w-8 h-8 text-[#0A0B0D]" />}
                     </div>
                     {/* 3D layers effect */}
-                    <div className="absolute inset-0 bg-[#E8FF47]/20 rounded-xl border border-[#E8FF47]/50" style={{ transform: 'translateZ(-10px) rotateX(10deg) rotateY(10deg)' }} />
+                    <div className="absolute inset-0 bg-[#1F8844]/20 rounded-xl border border-[#1F8844]/50" style={{ transform: 'translateZ(-10px) rotateX(10deg) rotateY(10deg)' }} />
                   </motion.div>
                 </div>
                 
                 <h3 className="text-xl font-black text-[#0A0B0D] mb-4">{exp.title}</h3>
-                <p className="text-[#6B6F76] leading-relaxed mb-6">{exp.desc}</p>
+                <p className="text-[#4B5563] leading-relaxed mb-6">{exp.desc}</p>
                 <ul className="space-y-3">
                   {exp.points.map(p => (
                     <li key={p} className="flex items-center gap-3 text-sm font-medium text-[#0A0B0D]">
-                      <div className="w-5 h-5 rounded-full bg-[#E8FF47]/30 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-[#1F8844]/30 flex items-center justify-center">
                         <Check size={12} className="text-black" />
                       </div>
                       {p}
@@ -466,7 +466,7 @@ export default function WebDevMain() {
       <section className="py-32 bg-[#0A0B0D] text-white">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="mb-16">
-            <div className="text-xs font-bold text-[#E8FF47] uppercase tracking-[0.2em] mb-4">WHAT WE BUILD</div>
+            <div className="text-xs font-bold text-[#1F8844] uppercase tracking-[0.2em] mb-4">WHAT WE BUILD</div>
             <h2 className="text-[clamp(40px,5vw,64px)] font-black leading-tight">Full-Stack <br/>Digital Products</h2>
           </div>
 
@@ -496,7 +496,7 @@ export default function WebDevMain() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                   <div className="absolute inset-0 p-6 flex flex-col justify-end">
                     <h3 className="text-xl font-bold">{s.t}</h3>
-                    <ArrowUpRight className="absolute top-6 right-6 opacity-0 -translate-y-2 translate-x-2 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all text-[#E8FF47]" />
+                    <ArrowUpRight className="absolute top-6 right-6 opacity-0 -translate-y-2 translate-x-2 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all text-[#1F8844]" />
                   </div>
                 </div>
               ))}
@@ -508,12 +508,12 @@ export default function WebDevMain() {
       {/* 5. PORTFOLIO 3D GRID */}
       <section className="py-32 overflow-hidden bg-[#FAFAFA]">
         <div className="max-w-[1400px] mx-auto px-6 mb-20 text-center">
-          <div className="text-xs font-bold text-[#6B6F76] uppercase tracking-[0.2em] mb-4">RECENT WORK</div>
+          <div className="text-xs font-bold text-[#4B5563] uppercase tracking-[0.2em] mb-4">RECENT WORK</div>
           <h2 className="text-[clamp(40px,5vw,64px)] font-black text-[#0A0B0D] leading-tight">Websites That Perform</h2>
         </div>
         <Portfolio3DGrid />
         <div className="text-center mt-20">
-          <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm font-bold border-b-2 border-[#0A0B0D] pb-1 hover:text-[#6B6F76] hover:border-[#6B6F76] transition-colors">
+          <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm font-bold border-b-2 border-[#0A0B0D] pb-1 hover:text-[#4B5563] hover:border-[#4B5563] transition-colors">
             VIEW FULL PORTFOLIO <ArrowRight size={16} />
           </Link>
         </div>
@@ -522,12 +522,12 @@ export default function WebDevMain() {
       {/* 6. TECHNOLOGY STACK - CREATIVE BENTO */}
       <section className="py-32 bg-[#0A0B0D] border-y border-gray-800 relative overflow-hidden">
         {/* Glow Effects */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#E8FF47]/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#1F8844]/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
         
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <div className="mb-16">
-            <div className="text-xs font-bold text-[#E8FF47] uppercase tracking-[0.2em] mb-4">TECHNOLOGIES WE MASTER</div>
+            <div className="text-xs font-bold text-[#1F8844] uppercase tracking-[0.2em] mb-4">TECHNOLOGIES WE MASTER</div>
             <h2 className="text-[clamp(40px,5vw,56px)] font-black text-white leading-tight mb-8">
               The Modern<br/>Web Ecosystem
             </h2>
@@ -535,7 +535,7 @@ export default function WebDevMain() {
           
           <div className="grid lg:grid-cols-12 gap-6">
             {/* Left: 3D Orbiting Logos in a glowing container */}
-            <div className="lg:col-span-5 bg-[#141517] rounded-3xl p-4 sm:p-8 border border-gray-800 shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[400px] group hover:border-[#E8FF47]/30 transition-colors duration-500">
+            <div className="lg:col-span-5 bg-[#141517] rounded-3xl p-4 sm:p-8 border border-gray-800 shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[400px] group hover:border-[#1F8844]/30 transition-colors duration-500">
                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(232,255,71,0.05),transparent_60%)]" />
                <OrbitingLogos />
                <div className="absolute bottom-8 left-8 right-8 flex justify-between bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-4">
@@ -557,7 +557,7 @@ export default function WebDevMain() {
                   <button 
                     key={c.name} 
                     onClick={() => setActiveTech(i)}
-                    className={`flex-1 py-3 px-4 text-sm font-bold rounded-xl whitespace-nowrap transition-all duration-300 ${activeTech === i ? 'bg-[#E8FF47] text-black shadow-[0_0_20px_rgba(232,255,71,0.2)]' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`}
+                    className={`flex-1 py-3 px-4 text-sm font-bold rounded-xl whitespace-nowrap transition-all duration-300 ${activeTech === i ? 'bg-[#1F8844] text-black shadow-[0_0_20px_rgba(232,255,71,0.2)]' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`}
                   >
                     {c.name}
                   </button>
@@ -579,13 +579,13 @@ export default function WebDevMain() {
                         <div>
                           <h4 className="font-bold text-white text-lg mb-1 flex items-center justify-between">
                             {tool.n}
-                            <span className="text-[#E8FF47] text-sm">{tool.p}%</span>
+                            <span className="text-[#1F8844] text-sm">{tool.p}%</span>
                           </h4>
                           <p className="text-xs text-gray-400">{tool.d}</p>
                         </div>
                         <div className="h-1 w-full bg-black/50 rounded-full mt-6 overflow-hidden">
                           <motion.div 
-                            className="h-full bg-gradient-to-r from-transparent to-[#E8FF47] rounded-full shadow-[0_0_10px_#E8FF47]"
+                            className="h-full bg-gradient-to-r from-transparent to-[#1F8844] rounded-full shadow-[0_0_10px_#1F8844]"
                             initial={{ width: 0 }}
                             animate={{ width: `${tool.p}%` }}
                             transition={{ duration: 1, delay: 0.1 + idx * 0.1 }}
@@ -605,13 +605,13 @@ export default function WebDevMain() {
       <section className="py-24 bg-[#0A0B0D] text-white">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-16">
-            <div className="text-xs font-bold text-[#E8FF47] uppercase tracking-[0.2em] mb-4">INDUSTRIES</div>
+            <div className="text-xs font-bold text-[#1F8844] uppercase tracking-[0.2em] mb-4">INDUSTRIES</div>
             <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-tight">Tailored Web Solutions.</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {INDUSTRIES.map((ind, i) => (
-              <div key={i} className="bg-[#1C1E21] border border-gray-800 rounded-2xl p-8 hover:border-[#E8FF47]/50 transition-colors group">
-                <ind.icon className="w-10 h-10 text-[#E8FF47] mb-6 group-hover:scale-110 transition-transform" />
+              <div key={i} className="bg-[#E5E7EB] border border-gray-800 rounded-2xl p-8 hover:border-[#1F8844]/50 transition-colors group">
+                <ind.icon className="w-10 h-10 text-[#1F8844] mb-6 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold mb-3">{ind.name}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{ind.desc}</p>
               </div>
@@ -625,7 +625,7 @@ export default function WebDevMain() {
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row">
           {/* Left Timeline */}
           <div className="lg:w-[45%] p-10 lg:p-20 border-r border-gray-800">
-            <div className="text-xs font-bold text-[#E8FF47] uppercase tracking-[0.2em] mb-4">THE METHODOLOGY</div>
+            <div className="text-xs font-bold text-[#1F8844] uppercase tracking-[0.2em] mb-4">THE METHODOLOGY</div>
             <h2 className="text-[clamp(40px,5vw,56px)] font-black leading-tight mb-16">How We Build</h2>
             
             <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-800 before:to-transparent">
@@ -636,11 +636,11 @@ export default function WebDevMain() {
                 { n: "04", t: "Hard Launch", d: "Performance testing, SEO verification, and deploying to global edge networks." }
               ].map((step, i) => (
                 <div key={i} className="relative flex items-start group">
-                  <div className="absolute left-0 w-10 h-10 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xs font-bold font-mono group-hover:border-[#E8FF47] group-hover:text-[#E8FF47] transition-colors z-10 bg-[#0A0B0D]">
+                  <div className="absolute left-0 w-10 h-10 rounded-full bg-gray-900 border-2 border-gray-700 flex items-center justify-center text-xs font-bold font-mono group-hover:border-[#1F8844] group-hover:text-[#1F8844] transition-colors z-10 bg-[#0A0B0D]">
                     {step.n}
                   </div>
                   <div className="ml-16">
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-[#E8FF47] transition-colors">{step.t}</h3>
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-[#1F8844] transition-colors">{step.t}</h3>
                     <p className="text-gray-400 leading-relaxed text-sm">{step.d}</p>
                   </div>
                 </div>
@@ -650,15 +650,15 @@ export default function WebDevMain() {
           
           {/* Right Code Editor Mockup */}
           <div className="lg:w-[55%] p-10 lg:p-20 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1C1E21] to-[#0A0B0D] -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#E5E7EB] to-[#0A0B0D] -z-10" />
             
             <motion.div 
-              className="w-full max-w-xl bg-[#1C1E21] rounded-xl overflow-hidden border border-gray-700 shadow-2xl relative"
+              className="w-full max-w-xl bg-[#E5E7EB] rounded-xl overflow-hidden border border-gray-700 shadow-2xl relative"
               style={{ transformStyle: 'preserve-3d', transform: 'perspective(1000px) rotateY(-5deg) rotateX(5deg)' }}
             >
               {/* Floating "compiling" cube */}
               <motion.div 
-                className="absolute -right-6 -top-6 w-16 h-16 bg-[#E8FF47] rounded-lg shadow-[0_0_30px_rgba(232,255,71,0.3)] z-20 flex items-center justify-center border border-white/50"
+                className="absolute -right-6 -top-6 w-16 h-16 bg-[#1F8844] rounded-lg shadow-[0_0_30px_rgba(232,255,71,0.3)] z-20 flex items-center justify-center border border-white/50"
                 animate={{ rotateX: 360, rotateY: 360 }}
                 transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
               >
@@ -678,11 +678,11 @@ export default function WebDevMain() {
                 <pre className="whitespace-pre-wrap">
                   <code>
                     {codeTyping}
-                    <span className="inline-block w-2 h-4 ml-1 bg-[#E8FF47] animate-pulse" />
+                    <span className="inline-block w-2 h-4 ml-1 bg-[#1F8844] animate-pulse" />
                   </code>
                 </pre>
               </div>
-              <div className="h-10 bg-[#1C1E21] border-t border-gray-700 flex items-center px-4 text-xs font-mono text-[#98C379]">
+              <div className="h-10 bg-[#E5E7EB] border-t border-gray-700 flex items-center px-4 text-xs font-mono text-[#98C379]">
                 <Terminal size={14} className="mr-2" />
                 Terminal: build successful in 1.2s
               </div>
@@ -695,7 +695,7 @@ export default function WebDevMain() {
       <section className="py-32 bg-[#FAFAFA] border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-24">
-            <div className="text-xs font-bold text-[#6B6F76] uppercase tracking-[0.2em] mb-4">PERFORMANCE OBSESSED</div>
+            <div className="text-xs font-bold text-[#4B5563] uppercase tracking-[0.2em] mb-4">PERFORMANCE OBSESSED</div>
             <h2 className="text-[clamp(40px,5vw,56px)] font-black text-[#0A0B0D] leading-tight">Speed is a Feature.</h2>
           </div>
 
@@ -733,8 +733,8 @@ export default function WebDevMain() {
                       </div>
                     </div>
                   </div>
-                  <div className="text-sm font-bold text-[#0A0B0D] uppercase tracking-widest text-center border-b-2 border-transparent group-hover:border-[#E8FF47] pb-1 transition-colors">{metric.label}</div>
-                  <p className="text-xs text-[#6B6F76] mt-3 text-center w-32">Ranked top 1% across all modern benchmarks.</p>
+                  <div className="text-sm font-bold text-[#0A0B0D] uppercase tracking-widest text-center border-b-2 border-transparent group-hover:border-[#1F8844] pb-1 transition-colors">{metric.label}</div>
+                  <p className="text-xs text-[#4B5563] mt-3 text-center w-32">Ranked top 1% across all modern benchmarks.</p>
                 </div>
               );
             })}
@@ -754,10 +754,10 @@ export default function WebDevMain() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
              <div>
-                <div className="text-xs font-bold text-[#6B6F76] uppercase tracking-[0.2em] mb-4">ENGINEERING BLOG</div>
+                <div className="text-xs font-bold text-[#4B5563] uppercase tracking-[0.2em] mb-4">ENGINEERING BLOG</div>
                 <h2 className="text-[clamp(32px,4vw,48px)] font-black text-[#0A0B0D] leading-tight">Inside Our Process.</h2>
              </div>
-             <Link to="/blog" className="font-bold text-sm text-[#0A0B0D] border-b-2 border-[#0A0B0D] pb-1 hover:text-[#E8FF47] hover:bg-[#0A0B0D] transition-colors inline-flex items-center gap-2">
+             <Link to="/blog" className="font-bold text-sm text-[#0A0B0D] border-b-2 border-[#0A0B0D] pb-1 hover:text-[#1F8844] hover:bg-[#0A0B0D] transition-colors inline-flex items-center gap-2">
                 READ ALL ARTICLES <ArrowRight size={16} />
              </Link>
           </div>
@@ -775,7 +775,7 @@ export default function WebDevMain() {
                    <h3 className="text-xl font-black text-[#0A0B0D] mb-4 line-clamp-2 group-hover:text-blue-600 transition-colors leading-snug">
                      {post.title}
                    </h3>
-                   <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#6B6F76]">
+                   <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#4B5563]">
                      <span className="flex items-center gap-1.5"><Clock size={14} /> {post.readTime}</span>
                      <span className="flex items-center gap-1.5"><BookOpen size={14} /> {post.date}</span>
                    </div>
@@ -790,13 +790,13 @@ export default function WebDevMain() {
       <section className="py-32 bg-[#FAFAFA] border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-5 sticky top-32">
-            <div className="text-xs font-bold text-[#6B6F76] uppercase tracking-[0.2em] mb-4">COMMON QUESTIONS</div>
+            <div className="text-xs font-bold text-[#4B5563] uppercase tracking-[0.2em] mb-4">COMMON QUESTIONS</div>
             <h2 className="text-[clamp(40px,5vw,56px)] font-black text-[#0A0B0D] leading-tight mb-8">
               Everything You Need to Know.
             </h2>
             <div className="w-32 h-32 relative hidden lg:block" style={{ perspective: 1000 }}>
                <motion.div 
-                 className="w-full h-full text-[#E8FF47] border-8 border-current rounded-full flex items-center justify-center text-6xl font-black font-serif bg-white shadow-xl"
+                 className="w-full h-full text-[#1F8844] border-8 border-current rounded-full flex items-center justify-center text-6xl font-black font-serif bg-white shadow-xl"
                  animate={{ rotateY: [0, 360] }}
                  transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
                  style={{ transformStyle: 'preserve-3d' }}
@@ -806,11 +806,11 @@ export default function WebDevMain() {
             </div>
             
             {/* Contact Card to fill empty space */}
-            <div className="hidden lg:block bg-white border border-gray-200 p-8 rounded-2xl shadow-sm mt-12 w-4/5 relative overflow-hidden group hover:border-[#E8FF47]/50 transition-colors">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#E8FF47]/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
+            <div className="hidden lg:block bg-white border border-gray-200 p-8 rounded-2xl shadow-sm mt-12 w-4/5 relative overflow-hidden group hover:border-[#1F8844]/50 transition-colors">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#1F8844]/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
               <h3 className="font-black text-xl text-[#0A0B0D] mb-2">Still have questions?</h3>
-              <p className="text-sm text-[#6B6F76] mb-6 leading-relaxed">Our technical team is ready to help you plan your architecture and clarify any doubts.</p>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-bold bg-[#0A0B0D] text-white px-6 py-3 rounded-xl hover:bg-[#E8FF47] hover:text-[#0A0B0D] transition-colors shadow-md hover:shadow-lg active:scale-95 duration-200 w-max">
+              <p className="text-sm text-[#4B5563] mb-6 leading-relaxed">Our technical team is ready to help you plan your architecture and clarify any doubts.</p>
+              <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-bold bg-[#0A0B0D] text-white px-6 py-3 rounded-xl hover:bg-[#1F8844] hover:text-[#0A0B0D] transition-colors shadow-md hover:shadow-lg active:scale-95 duration-200 w-max">
                 Ask a Question <ArrowRight size={16} />
               </Link>
             </div>
@@ -821,7 +821,7 @@ export default function WebDevMain() {
               const isOpen = openFaq === i;
               return (
                 <div key={i} className="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md relative">
-                  {isOpen && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#E8FF47]" />}
+                  {isOpen && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#1F8844]" />}
                   <button 
                     onClick={() => setOpenFaq(isOpen ? null : i)}
                     className="w-full px-6 py-6 flex justify-between items-center text-left"
@@ -837,7 +837,7 @@ export default function WebDevMain() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="px-6 pb-6 text-[#6B6F76] leading-relaxed text-base">
+                        <div className="px-6 pb-6 text-[#4B5563] leading-relaxed text-base">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -851,7 +851,7 @@ export default function WebDevMain() {
       </section>
 
       {/* 11. FINAL CTA */}
-      <section className="bg-[#E8FF47] py-32 border-t-4 border-[#0A0B0D] relative overflow-hidden">
+      <section className="bg-[#1F8844] py-32 border-t-4 border-[#0A0B0D] relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-8 lg:gap-16 items-center relative z-10">
           <div className="lg:col-span-7">
             <h2 className="text-[clamp(48px,6vw,80px)] font-black text-[#0A0B0D] leading-[1] mb-6 tracking-tight">

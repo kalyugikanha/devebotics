@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AnimatedIllustration from './AnimatedIllustration';
 
 const faqs = [
   { q: 'How much does it cost to build an app or website?', a: 'Project costs vary depending on complexity, features, and timeline. A simple landing page starts at ₹15,000, while a full-featured mobile app can range from ₹2–10 lakh. We provide a detailed quote after a free discovery call.' },
@@ -17,12 +18,12 @@ const FAQ = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section style={{ padding: '120px 0', background: '#08090A' }}>
+    <section style={{ padding: '120px 0', background: '#FFFFFF' }}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
         <div style={{
           display: 'grid', gridTemplateColumns: '40% 1fr',
           gap: 80, alignItems: 'start',
-        }} className="faq-grid">
+        }} className="faq-grid" id="faq-section">
           {/* Left heading + image */}
           <div style={{ position: 'sticky', top: 100 }}>
             <div className="fade-up">
@@ -31,29 +32,24 @@ const FAQ = () => {
               </h2>
               <p style={{
                 fontFamily: 'Lexend, sans-serif', fontSize: 16,
-                color: '#6B6F76', lineHeight: 1.7, marginBottom: 40,
+                color: '#4B5563', lineHeight: 1.7, marginBottom: 40,
               }}>
                 Everything you need to know before starting a project with us.
               </p>
               <a href="#" style={{
                 fontFamily: 'Lexend, sans-serif', fontWeight: 600, fontSize: 14,
-                background: '#F0F0F0', color: '#08090A', textDecoration: 'none',
+                background: '#111827', color: '#FFFFFF', textDecoration: 'none',
                 padding: '12px 24px', borderRadius: 6, display: 'inline-block',
                 transition: 'background 0.2s ease',
               }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#E8FF47')}
-                onMouseLeave={e => (e.currentTarget.style.background = '#F0F0F0')}
+                onMouseEnter={e => (e.currentTarget.style.background = '#1F8844')}
+                onMouseLeave={e => (e.currentTarget.style.background = '#111827')}
               >
                 Still have questions? Chat with us
               </a>
             </div>
-            <div className="fade-up" style={{ marginTop: 48, borderRadius: 12, overflow: 'hidden', lineHeight: 0 }}>
-              <img
-                src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=600&q=80&fit=crop"
-                alt="Abstract illustration"
-                loading="lazy"
-                style={{ width: '100%', borderRadius: 12, display: 'block' }}
-              />
+            <div className="fade-up" style={{ marginTop: 48, borderRadius: 16, overflow: 'hidden', lineHeight: 0, minHeight: 240, background: '#F3F4F6', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <AnimatedIllustration />
             </div>
           </div>
 
@@ -74,7 +70,7 @@ const FAQ = () => {
                       transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)',
                     }}
                   >
-                    <path d="M10 4v12M4 10h12" stroke="#E8FF47" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M10 4v12M4 10h12" stroke="#1F8844" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                 </button>
                 <div

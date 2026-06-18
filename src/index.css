@@ -17,8 +17,8 @@ html {
 }
 
 body {
-  background-color: #08090A;
-  color: #F0F0F0;
+  background-color: #FFFFFF;
+  color: #111827;
   font-family: 'Lexend', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,7 +32,7 @@ body {
     position: fixed;
     top: 0; left: 0;
     width: 6px; height: 6px;
-    background: #F0F0F0;
+    background: #111827;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -43,8 +43,8 @@ body {
 
 /* ─── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #08090A; }
-::-webkit-scrollbar-thumb { background: #1C1E21; border-radius: 2px; }
+::-webkit-scrollbar-track { background: #FFFFFF; }
+::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 2px; }
 
 /* ─── Typography ─────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: #F0F0F0;
+  color: #111827;
 }
 
 /* ─── Grain Overlay ──────────────────────────────────────────── */
@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ─── Utility: Accent Word ───────────────────────────────────── */
-.accent { color: #E8FF47; }
+.accent { color: #1F8844; }
 
 /* ─── Section Container ──────────────────────────────────────── */
 .section-container {
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #6B6F76;
+  color: #4B5563;
 }
 .eyebrow::before,
 .eyebrow::after {
@@ -95,12 +95,12 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   width: 40px;
   height: 1px;
-  background: #3A3D42;
+  background: #9CA3AF;
   flex-shrink: 0;
 }
 
 /* ─── Divider ────────────────────────────────────────────────── */
-.divider { height: 1px; background: #1C1E21; width: 100%; }
+.divider { height: 1px; background: #E5E7EB; width: 100%; }
 
 /* ─── Buttons ────────────────────────────────────────────────── */
 .btn-primary {
@@ -108,8 +108,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 8px;
   padding: 12px 28px;
-  background: #F0F0F0;
-  color: #08090A;
+  background: #111827;
+  color: #FFFFFF;
   font-family: 'Lexend', sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -120,8 +120,8 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 .btn-primary:hover {
-  background: #E8FF47;
-  color: #08090A;
+  background: #1F8844;
+  color: #FFFFFF;
 }
 
 .btn-ghost {
@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
   padding: 12px 0;
   background: transparent;
-  color: #6B6F76;
+  color: #4B5563;
   font-family: 'Lexend', sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: color 0.2s ease;
   text-decoration: none;
 }
-.btn-ghost:hover { color: #F0F0F0; }
+.btn-ghost:hover { color: #111827; }
 .btn-ghost .arrow {
   display: inline-block;
   transition: transform 0.2s ease;
@@ -151,8 +151,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 8px;
   padding: 12px 28px;
-  background: #08090A;
-  color: #F0F0F0;
+  background: #FFFFFF;
+  color: #111827;
   font-family: 'Lexend', sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -162,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: background 0.2s ease;
   text-decoration: none;
 }
-.btn-dark:hover { background: #111214; }
+.btn-dark:hover { background: #F3F4F6; }
 
 /* ─── Fade-up on scroll ──────────────────────────────────────── */
 .fade-up {
@@ -228,30 +228,30 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 100px 1fr 40px;
   align-items: center;
   padding: 32px 0;
-  border-bottom: 1px solid #1C1E21;
+  border-bottom: 1px solid #E5E7EB;
   cursor: pointer;
   transition: background 0.2s ease, padding-left 0.2s ease;
   position: relative;
 }
 .service-row:hover {
-  background: #0E1012;
+  background: #F9FAFB;
   padding-left: 8px;
 }
 .service-num {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   font-size: 80px;
-  color: #1C1E21;
+  color: #E5E7EB;
   line-height: 1;
   user-select: none;
   transition: color 0.2s ease;
 }
-.service-row:hover .service-num { color: #3A3D42; }
+.service-row:hover .service-num { color: #9CA3AF; }
 .service-name {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 28px;
-  color: #F0F0F0;
+  color: #111827;
   transition: transform 0.2s ease;
 }
 .service-row:hover .service-name { transform: translateX(8px); }
@@ -259,12 +259,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Lexend', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: #6B6F76;
+  color: #4B5563;
   margin-top: 4px;
 }
 .service-arrow {
   font-size: 20px;
-  color: #F0F0F0;
+  color: #111827;
   opacity: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
   transform: translateX(-8px);
@@ -281,23 +281,23 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Lexend', sans-serif;
   font-size: 13px;
   font-weight: 400;
-  color: #6B6F76;
+  color: #4B5563;
   background: transparent;
-  border: 1px solid #1C1E21;
+  border: 1px solid #E5E7EB;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 .pill-tab.active,
 .pill-tab:hover {
-  background: #F0F0F0;
-  color: #08090A;
-  border-color: #F0F0F0;
+  background: #111827;
+  color: #FFFFFF;
+  border-color: #111827;
 }
 
 /* ─── Accordion ──────────────────────────────────────────────── */
 .accordion-item {
-  border-bottom: 1px solid #1C1E21;
+  border-bottom: 1px solid #E5E7EB;
 }
 .accordion-trigger {
   width: 100%;
@@ -309,17 +309,17 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   cursor: pointer;
   text-align: left;
-  color: #F0F0F0;
+  color: #111827;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 18px;
   gap: 12px;
 }
-.accordion-trigger:hover { color: #F0F0F0; }
+.accordion-trigger:hover { color: #111827; }
 .accordion-body {
   font-family: 'Lexend', sans-serif;
   font-size: 14px;
-  color: #6B6F76;
+  color: #4B5563;
   padding-bottom: 24px;
   line-height: 1.75;
   display: none;
@@ -329,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Process Step ───────────────────────────────────────────── */
 .process-step {
   padding: 28px 0;
-  border-bottom: 1px solid #1C1E21;
+  border-bottom: 1px solid #E5E7EB;
   display: flex;
   gap: 20px;
   align-items: flex-start;
@@ -339,17 +339,17 @@ h1, h2, h3, h4, h5, h6 {
 .process-step .step-dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: #3A3D42;
+  background: #9CA3AF;
   margin-top: 10px;
   flex-shrink: 0;
   transition: background 0.3s ease;
 }
-.process-step.active .step-dot { background: #E8FF47; }
+.process-step.active .step-dot { background: #1F8844; }
 .process-step .step-num {
   font-family: 'Lexend', sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
-  color: #3A3D42;
+  color: #9CA3AF;
   text-transform: uppercase;
   white-space: nowrap;
   padding-top: 2px;
@@ -358,14 +358,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 22px;
-  color: #3A3D42;
+  color: #9CA3AF;
   transition: color 0.3s ease;
 }
-.process-step.active .step-name { color: #F0F0F0; }
+.process-step.active .step-name { color: #111827; }
 
 /* ─── Portfolio card ─────────────────────────────────────────── */
 .portfolio-card {
-  background: #0E1012;
+  background: #F9FAFB;
   padding: 40px;
   cursor: pointer;
   position: relative;
@@ -377,15 +377,15 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   font-family: 'Lexend', sans-serif;
   font-size: 13px;
-  color: #F0F0F0;
+  color: #111827;
   transition: opacity 0.2s ease;
 }
 .portfolio-card:hover .portfolio-view { opacity: 1; }
 
 /* ─── Testimonial card ───────────────────────────────────────── */
 .testimonial-card {
-  background: #0E1012;
-  border: 1px solid #1C1E21;
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
   border-radius: 12px;
   padding: 24px 28px;
   min-width: 320px;
@@ -396,7 +396,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Why-us row ─────────────────────────────────────────────── */
 .why-row {
   padding: 28px 0;
-  border-bottom: 1px solid #1C1E21;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 /* ─── Mobile service row ─────────────────────────────────────── */

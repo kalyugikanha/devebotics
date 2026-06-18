@@ -10,7 +10,7 @@ const companies = [
 const marqueeItems = [...companies, ...companies, ...companies];
 
 const TrustedBy = () => (
-  <section style={{ padding: '64px 0 80px', background: '#08090A', overflow: 'hidden', minHeight: 120 }}>
+  <section style={{ padding: '64px 0 80px', background: '#FFFFFF', overflow: 'hidden', minHeight: 120 }}>
     <div style={{
       maxWidth: 1400, margin: '0 auto', padding: '0 32px',
       textAlign: 'center', marginBottom: 40,
@@ -18,7 +18,7 @@ const TrustedBy = () => (
       <p style={{
         fontFamily: 'Lexend, sans-serif', fontWeight: 300,
         fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase',
-        color: '#3A3D42',
+        color: '#9CA3AF',
       }}>
         Trusted by innovative companies
       </p>
@@ -40,20 +40,20 @@ const TrustedBy = () => (
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 10,
               minWidth: 160, padding: '12px 24px',
-              background: '#0E1012',
-              border: '1px solid #1C1E21',
+              background: '#F9FAFB',
+              border: '1px solid #E5E7EB',
               borderRadius: 8,
               flexShrink: 0,
               transition: 'border-color 0.2s ease',
               cursor: 'default',
             }}
-            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = '#E8FF47')}
-            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = '#1C1E21')}
+            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = '#1F8844')}
+            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = '#E5E7EB')}
           >
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#E8FF47', flexShrink: 0, display: 'inline-block' }} />
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#1F8844', flexShrink: 0, display: 'inline-block' }} />
             <span style={{
               fontFamily: 'Montserrat, sans-serif', fontWeight: 600,
-              fontSize: 14, color: '#F0F0F0', letterSpacing: '0.08em',
+              fontSize: 14, color: '#111827', letterSpacing: '0.08em',
               whiteSpace: 'nowrap',
             }}>
               {company}

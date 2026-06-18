@@ -32,7 +32,7 @@ const reasons = [
 ];
 
 const WhyUs = () => (
-  <section style={{ padding: '120px 0', background: '#08090A' }}>
+  <section style={{ padding: '120px 0', background: '#FFFFFF' }}>
     <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
       {/* Heading */}
       <div className="fade-up" style={{ marginBottom: 80 }}>
@@ -50,10 +50,10 @@ const WhyUs = () => (
           <div style={{
             borderRadius: 16, overflow: 'hidden',
             position: 'relative', lineHeight: 0,
-            borderLeft: '4px solid #E8FF47',
+            borderLeft: '4px solid #1F8844',
           }}>
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&fit=crop"
+              src="/images/generic-1.png"
               alt="DevBotics team at work"
               loading="lazy"
               style={{ width: '100%', height: 'auto', display: 'block', aspectRatio: '4/3', objectFit: 'cover' }}
@@ -66,23 +66,23 @@ const WhyUs = () => (
           {/* Badge */}
           <div style={{
             marginTop: 24, padding: '16px 24px',
-            background: '#0E1012', border: '1px solid #1C1E21', borderRadius: 10,
+            background: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: 10,
             display: 'flex', alignItems: 'center', gap: 16,
           }}>
             <span style={{
               fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
-              fontSize: 36, color: '#E8FF47',
+              fontSize: 36, color: '#1F8844',
             }}>5★</span>
             <div>
               <div style={{
                 fontFamily: 'Montserrat, sans-serif', fontWeight: 700,
-                fontSize: 15, color: '#F0F0F0',
+                fontSize: 15, color: '#111827',
               }}>
                 Average Client Rating
               </div>
               <div style={{
                 fontFamily: 'Lexend, sans-serif', fontSize: 12,
-                color: '#6B6F76', marginTop: 2,
+                color: '#4B5563', marginTop: 2,
               }}>
                 Based on 50+ project reviews
               </div>
@@ -104,7 +104,7 @@ const WhyUs = () => (
             >
               <div style={{
                 fontFamily: 'Lexend, sans-serif', fontWeight: 300,
-                fontSize: 11, color: '#3A3D42', letterSpacing: '0.1em',
+                fontSize: 11, color: '#9CA3AF', letterSpacing: '0.1em',
                 paddingTop: 4,
               }}>
                 {r.n}
@@ -112,13 +112,13 @@ const WhyUs = () => (
               <div>
                 <div style={{
                   fontFamily: 'Montserrat, sans-serif', fontWeight: 700,
-                  fontSize: 18, color: '#F0F0F0', marginBottom: 8,
+                  fontSize: 18, color: '#111827', marginBottom: 8,
                 }}>
                   {r.title}
                 </div>
                 <div style={{
                   fontFamily: 'Lexend, sans-serif', fontSize: 14,
-                  color: '#6B6F76', lineHeight: 1.7,
+                  color: '#4B5563', lineHeight: 1.7,
                 }}>
                   {r.desc}
                 </div>

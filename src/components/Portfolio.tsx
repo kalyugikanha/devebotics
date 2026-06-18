@@ -1,44 +1,44 @@
 const projects = [
   {
     id: 'p1', title: 'FoodFleet App', category: 'Mobile App', span: 'large',
-    img: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80&fit=crop',
+    img: '/images/generic-2.png',
     desc: 'On-demand food delivery platform with real-time tracking',
     tags: ['Flutter', 'Node.js', 'Maps API'],
   },
   {
     id: 'p2', title: 'Commerce Studio', category: 'Web Platform', span: 'large',
-    img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=900&q=80&fit=crop',
+    img: '/images/generic-1.png',
     desc: 'Custom Shopify + Next.js e-commerce with 3x conversion lift',
     tags: ['Next.js', 'Shopify', 'Stripe'],
   },
   {
     id: 'p3', title: 'GrowthDash', category: 'Marketing Dashboard', span: 'small',
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&fit=crop',
+    img: '/images/generic-2.png',
     desc: 'Performance marketing analytics platform',
     tags: ['React', 'Python', 'D3.js'],
   },
   {
     id: 'p4', title: 'MediCore ERP', category: 'Enterprise Software', span: 'small',
-    img: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80&fit=crop',
+    img: '/images/generic-1.png',
     desc: 'Hospital management system with AI-powered scheduling',
     tags: ['React', 'Django', 'PostgreSQL'],
   },
   {
     id: 'p5', title: 'LearnLane LMS', category: 'EdTech', span: 'small',
-    img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80&fit=crop',
+    img: '/images/generic-2.png',
     desc: 'E-learning platform serving 10,000+ students',
     tags: ['Next.js', 'AWS', 'Video.js'],
   },
   {
     id: 'p6', title: 'FinEdge AI', category: 'FinTech', span: 'small',
-    img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80&fit=crop',
+    img: '/images/generic-1.png',
     desc: 'AI-powered trading dashboard with predictive analytics',
     tags: ['Python', 'React', 'OpenAI'],
   },
 ];
 
 const Portfolio = () => (
-  <section style={{ padding: '120px 0', background: '#08090A' }}>
+  <section style={{ padding: '120px 0', background: '#FFFFFF' }}>
     <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
       {/* Heading */}
       <div className="fade-up" style={{
@@ -51,18 +51,18 @@ const Portfolio = () => (
           </h2>
           <p style={{
             fontFamily: 'Lexend, sans-serif', fontSize: 16,
-            color: '#6B6F76', marginTop: 16,
+            color: '#4B5563', marginTop: 16,
           }}>
             A selection of projects we're proud of.
           </p>
         </div>
         <a href="#" style={{
           fontFamily: 'Lexend, sans-serif', fontWeight: 400,
-          fontSize: 14, color: '#6B6F76', textDecoration: 'none',
+          fontSize: 14, color: '#4B5563', textDecoration: 'none',
           transition: 'color 0.2s ease',
         }}
-          onMouseEnter={e => (e.currentTarget.style.color = '#F0F0F0')}
-          onMouseLeave={e => (e.currentTarget.style.color = '#6B6F76')}
+          onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#4B5563')}
         >
           View all projects →
         </a>
@@ -104,8 +104,8 @@ const Portfolio = () => (
             {/* Category badge */}
             <div style={{
               position: 'absolute', top: 16, left: 16,
-              fontFamily: 'Lexend, sans-serif', fontSize: 11, color: '#6B6F76',
-              background: 'rgba(8,9,10,0.7)', border: '1px solid #1C1E21',
+              fontFamily: 'Lexend, sans-serif', fontSize: 11, color: '#4B5563',
+              background: 'rgba(255,255,255,0.7)', border: '1px solid #E5E7EB',
               borderRadius: 100, padding: '4px 12px',
               backdropFilter: 'blur(4px)',
             }}>
@@ -117,7 +117,7 @@ const Portfolio = () => (
             }}>
               <div style={{
                 fontFamily: 'Montserrat, sans-serif', fontWeight: 800,
-                fontSize: i < 2 ? 22 : 16, color: '#F0F0F0', marginBottom: 6,
+                fontSize: i < 2 ? 22 : 16, color: '#111827', marginBottom: 6,
               }}>
                 {p.title}
               </div>
@@ -131,8 +131,8 @@ const Portfolio = () => (
                 {p.tags.map(tag => (
                   <span key={tag} style={{
                     fontFamily: 'Lexend, sans-serif', fontSize: 10,
-                    color: '#6B6F76', background: 'rgba(14,16,18,0.8)',
-                    border: '1px solid #1C1E21', borderRadius: 100,
+                    color: '#4B5563', background: 'rgba(14,16,18,0.8)',
+                    border: '1px solid #E5E7EB', borderRadius: 100,
                     padding: '2px 8px',
                   }}>
                     {tag}
@@ -161,7 +161,7 @@ const Portfolio = () => (
             >
               <span style={{
                 fontFamily: 'Lexend, sans-serif', fontWeight: 600,
-                fontSize: 13, color: '#08090A', background: '#E8FF47',
+                fontSize: 13, color: '#FFFFFF', background: '#1F8844',
                 padding: '8px 20px', borderRadius: 6,
                 opacity: 0, transition: 'opacity 0.3s ease',
               }}

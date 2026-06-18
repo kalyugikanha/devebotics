@@ -37,18 +37,18 @@ export default function AppDevHero() {
   }, []);
 
   return (
-    <section style={{ minHeight: '100vh', background: '#08090A', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}>
+    <section style={{ minHeight: '100vh', background: '#FFFFFF', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}>
       {/* Progress bar */}
-      <div style={{ position: 'fixed', top: 0, left: 0, width: `${scrollPct}%`, height: 2, background: '#E8FF47', zIndex: 9999, transition: 'width 0.1s linear' }} />
+      <div style={{ position: 'fixed', top: 0, left: 0, width: `${scrollPct}%`, height: 2, background: '#1F8844', zIndex: 9999, transition: 'width 0.1s linear' }} />
       {/* Scanline bg */}
       <div style={{ position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.015) 2px,rgba(255,255,255,0.015) 4px)', pointerEvents: 'none' }} />
       {/* Grid overlay */}
       <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)', backgroundSize: '60px 60px', pointerEvents: 'none' }} />
       {/* Vertical glow line */}
-      <div style={{ position: 'absolute', top: '20%', right: 120, width: 1, height: '60%', background: '#E8FF47', opacity: 0.4, boxShadow: '0 0 12px #E8FF47' }} />
+      <div style={{ position: 'absolute', top: '20%', right: 120, width: 1, height: '60%', background: '#1F8844', opacity: 0.4, boxShadow: '0 0 12px #1F8844' }} />
       {/* Breadcrumb */}
-      <div style={{ position: 'absolute', top: 88, left: 40, fontFamily: 'Lexend, sans-serif', fontSize: 12, color: '#3A3D42' }}>
-        / app-development<span style={{ animation: 'blink-cur 1s step-end infinite', color: '#E8FF47' }}>▌</span>
+      <div style={{ position: 'absolute', top: 88, left: 40, fontFamily: 'Lexend, sans-serif', fontSize: 12, color: '#9CA3AF' }}>
+        / app-development<span style={{ animation: 'blink-cur 1s step-end infinite', color: '#1F8844' }}>▌</span>
       </div>
 
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '80px 40px 120px', width: '100%' }}>
@@ -56,32 +56,32 @@ export default function AppDevHero() {
           {/* Tags */}
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 40 }}>
             {['APP DEVELOPMENT', '200+ APPS SHIPPED', 'SINCE 2021'].map((t, i) => (
-              <span key={t} style={{ fontFamily: 'Lexend, sans-serif', fontSize: 11, color: '#6B6F76', border: '1px solid #1C1E21', padding: '6px 14px', letterSpacing: '0.15em', borderRadius: 2, animation: `slideInLeft 0.5s ease ${i * 0.1}s both` }}>{t}</span>
+              <span key={t} style={{ fontFamily: 'Lexend, sans-serif', fontSize: 11, color: '#4B5563', border: '1px solid #E5E7EB', padding: '6px 14px', letterSpacing: '0.15em', borderRadius: 2, animation: `slideInLeft 0.5s ease ${i * 0.1}s both` }}>{t}</span>
             ))}
           </div>
           {/* Headline */}
-          <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 'clamp(52px,7vw,96px)', lineHeight: 0.95, letterSpacing: '-0.03em', marginBottom: 36, color: '#F0F0F0' }}>
+          <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 'clamp(52px,7vw,96px)', lineHeight: 0.95, letterSpacing: '-0.03em', marginBottom: 36, color: '#111827' }}>
             <span style={{ display: 'block', animation: 'fadeSlideUp 0.6s ease 0.3s both' }}>Mobile Apps</span>
             <span style={{ display: 'block', animation: 'fadeSlideUp 0.6s ease 0.42s both' }}>Built to</span>
-            <span style={{ display: 'block', color: '#E8FF47', animation: 'fadeSlideUp 0.6s ease 0.54s both' }}>Dominate.</span>
+            <span style={{ display: 'block', color: '#1F8844', animation: 'fadeSlideUp 0.6s ease 0.54s both' }}>Dominate.</span>
           </h1>
           {/* Typewriter */}
-          <div style={{ fontFamily: 'Lexend, sans-serif', fontSize: 16, color: '#6B6F76', marginBottom: 20, letterSpacing: '0.03em' }}>
-            {typed}<span style={{ opacity: showCursor ? 1 : 0, color: '#E8FF47' }}>|</span>
+          <div style={{ fontFamily: 'Lexend, sans-serif', fontSize: 16, color: '#4B5563', marginBottom: 20, letterSpacing: '0.03em' }}>
+            {typed}<span style={{ opacity: showCursor ? 1 : 0, color: '#1F8844' }}>|</span>
           </div>
-          <p style={{ fontFamily: 'Lexend, sans-serif', fontSize: 18, color: '#6B6F76', lineHeight: 1.65, maxWidth: 600, marginBottom: 44 }}>
+          <p style={{ fontFamily: 'Lexend, sans-serif', fontSize: 18, color: '#4B5563', lineHeight: 1.65, maxWidth: 600, marginBottom: 44 }}>
             We don't build apps. We build products that acquire users, retain them, and scale without breaking.
           </p>
           {/* CTAs */}
           <div style={{ display: 'flex', gap: 32, alignItems: 'center', flexWrap: 'wrap' }}>
-            <a href="#contact" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: 13, background: '#F0F0F0', color: '#08090A', textDecoration: 'none', padding: '13px 28px', borderRadius: 4, letterSpacing: '0.05em', transition: 'background 0.15s ease' }}
-              onMouseEnter={e => (e.currentTarget.style.background = '#E8FF47')}
-              onMouseLeave={e => (e.currentTarget.style.background = '#F0F0F0')}>
+            <a href="#contact" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: 13, background: '#111827', color: '#FFFFFF', textDecoration: 'none', padding: '13px 28px', borderRadius: 4, letterSpacing: '0.05em', transition: 'background 0.15s ease' }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#1F8844')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#111827')}>
               [ START YOUR PROJECT → ]
             </a>
-            <a href="#portfolio" style={{ fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#3A3D42', textDecoration: 'none', transition: 'color 0.2s' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#F0F0F0')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#3A3D42')}>
+            <a href="#portfolio" style={{ fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#9CA3AF', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#9CA3AF')}>
               View case studies ↓
             </a>
           </div>
@@ -89,13 +89,13 @@ export default function AppDevHero() {
       </div>
 
       {/* Bottom bar */}
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, borderTop: '1px solid #1C1E21' }}>
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, borderTop: '1px solid #E5E7EB' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }} className="hero-bottom-bar">
           {[['APPS IN DEVELOPMENT','3'],['AVG DELIVERY','8 WEEKS'],['TECH STACK','12+ TOOLS'],['CLIENT RATING','4.9 / 5']].map(([label, val], i) => (
-            <div key={label} style={{ padding: '14px 24px', borderRight: i < 3 ? '1px solid #1C1E21' : 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#E8FF47', fontSize: 8, animation: 'pulse-dot 2s infinite' }}>⬤</span>
-              <span style={{ fontFamily: 'Lexend, sans-serif', fontWeight: 300, fontSize: 11, color: '#6B6F76', letterSpacing: '0.08em' }}>
-                {label}&nbsp;&nbsp;<strong style={{ color: '#F0F0F0', fontWeight: 400 }}>{val}</strong>
+            <div key={label} style={{ padding: '14px 24px', borderRight: i < 3 ? '1px solid #E5E7EB' : 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ color: '#1F8844', fontSize: 8, animation: 'pulse-dot 2s infinite' }}>⬤</span>
+              <span style={{ fontFamily: 'Lexend, sans-serif', fontWeight: 300, fontSize: 11, color: '#4B5563', letterSpacing: '0.08em' }}>
+                {label}&nbsp;&nbsp;<strong style={{ color: '#111827', fontWeight: 400 }}>{val}</strong>
               </span>
             </div>
           ))}

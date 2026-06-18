@@ -1,6 +1,6 @@
 // Contact Strip — 3-column contact info section
 const ContactStrip = () => (
-  <section style={{ background: '#0E1012', borderTop: '1px solid #1C1E21', borderBottom: '1px solid #1C1E21' }}>
+  <section style={{ background: '#F9FAFB', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
     <div style={{
       maxWidth: 1400, margin: '0 auto', padding: '0 32px',
       display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
@@ -8,7 +8,7 @@ const ContactStrip = () => (
       {[
         {
           icon: (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8FF47" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F8844" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
@@ -19,7 +19,7 @@ const ContactStrip = () => (
         },
         {
           icon: (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8FF47" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F8844" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.28-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
             </svg>
           ),
@@ -29,7 +29,7 @@ const ContactStrip = () => (
         },
         {
           icon: (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8FF47" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F8844" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
             </svg>
           ),
@@ -45,7 +45,7 @@ const ContactStrip = () => (
             display: 'flex', alignItems: 'center', gap: 20,
             padding: '36px 40px',
             textDecoration: 'none',
-            borderRight: i < 2 ? '1px solid #1C1E21' : 'none',
+            borderRight: i < 2 ? '1px solid #E5E7EB' : 'none',
             transition: 'background 0.2s ease',
           }}
           onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = 'rgba(232,255,71,0.03)')}
@@ -62,14 +62,14 @@ const ContactStrip = () => (
           <div>
             <div style={{
               fontFamily: 'Lexend, sans-serif', fontWeight: 300,
-              fontSize: 11, color: '#3A3D42', letterSpacing: '0.15em',
+              fontSize: 11, color: '#9CA3AF', letterSpacing: '0.15em',
               textTransform: 'uppercase', marginBottom: 4,
             }}>
               {col.label}
             </div>
             <div style={{
               fontFamily: 'Lexend, sans-serif', fontWeight: 500,
-              fontSize: 15, color: '#F0F0F0',
+              fontSize: 15, color: '#111827',
             }}>
               {col.value}
             </div>
@@ -81,7 +81,7 @@ const ContactStrip = () => (
     <style>{`
       @media (max-width: 768px) {
         .contact-strip-grid { grid-template-columns: 1fr !important; }
-        .contact-strip-grid > a { border-right: none !important; border-bottom: 1px solid #1C1E21; }
+        .contact-strip-grid > a { border-right: none !important; border-bottom: 1px solid #E5E7EB; }
       }
     `}</style>
   </section>

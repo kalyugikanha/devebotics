@@ -1,6 +1,6 @@
 // NEW SECTION: Team / Culture
 const Team = () => (
-  <section style={{ padding: '120px 0', background: '#08090A' }}>
+  <section style={{ padding: '120px 0', background: '#FFFFFF' }}>
     <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
       <div className="fade-up" style={{ marginBottom: 64 }}>
         <h2 style={{ fontSize: 'clamp(36px, 5vw, 56px)' }}>
@@ -16,7 +16,7 @@ const Team = () => (
         <div className="fade-up">
           <div style={{ borderRadius: 16, overflow: 'hidden', lineHeight: 0, position: 'relative' }}>
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&fit=crop"
+              src="/images/generic-2.png"
               alt="DevBotics team"
               loading="lazy"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
@@ -29,7 +29,7 @@ const Team = () => (
         <div className="fade-up">
           <p style={{
             fontFamily: 'Lexend, sans-serif', fontSize: 18,
-            color: '#6B6F76', lineHeight: 1.75, marginBottom: 56,
+            color: '#4B5563', lineHeight: 1.75, marginBottom: 56,
           }}>
             We're a team of engineers, designers, and strategists obsessed with building things that work — beautifully, scalably, and on time.
           </p>
@@ -44,16 +44,16 @@ const Team = () => (
               { val: '8+', label: 'Years combined experience' },
               { val: '3', label: 'Countries served' },
             ].map(s => (
-              <div key={s.label} style={{ borderTop: '2px solid #E8FF47', paddingTop: 20 }}>
+              <div key={s.label} style={{ borderTop: '2px solid #1F8844', paddingTop: 20 }}>
                 <div style={{
                   fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
-                  fontSize: 40, color: '#F0F0F0', letterSpacing: '-0.03em',
+                  fontSize: 40, color: '#111827', letterSpacing: '-0.03em',
                 }}>
                   {s.val}
                 </div>
                 <div style={{
                   fontFamily: 'Lexend, sans-serif', fontWeight: 300,
-                  fontSize: 13, color: '#6B6F76', marginTop: 6,
+                  fontSize: 13, color: '#4B5563', marginTop: 6,
                 }}>
                   {s.label}
                 </div>
@@ -63,12 +63,12 @@ const Team = () => (
 
           <a href="#" style={{
             fontFamily: 'Lexend, sans-serif', fontWeight: 400,
-            fontSize: 14, color: '#6B6F76', textDecoration: 'none',
+            fontSize: 14, color: '#4B5563', textDecoration: 'none',
             display: 'inline-flex', alignItems: 'center', gap: 6,
             transition: 'color 0.2s ease',
           }}
-            onMouseEnter={e => (e.currentTarget.style.color = '#F0F0F0')}
-            onMouseLeave={e => (e.currentTarget.style.color = '#6B6F76')}
+            onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#4B5563')}
           >
             Join our team →
           </a>

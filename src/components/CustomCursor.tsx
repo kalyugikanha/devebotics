@@ -33,7 +33,7 @@ const CustomCursor = () => {
         position: 'fixed',
         width: 6,
         height: 6,
-        background: '#F0F0F0',
+        background: '#111827',
         borderRadius: '50%',
         pointerEvents: 'none',
         zIndex: 9999,

@@ -62,16 +62,16 @@ function TechItem({ item, animate }: { item: typeof techCategories[0]['items'][0
   }, [animate, item.pct]);
 
   return (
-    <div style={{ padding: '20px 0', borderBottom: '1px solid #1C1E21' }}>
+    <div style={{ padding: '20px 0', borderBottom: '1px solid #E5E7EB' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
         <div>
-          <div style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 600, fontSize: 18, color: '#F0F0F0', marginBottom: 4 }}>{item.name}</div>
-          <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 13, color: '#6B6F76' }}>{item.ctx}</div>
+          <div style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 600, fontSize: 18, color: '#111827', marginBottom: 4 }}>{item.name}</div>
+          <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 13, color: '#4B5563' }}>{item.ctx}</div>
         </div>
-        <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 11, color: '#3A3D42', flexShrink: 0, marginLeft: 16, paddingTop: 4 }}>{item.projects}</div>
+        <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 11, color: '#9CA3AF', flexShrink: 0, marginLeft: 16, paddingTop: 4 }}>{item.projects}</div>
       </div>
-      <div style={{ height: 2, background: '#1C1E21', borderRadius: 1, marginTop: 12 }}>
-        <div style={{ height: '100%', background: '#E8FF47', borderRadius: 1, width: `${barW}%`, transition: 'width 0.6s ease' }} />
+      <div style={{ height: 2, background: '#E5E7EB', borderRadius: 1, marginTop: 12 }}>
+        <div style={{ height: '100%', background: '#1F8844', borderRadius: 1, width: `${barW}%`, transition: 'width 0.6s ease' }} />
       </div>
     </div>
   );
@@ -84,35 +84,35 @@ const sprints = [
     desc: 'We map every screen, user flow, and API before writing one line of code.',
     checks: ['Requirements doc', 'User flow mapping', 'Tech architecture plan', 'Timeline & milestone doc'],
     duration: '1 week',
-    img: 'https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?w=600&q=80',
+    img: '/images/generic-2.png',
   },
   {
     num: '02', title: 'UI/UX\nDesign', pct: 40,
     desc: 'Pixel-perfect Figma prototype reviewed and approved before development starts.',
     checks: ['Wireframes & user flows', 'High-fidelity UI screens', 'Clickable prototype', 'Design system & assets'],
     duration: '1–2 weeks',
-    img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80',
+    img: '/images/generic-1.png',
   },
   {
     num: '03', title: 'Development\nSprints', pct: 60,
     desc: 'Agile 2-week sprints. You get a working build to test after every sprint.',
     checks: ['Frontend + backend dev', 'API integration', 'Bi-weekly build delivery', 'Code reviews & docs'],
     duration: '4–10 weeks',
-    img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80',
+    img: '/images/generic-2.png',
   },
   {
     num: '04', title: 'QA &\nTesting', pct: 80,
     desc: 'Manual + automated testing across 20+ real devices. Zero bugs at launch.',
     checks: ['Functional testing', 'Performance testing', 'Security audit', '20+ device testing'],
     duration: '1–2 weeks',
-    img: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80',
+    img: '/images/generic-1.png',
   },
   {
     num: '05', title: 'Launch &\nSubmit', pct: 100,
     desc: 'We handle Play Store & App Store submission, ASO and 90-day post-launch support.',
     checks: ['App Store submission', 'Play Store submission', 'ASO optimization', '3 months free support'],
     duration: '1 week',
-    img: 'https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80',
+    img: '/images/generic-2.png',
   },
 ];
 
@@ -144,26 +144,26 @@ export default function AppDevTechProcess() {
 
   return (
     <>
-      <section style={{ padding: '100px 0', background: '#0E1012' }}>
+      <section style={{ padding: '100px 0', background: '#F9FAFB' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 40px' }}>
           <div style={{ marginBottom: 56 }}>
-            <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 12, color: '#E8FF47', letterSpacing: '0.2em', marginBottom: 12 }}>// TECH STACK — CLICK TO EXPLORE</div>
-            <h2 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 'clamp(28px,4vw,52px)', color: '#F0F0F0', margin: 0 }}>Battle-Tested Technologies.</h2>
+            <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 12, color: '#1F8844', letterSpacing: '0.2em', marginBottom: 12 }}>// TECH STACK — CLICK TO EXPLORE</div>
+            <h2 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 'clamp(28px,4vw,52px)', color: '#111827', margin: 0 }}>Battle-Tested Technologies.</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '30% 1fr', gap: 60 }} className="tech-grid">
             <div>
               {techCategories.map((cat, i) => (
                 <div key={cat.label} onClick={() => switchTab(i)} style={{
-                  padding: '18px 0 18px 20px', borderLeft: i === activeTab ? '2px solid #E8FF47' : '2px solid transparent',
+                  padding: '18px 0 18px 20px', borderLeft: i === activeTab ? '2px solid #1F8844' : '2px solid transparent',
                   cursor: 'pointer', transition: 'border-color 0.2s ease',
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 }}>
-                  <span style={{ fontFamily: 'Lexend,sans-serif', fontSize: 15, color: i === activeTab ? '#F0F0F0' : '#3A3D42', fontWeight: i === activeTab ? 500 : 400, transition: 'color 0.2s' }}
-                    onMouseEnter={e => { if (i !== activeTab) (e.currentTarget as HTMLElement).style.color = '#6B6F76'; }}
-                    onMouseLeave={e => { if (i !== activeTab) (e.currentTarget as HTMLElement).style.color = '#3A3D42'; }}>
+                  <span style={{ fontFamily: 'Lexend,sans-serif', fontSize: 15, color: i === activeTab ? '#111827' : '#9CA3AF', fontWeight: i === activeTab ? 500 : 400, transition: 'color 0.2s' }}
+                    onMouseEnter={e => { if (i !== activeTab) (e.currentTarget as HTMLElement).style.color = '#4B5563'; }}
+                    onMouseLeave={e => { if (i !== activeTab) (e.currentTarget as HTMLElement).style.color = '#9CA3AF'; }}>
                     {cat.label}
                   </span>
-                  <span style={{ fontFamily: 'Lexend,sans-serif', fontSize: 11, color: '#3A3D42', background: '#111', border: '1px solid #1C1E21', padding: '2px 8px', borderRadius: 2 }}>{cat.count} tools</span>
+                  <span style={{ fontFamily: 'Lexend,sans-serif', fontSize: 11, color: '#9CA3AF', background: '#111', border: '1px solid #E5E7EB', padding: '2px 8px', borderRadius: 2 }}>{cat.count} tools</span>
                 </div>
               ))}
             </div>
@@ -175,35 +175,35 @@ export default function AppDevTechProcess() {
         <style>{`@media(max-width:768px){.tech-grid{grid-template-columns:1fr!important;}}`}</style>
       </section>
 
-      <section style={{ padding: '100px 0', background: '#08090A' }}>
+      <section style={{ padding: '100px 0', background: '#FFFFFF' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 40px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '55% 45%', gap: 80, alignItems: 'start' }} className="process-sticky-grid">
             <div>
               <div style={{ marginBottom: 60 }}>
-                <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 12, color: '#E8FF47', letterSpacing: '0.2em', marginBottom: 16 }}>// BUILD PROCESS</div>
-                <h2 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 'clamp(32px,4vw,52px)', lineHeight: 1.0, color: '#F0F0F0', margin: 0 }}>
-                  From Zero to<br />App Store in<br /><span style={{ color: '#E8FF47' }}>5 Sprints.</span>
+                <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 12, color: '#1F8844', letterSpacing: '0.2em', marginBottom: 16 }}>// BUILD PROCESS</div>
+                <h2 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 'clamp(32px,4vw,52px)', lineHeight: 1.0, color: '#111827', margin: 0 }}>
+                  From Zero to<br />App Store in<br /><span style={{ color: '#1F8844' }}>5 Sprints.</span>
                 </h2>
               </div>
-              <div style={{ height: 1, background: '#1C1E21', marginBottom: 0 }} />
+              <div style={{ height: 1, background: '#E5E7EB', marginBottom: 0 }} />
               {sprints.map((s, i) => (
-                <div key={s.num} ref={el => { stepRefs.current[i] = el; }} style={{ minHeight: 300, padding: '48px 0', borderBottom: '1px solid #1C1E21', position: 'relative', paddingLeft: 24 }}>
-                  <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 2, background: i <= activeStep ? '#E8FF47' : '#1C1E21', transition: 'background 0.4s ease' }} />
-                  <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 11, color: i === activeStep ? '#E8FF47' : '#3A3D42', letterSpacing: '0.2em', marginBottom: 12, transition: 'color 0.3s' }}>SPRINT {s.num}</div>
-                  <h3 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 40, color: '#F0F0F0', lineHeight: 1.0, marginBottom: 20, whiteSpace: 'pre-line' }}>{s.title}</h3>
-                  <div style={{ height: 2, background: '#1C1E21', marginBottom: 20, borderRadius: 1 }}>
-                    <div style={{ height: '100%', background: '#E8FF47', width: i <= activeStep ? `${s.pct}%` : '0%', transition: 'width 0.8s ease', borderRadius: 1 }} />
+                <div key={s.num} ref={el => { stepRefs.current[i] = el; }} style={{ minHeight: 300, padding: '48px 0', borderBottom: '1px solid #E5E7EB', position: 'relative', paddingLeft: 24 }}>
+                  <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 2, background: i <= activeStep ? '#1F8844' : '#E5E7EB', transition: 'background 0.4s ease' }} />
+                  <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 11, color: i === activeStep ? '#1F8844' : '#9CA3AF', letterSpacing: '0.2em', marginBottom: 12, transition: 'color 0.3s' }}>SPRINT {s.num}</div>
+                  <h3 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 40, color: '#111827', lineHeight: 1.0, marginBottom: 20, whiteSpace: 'pre-line' }}>{s.title}</h3>
+                  <div style={{ height: 2, background: '#E5E7EB', marginBottom: 20, borderRadius: 1 }}>
+                    <div style={{ height: '100%', background: '#1F8844', width: i <= activeStep ? `${s.pct}%` : '0%', transition: 'width 0.8s ease', borderRadius: 1 }} />
                   </div>
-                  <p style={{ fontFamily: 'Lexend,sans-serif', fontSize: 15, color: '#6B6F76', lineHeight: 1.7, marginBottom: 24 }}>{s.desc}</p>
+                  <p style={{ fontFamily: 'Lexend,sans-serif', fontSize: 15, color: '#4B5563', lineHeight: 1.7, marginBottom: 24 }}>{s.desc}</p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 20 }}>
                     {s.checks.map(c => (
                       <div key={c} style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-                        <span style={{ color: '#E8FF47', flexShrink: 0, fontSize: 13 }}>✓</span>
-                        <span style={{ fontFamily: 'Lexend,sans-serif', fontSize: 14, color: '#6B6F76' }}>{c}</span>
+                        <span style={{ color: '#1F8844', flexShrink: 0, fontSize: 13 }}>✓</span>
+                        <span style={{ fontFamily: 'Lexend,sans-serif', fontSize: 14, color: '#4B5563' }}>{c}</span>
                       </div>
                     ))}
                   </div>
-                  <span style={{ fontFamily: 'Lexend,sans-serif', fontSize: 11, color: '#3A3D42', background: '#0E1012', border: '1px solid #1C1E21', padding: '4px 12px', borderRadius: 2, letterSpacing: '0.1em' }}>DURATION: {s.duration}</span>
+                  <span style={{ fontFamily: 'Lexend,sans-serif', fontSize: 11, color: '#9CA3AF', background: '#F9FAFB', border: '1px solid #E5E7EB', padding: '4px 12px', borderRadius: 2, letterSpacing: '0.1em' }}>DURATION: {s.duration}</span>
                 </div>
               ))}
             </div>
@@ -216,7 +216,7 @@ export default function AppDevTechProcess() {
                     opacity: i === activeStep ? 1 : 0, transition: 'opacity 0.4s ease',
                   }} />
                 ))}
-                <div style={{ position: 'absolute', top: 20, left: 20, background: '#E8FF47', color: '#08090A', fontFamily: 'Montserrat,sans-serif', fontWeight: 700, fontSize: 13, padding: '6px 14px', borderRadius: 4 }}>
+                <div style={{ position: 'absolute', top: 20, left: 20, background: '#1F8844', color: '#FFFFFF', fontFamily: 'Montserrat,sans-serif', fontWeight: 700, fontSize: 13, padding: '6px 14px', borderRadius: 4 }}>
                   SPRINT {sprints[activeStep].num} / 05
                 </div>
               </div>

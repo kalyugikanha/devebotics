@@ -18,22 +18,22 @@ const ColHeading = ({ children }: { children: string }) => (
   <div style={{ marginBottom: 20 }}>
     <div style={{
       fontFamily: 'Lexend, sans-serif', fontWeight: 600, fontSize: 13,
-      color: '#F0F0F0', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 8,
+      color: '#111827', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 8,
     }}>
       {children}
     </div>
-    <div style={{ width: 24, height: 2, background: '#E8FF47', borderRadius: 1 }} />
+    <div style={{ width: 24, height: 2, background: '#1F8844', borderRadius: 1 }} />
   </div>
 );
 
 const FLink = ({ children }: { children: string }) => (
   <a href="#" style={{
     fontFamily: 'Lexend, sans-serif', fontWeight: 300, fontSize: 13,
-    color: '#6B6F76', textDecoration: 'none', display: 'block',
+    color: '#4B5563', textDecoration: 'none', display: 'block',
     transition: 'color 0.15s ease', lineHeight: 1,
   }}
-    onMouseEnter={e => (e.currentTarget.style.color = '#F0F0F0')}
-    onMouseLeave={e => (e.currentTarget.style.color = '#6B6F76')}
+    onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+    onMouseLeave={e => (e.currentTarget.style.color = '#4B5563')}
   >
     {children}
   </a>
@@ -44,27 +44,27 @@ const Footer = () => {
   const [subscribed, setSubscribed] = useState(false);
 
   return (
-    <footer style={{ background: '#08090A', borderTop: '1px solid #1C1E21', position: 'relative', overflow: 'hidden' }}>
+    <footer style={{ background: '#FFFFFF', borderTop: '1px solid #E5E7EB', position: 'relative', overflow: 'hidden' }}>
       {/* India map SVG watermark */}
       <div style={{ position: 'absolute', bottom: 0, right: 0, zIndex: 0, opacity: 0.04, pointerEvents: 'none' }}>
         <svg viewBox="0 0 400 450" width="400" height="450" fill="none">
-          <path d="M200 20 L230 30 L260 50 L280 80 L300 90 L320 110 L330 140 L340 160 L350 180 L355 210 L340 230 L330 250 L310 270 L300 290 L285 310 L270 330 L255 350 L240 370 L230 390 L220 410 L215 430 L210 420 L205 400 L200 380 L190 360 L175 340 L160 320 L150 300 L135 280 L120 260 L105 240 L90 220 L80 200 L75 180 L80 160 L85 140 L100 120 L115 100 L130 80 L150 60 L170 40 L200 20 Z" fill="#F0F0F0" />
+          <path d="M200 20 L230 30 L260 50 L280 80 L300 90 L320 110 L330 140 L340 160 L350 180 L355 210 L340 230 L330 250 L310 270 L300 290 L285 310 L270 330 L255 350 L240 370 L230 390 L220 410 L215 430 L210 420 L205 400 L200 380 L190 360 L175 340 L160 320 L150 300 L135 280 L120 260 L105 240 L90 220 L80 200 L75 180 L80 160 L85 140 L100 120 L115 100 L130 80 L150 60 L170 40 L200 20 Z" fill="#111827" />
         </svg>
       </div>
 
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px', position: 'relative', zIndex: 1 }}>
         {/* Newsletter row */}
-        <div style={{ borderBottom: '1px solid #1C1E21', padding: '40px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 24 }}>
+        <div style={{ borderBottom: '1px solid #E5E7EB', padding: '40px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 24 }}>
           <div>
-            <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 20, color: '#F0F0F0', marginBottom: 6 }}>
+            <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 20, color: '#111827', marginBottom: 6 }}>
               Stay updated with our latest insights &amp; launches
             </div>
-            <div style={{ fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#6B6F76' }}>
+            <div style={{ fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#4B5563' }}>
               Weekly digest. No spam. Unsubscribe anytime.
             </div>
           </div>
           {subscribed ? (
-            <div style={{ fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#E8FF47', display: 'flex', alignItems: 'center', gap: 8 }}>✓ You're subscribed!</div>
+            <div style={{ fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#1F8844', display: 'flex', alignItems: 'center', gap: 8 }}>✓ You're subscribed!</div>
           ) : (
             <div style={{ display: 'flex', gap: 0, flexShrink: 0 }}>
               <input
@@ -72,20 +72,20 @@ const Footer = () => {
                 onChange={e => setEmail(e.target.value)}
                 style={{
                   fontFamily: 'Lexend, sans-serif', fontSize: 14,
-                  background: '#0E1012', border: '1px solid #1C1E21', borderRight: 'none',
-                  color: '#F0F0F0', padding: '12px 20px', borderRadius: '6px 0 0 6px',
+                  background: '#F9FAFB', border: '1px solid #E5E7EB', borderRight: 'none',
+                  color: '#111827', padding: '12px 20px', borderRadius: '6px 0 0 6px',
                   outline: 'none', minWidth: 260,
                 }}
               />
               <button onClick={() => { if (email) setSubscribed(true); }}
                 style={{
                   fontFamily: 'Lexend, sans-serif', fontWeight: 600, fontSize: 14,
-                  background: '#F0F0F0', color: '#08090A', border: 'none',
+                  background: '#111827', color: '#FFFFFF', border: 'none',
                   padding: '12px 24px', borderRadius: '0 6px 6px 0', cursor: 'pointer',
                   transition: 'background 0.2s ease', whiteSpace: 'nowrap',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#E8FF47')}
-                onMouseLeave={e => (e.currentTarget.style.background = '#F0F0F0')}
+                onMouseEnter={e => (e.currentTarget.style.background = '#1F8844')}
+                onMouseLeave={e => (e.currentTarget.style.background = '#111827')}
               >Subscribe</button>
             </div>
           )}
@@ -96,11 +96,11 @@ const Footer = () => {
           {/* Col 1 — Brand */}
           <div>
             <a href="#" style={{ textDecoration: 'none', display: 'inline-block', marginBottom: 10 }}>
-              <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 22, color: '#F0F0F0', letterSpacing: '-0.03em' }}>
-                DevBotics<span style={{ color: '#E8FF47' }}>.</span>
+              <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 22, color: '#111827', letterSpacing: '-0.03em' }}>
+                DevBotics<span style={{ color: '#1F8844' }}>.</span>
               </span>
             </a>
-            <p style={{ fontFamily: 'Lexend, sans-serif', fontSize: 13, color: '#6B6F76', lineHeight: 1.7, maxWidth: 240, marginBottom: 24 }}>
+            <p style={{ fontFamily: 'Lexend, sans-serif', fontSize: 13, color: '#4B5563', lineHeight: 1.7, maxWidth: 240, marginBottom: 24 }}>
               Building Tomorrow's Digital World, Today.
             </p>
             {/* Contact details */}
@@ -112,7 +112,7 @@ const Footer = () => {
               ].map(c => (
                 <div key={c.val} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <span style={{ fontSize: 13 }}>{c.icon}</span>
-                  <span style={{ fontFamily: 'Lexend, sans-serif', fontSize: 13, color: '#6B6F76' }}>{c.val}</span>
+                  <span style={{ fontFamily: 'Lexend, sans-serif', fontSize: 13, color: '#4B5563' }}>{c.val}</span>
                 </div>
               ))}
             </div>
@@ -121,13 +121,13 @@ const Footer = () => {
               {socials.map(s => (
                 <a key={s.label} href="#" aria-label={s.label} style={{
                   width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  border: '1px solid #1C1E21', borderRadius: 6,
+                  border: '1px solid #E5E7EB', borderRadius: 6,
                   transition: 'border-color 0.2s ease, background 0.2s ease',
                 }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = '#E8FF47'; (e.currentTarget as HTMLElement).style.background = 'rgba(232,255,71,0.06)'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#1C1E21'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = '#1F8844'; (e.currentTarget as HTMLElement).style.background = 'rgba(232,255,71,0.06)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#E5E7EB'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B6F76" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d={s.d} />
                   </svg>
                 </a>
@@ -170,24 +170,24 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div style={{
-          borderTop: '1px solid #1C1E21', padding: '24px 0',
+          borderTop: '1px solid #E5E7EB', padding: '24px 0',
           display: 'grid', gridTemplateColumns: '1fr auto 1fr',
           alignItems: 'center', gap: 16,
         }} className="footer-bottom">
-          <span style={{ fontFamily: 'Lexend, sans-serif', fontWeight: 300, fontSize: 12, color: '#3A3D42' }}>
+          <span style={{ fontFamily: 'Lexend, sans-serif', fontWeight: 300, fontSize: 12, color: '#9CA3AF' }}>
             © 2025 DevBotics. All Rights Reserved.
           </span>
-          <span style={{ fontFamily: 'Lexend, sans-serif', fontSize: 12, color: '#3A3D42', textAlign: 'center', whiteSpace: 'nowrap' }}>
+          <span style={{ fontFamily: 'Lexend, sans-serif', fontSize: 12, color: '#9CA3AF', textAlign: 'center', whiteSpace: 'nowrap' }}>
             🇮🇳 Made with ❤️ in India
           </span>
           <div style={{ display: 'flex', gap: 20, justifyContent: 'flex-end' }}>
             {['Privacy Policy', 'Terms', 'Sitemap'].map(item => (
               <a key={item} href="#" style={{
                 fontFamily: 'Lexend, sans-serif', fontWeight: 300, fontSize: 12,
-                color: '#3A3D42', textDecoration: 'none', transition: 'color 0.2s ease',
+                color: '#9CA3AF', textDecoration: 'none', transition: 'color 0.2s ease',
               }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#6B6F76')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#3A3D42')}
+                onMouseEnter={e => (e.currentTarget.style.color = '#4B5563')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#9CA3AF')}
               >{item}</a>
             ))}
           </div>

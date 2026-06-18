@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Send, Image as ImageIcon, Search, Crosshair, BarChart3, TrendingUp, Cpu, Database, Activity, RefreshCw } from 'lucide-react';
 
 // --- LIVE DEMO COMPONENTS ---
 
@@ -20,24 +22,58 @@ const GenAiDemo = () => {
   };
 
   return (
-    <div style={{ background: '#FFFFFF', borderRadius: 24, padding: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.05)', border: '1px solid rgba(0,0,0,0.05)', height: 400, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 16 }}>
-        {messages.map((m, i) => (
-          <div key={i} style={{ alignSelf: m.role === 'ai' ? 'flex-start' : 'flex-end', background: m.role === 'ai' ? '#F8FAFC' : '#6366F1', color: m.role === 'ai' ? '#0F172A' : '#FFFFFF', padding: '12px 16px', borderRadius: m.role === 'ai' ? '16px 16px 16px 0' : '16px 16px 0 16px', maxWidth: '85%', fontSize: 14 }}>
-            {m.text}
-          </div>
-        ))}
-        {isTyping && (
-          <div style={{ alignSelf: 'flex-start', background: '#F8FAFC', padding: '12px 16px', borderRadius: '16px 16px 16px 0', fontSize: 14, color: '#94A3B8', display: 'flex', gap: 4 }}>
-            <span style={{ animation: 'bounce 1.4s infinite ease-in-out both' }}>.</span>
-            <span style={{ animation: 'bounce 1.4s infinite ease-in-out both', animationDelay: '0.2s' }}>.</span>
-            <span style={{ animation: 'bounce 1.4s infinite ease-in-out both', animationDelay: '0.4s' }}>.</span>
-          </div>
-        )}
+    <div className="bg-white rounded-3xl p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100 h-[450px] flex flex-col font-jakarta">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+        <div style={{ width: 40, height: 40, borderRadius: 12, background: '#1F8844', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(31,136,68,0.3)' }}>
+          <Database className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-900 font-outfit">Enterprise RAG</h4>
+          <p className="text-xs text-slate-500 font-medium">GPT-4o connected to internal DB</p>
+        </div>
       </div>
-      <form onSubmit={handleSend} style={{ display: 'flex', gap: 8 }}>
-        <input value={input} onChange={e => setInput(e.target.value)} placeholder="Type a prompt..." style={{ flex: 1, background: '#F8FAFC', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 100, padding: '12px 20px', outline: 'none' }} />
-        <button type="submit" style={{ background: '#0F172A', color: 'white', border: 'none', borderRadius: 100, padding: '0 24px', fontWeight: 600, cursor: 'pointer' }}>Send</button>
+      
+      <div className="flex-1 overflow-y-auto flex flex-col gap-4 mb-4 pr-2">
+        <AnimatePresence>
+          {messages.map((m, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              className={`max-w-[85%] text-sm p-4 ${
+                m.role === 'ai' 
+                  ? 'self-start bg-slate-50 text-slate-700 rounded-2xl rounded-tl-sm border border-slate-100' 
+                  : 'self-end text-white rounded-2xl rounded-tr-sm shadow-md'
+              }`}
+            style={m.role === 'user' ? { background: '#1F8844' } : {}}
+            >
+              {m.text}
+            </motion.div>
+          ))}
+          {isTyping && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="self-start bg-slate-50 text-slate-400 p-4 rounded-2xl rounded-tl-sm border border-slate-100 flex gap-1"
+            >
+              <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+              <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+              <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+      <form onSubmit={handleSend} className="relative">
+        <input 
+          value={input} 
+          onChange={e => setInput(e.target.value)} 
+          placeholder="Type a prompt..." 
+          className="w-full bg-slate-50 border border-slate-200 rounded-full py-4 pl-6 pr-14 outline-none focus:border-[#1F8844] transition-colors text-sm text-slate-800"
+        />
+        <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full text-white flex items-center justify-center transition-colors shadow-md disabled:opacity-50" style={{background: '#1F8844'}} disabled={isTyping || !input.trim()}>
+          <Send className="w-4 h-4" />
+        </button>
       </form>
     </div>
   );
@@ -54,45 +90,95 @@ const VisionDemo = () => {
   };
 
   return (
-    <div style={{ background: '#FFFFFF', borderRadius: 24, padding: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.05)', border: '1px solid rgba(0,0,0,0.05)', height: 400, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ width: '100%', height: 260, background: '#F8FAFC', borderRadius: 16, position: 'relative', overflow: 'hidden', backgroundImage: 'url(https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?w=600&q=80)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        {analyzing && (
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: '#0EA5E9', boxShadow: '0 0 20px #0EA5E9', animation: 'scan 2s linear infinite' }} />
-        )}
-        {boxes && (
-          <>
-            <div style={{ position: 'absolute', top: '20%', left: '30%', width: '40%', height: '50%', border: '2px solid #10B981', borderRadius: 4, background: 'rgba(16,185,129,0.2)' }}>
-              <span style={{ background: '#10B981', color: 'white', fontSize: 10, padding: '2px 6px', position: 'absolute', top: -18, left: -2, fontWeight: 'bold' }}>Person 98%</span>
-            </div>
-            <div style={{ position: 'absolute', top: '60%', left: '10%', width: '20%', height: '30%', border: '2px solid #0EA5E9', borderRadius: 4, background: 'rgba(14,165,233,0.2)' }}>
-              <span style={{ background: '#0EA5E9', color: 'white', fontSize: 10, padding: '2px 6px', position: 'absolute', top: -18, left: -2, fontWeight: 'bold' }}>Bag 92%</span>
-            </div>
-          </>
-        )}
+    <div className="bg-white rounded-3xl p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100 h-[450px] flex flex-col font-jakarta">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+        <div style={{ width: 40, height: 40, borderRadius: 12, background: '#111827', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>
+          <Crosshair className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-900 font-outfit">Visual Detection</h4>
+          <p className="text-xs text-slate-500 font-medium">YOLOv8 Real-time Inference</p>
+        </div>
       </div>
-      <button onClick={analyze} disabled={analyzing} style={{ marginTop: 24, background: '#0EA5E9', color: 'white', border: 'none', borderRadius: 100, padding: '12px 32px', fontWeight: 600, cursor: analyzing ? 'not-allowed' : 'pointer' }}>
+
+      <div className="relative w-full h-[260px] rounded-2xl overflow-hidden bg-slate-100 group">
+        <img src="/images/generic-2.png" alt="Street scene" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+        
+        <AnimatePresence>
+          {analyzing && (
+            <motion.div 
+              initial={{ y: 0 }}
+              animate={{ y: 260 }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              className="absolute top-0 left-0 right-0 h-1 z-10"
+              style={{ background: '#1F8844', boxShadow: '0 0 20px rgba(31,136,68,0.8)' }}
+            />
+          )}
+          {boxes && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 z-20">
+              <div className="absolute top-[20%] left-[30%] w-[40%] h-[50%] border-2 border-emerald-500 rounded bg-emerald-500/20">
+                <span className="absolute -top-6 -left-0.5 bg-emerald-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Person 98%</span>
+              </div>
+              <div className="absolute top-[60%] left-[10%] w-[20%] h-[30%] border-2 border-cyan-500 rounded bg-cyan-500/20">
+                <span className="absolute -top-6 -left-0.5 bg-cyan-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Bag 92%</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      <button 
+        onClick={analyze} 
+        disabled={analyzing} 
+        className="mt-6 flex items-center justify-center gap-2 w-full bg-slate-900 text-white py-4 rounded-xl font-bold transition-all hover:bg-slate-800 disabled:bg-slate-300 disabled:cursor-not-allowed"
+      >
+        {analyzing ? <RefreshCw className="w-5 h-5 animate-spin" /> : <ImageIcon className="w-5 h-5" />}
         {analyzing ? 'Running Inference...' : 'Analyze Image'}
       </button>
-      <style>{`@keyframes scan { 0% { transform: translateY(0); } 50% { transform: translateY(260px); } 100% { transform: translateY(0); } }`}</style>
     </div>
   );
 };
 
 const PredictiveDemo = () => {
   return (
-    <div style={{ background: '#FFFFFF', borderRadius: 24, padding: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.05)', border: '1px solid rgba(0,0,0,0.05)', height: 400, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ fontSize: 14, fontWeight: 700, color: '#64748B', marginBottom: 16 }}>REVENUE FORECAST MODEL</div>
-      <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end', gap: 12, paddingBottom: 20, borderBottom: '1px dashed #E2E8F0', position: 'relative' }}>
+    <div className="bg-white rounded-3xl p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100 h-[450px] flex flex-col font-jakarta">
+      <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-100">
+        <div style={{ width: 40, height: 40, borderRadius: 12, background: '#1F8844', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(31,136,68,0.3)' }}>
+          <TrendingUp className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-900 font-outfit">Revenue Forecast</h4>
+          <p className="text-xs text-slate-500 font-medium">Time Series ARIMA Model</p>
+        </div>
+      </div>
+
+      <div className="flex-1 flex items-end gap-3 pb-6 border-b border-dashed border-slate-200 relative">
         {[40, 50, 45, 60, 75, 85, 80].map((h, i) => (
-          <div key={i} style={{ flex: 1, height: `${h}%`, background: i > 4 ? '#E2E8F0' : '#10B981', borderRadius: 4, position: 'relative', animation: `growUp 1s ease-out forwards ${i * 0.1}s`, transformOrigin: 'bottom', transform: 'scaleY(0)' }}>
-            {i === 5 && <div style={{ position: 'absolute', top: -30, left: '50%', transform: 'translateX(-50%)', background: '#0F172A', color: 'white', fontSize: 10, padding: '4px 8px', borderRadius: 4, whiteSpace: 'nowrap' }}>Prediction</div>}
-          </div>
+          <motion.div 
+            key={i}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.8, delay: i * 0.1, ease: "easeOut" }}
+            className={`flex-1 rounded-md origin-bottom relative ${i > 4 ? 'bg-slate-200' : ''}`}
+            style={i <= 4 ? { height: `${h}%`, background: '#1F8844', boxShadow: '0 0 15px rgba(31,136,68,0.3)' } : { height: `${h}%` }}
+          >
+            {i === 5 && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 }}
+                className="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-xl whitespace-nowrap"
+              >
+                Prediction
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+              </motion.div>
+            )}
+          </motion.div>
         ))}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 16, color: '#94A3B8', fontSize: 12 }}>
-        <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span style={{color:'#10B981', fontWeight: 700}}>Jun</span><span style={{color:'#10B981', fontWeight: 700}}>Jul</span>
+      <div className="flex justify-between mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
+        <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span style={{color:'#1F8844'}}>Jun</span><span style={{color:'#1F8844'}}>Jul</span>
       </div>
-      <style>{`@keyframes growUp { from { transform: scaleY(0); } to { transform: scaleY(1); } }`}</style>
     </div>
   );
 };
@@ -106,25 +192,45 @@ const AutomationDemo = () => {
   }, []);
 
   const nodes = [
-    { label: 'Incoming Email', x: 20, y: 50, color: '#94A3B8' },
-    { label: 'AI Classification', x: 50, y: 50, color: '#F59E0B' },
-    { label: 'Update CRM', x: 80, y: 20, color: '#10B981' },
-    { label: 'Slack Alert', x: 80, y: 80, color: '#0EA5E9' },
+    { label: 'Incoming Email', x: '20%', y: '50%', color: 'bg-slate-400', shadow: 'shadow-slate-400/50' },
+    { label: 'AI Classification', x: '50%', y: '50%', color: 'bg-amber-500', shadow: 'shadow-amber-500/50' },
+    { label: 'Update CRM', x: '80%', y: '20%', color: 'bg-emerald-500', shadow: 'shadow-emerald-500/50' },
+    { label: 'Slack Alert', x: '80%', y: '80%', color: 'bg-cyan-500', shadow: 'shadow-cyan-500/50' },
   ];
 
   return (
-    <div style={{ background: '#FFFFFF', borderRadius: 24, padding: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.05)', border: '1px solid rgba(0,0,0,0.05)', height: 400, position: 'relative' }}>
-      <div style={{ fontSize: 14, fontWeight: 700, color: '#64748B', marginBottom: 24 }}>WORKFLOW AGENT</div>
-      {nodes.map((n, i) => (
-        <div key={i} style={{ position: 'absolute', top: `${n.y}%`, left: `${n.x}%`, transform: 'translate(-50%, -50%)', background: step >= i ? n.color : '#F1F5F9', color: step >= i ? 'white' : '#94A3B8', padding: '10px 16px', borderRadius: 12, fontSize: 12, fontWeight: 600, transition: 'all 0.5s', boxShadow: step === i ? `0 0 20px ${n.color}` : 'none', zIndex: 2 }}>
-          {n.label}
+    <div className="bg-white rounded-3xl p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100 h-[450px] relative font-jakarta">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 relative z-20 bg-white">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+          <Activity className="w-5 h-5 text-white" />
         </div>
-      ))}
-      <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1 }}>
-        <path d="M 120 180 L 250 180" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="5,5" />
-        <path d="M 330 170 L 410 100" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="5,5" />
-        <path d="M 330 190 L 410 260" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="5,5" />
-      </svg>
+        <div>
+          <h4 className="font-bold text-slate-900 font-outfit">Workflow Agent</h4>
+          <p className="text-xs text-slate-500 font-medium">Autonomous Task Routing</p>
+        </div>
+      </div>
+
+      <div className="absolute inset-0 top-[88px] overflow-hidden">
+        {nodes.map((n, i) => (
+          <div 
+            key={i} 
+            className={`absolute -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-500 z-10
+              ${step >= i ? `${n.color} text-white shadow-lg ${step === i ? n.shadow : ''} scale-110` : 'bg-slate-100 text-slate-400 scale-100'}
+            `}
+            style={{ top: n.y, left: n.x }}
+          >
+            {n.label}
+          </div>
+        ))}
+        <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+          {/* Email to AI */}
+          <path d="M 100 180 L 220 180" fill="none" stroke={step >= 1 ? '#F59E0B' : '#E2E8F0'} strokeWidth="2" strokeDasharray="6,6" className="transition-colors duration-500" />
+          {/* AI to CRM */}
+          <path d="M 300 170 L 380 90" fill="none" stroke={step >= 2 ? '#10B981' : '#E2E8F0'} strokeWidth="2" strokeDasharray="6,6" className="transition-colors duration-500" />
+          {/* AI to Slack */}
+          <path d="M 300 190 L 380 270" fill="none" stroke={step >= 3 ? '#0EA5E9' : '#E2E8F0'} strokeWidth="2" strokeDasharray="6,6" className="transition-colors duration-500" />
+        </svg>
+      </div>
     </div>
   );
 };
@@ -148,46 +254,99 @@ const NlpDemo = () => {
   };
 
   return (
-    <div style={{ background: '#FFFFFF', borderRadius: 24, padding: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.05)', border: '1px solid rgba(0,0,0,0.05)', height: 400, display: 'flex', flexDirection: 'column' }}>
-      <textarea value={text} onChange={e => setText(e.target.value)} style={{ width: '100%', height: 120, background: '#F8FAFC', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 16, padding: 16, outline: 'none', resize: 'none', marginBottom: 16 }} />
-      <button onClick={analyze} disabled={analyzing} style={{ background: '#EC4899', color: 'white', border: 'none', borderRadius: 100, padding: '12px', fontWeight: 600, cursor: analyzing ? 'not-allowed' : 'pointer' }}>{analyzing ? 'Extracting Meaning...' : 'Analyze Text'}</button>
-      
-      {result && (
-        <div style={{ marginTop: 24, animation: 'fadeInUp 0.5s ease-out' }}>
-          <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>
-            <span style={{ background: 'rgba(236,72,153,0.1)', color: '#EC4899', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700 }}>Sentiment: {result.sentiment}</span>
-            <span style={{ background: 'rgba(99,102,241,0.1)', color: '#6366F1', padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 700 }}>Intent: {result.intent}</span>
-          </div>
-          <div style={{ fontSize: 12, color: '#64748B', fontWeight: 600 }}>ENTITIES FOUND:</div>
-          <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
-            {result.entities.map((e: string, i: number) => <span key={i} style={{ background: '#F1F5F9', padding: '4px 8px', borderRadius: 4, fontSize: 12, color: '#475569' }}>{e}</span>)}
-          </div>
+    <div className="bg-white rounded-3xl p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100 h-[450px] flex flex-col font-jakarta">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+        <div style={{ width: 40, height: 40, borderRadius: 12, background: '#111827', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>
+          <Search className="w-5 h-5 text-white" />
         </div>
-      )}
+        <div>
+          <h4 className="font-bold text-slate-900 font-outfit">Semantic Analysis</h4>
+          <p className="text-xs text-slate-500 font-medium">BERT Entity Extraction</p>
+        </div>
+      </div>
+
+      <textarea 
+        value={text} 
+        onChange={e => setText(e.target.value)} 
+        className="w-full h-28 bg-slate-50 border border-slate-200 rounded-2xl p-4 outline-none resize-none mb-4 text-sm text-slate-700 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/10 transition-all leading-relaxed" 
+      />
+      
+      <button 
+        onClick={analyze} 
+        disabled={analyzing} 
+        className="flex items-center justify-center gap-2 w-full text-white py-3 rounded-xl font-bold transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+        style={{background: '#111827'}}
+        onMouseEnter={e => { if (!analyzing) (e.currentTarget as HTMLElement).style.background = '#1F8844'; }}
+        onMouseLeave={e => { if (!analyzing) (e.currentTarget as HTMLElement).style.background = '#111827'; }}
+      >
+        {analyzing ? <RefreshCw className="w-4 h-4 animate-spin" /> : <BarChart3 className="w-4 h-4" />}
+        {analyzing ? 'Extracting Meaning...' : 'Analyze Text'}
+      </button>
+      
+      <AnimatePresence>
+        {result && (
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 flex-1 bg-slate-50 border border-slate-100 rounded-2xl p-5"
+          >
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="px-3 py-1.5 rounded-lg text-xs font-bold tracking-wide" style={{background:'rgba(31,136,68,0.1)', color:'#1F8844'}}>Sentiment: {result.sentiment}</span>
+              <span className="px-3 py-1.5 rounded-lg text-xs font-bold tracking-wide" style={{background:'#111827', color:'#FFFFFF'}}>Intent: {result.intent}</span>
+            </div>
+            <div className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-2">Entities Found:</div>
+            <div className="flex flex-wrap gap-2">
+              {result.entities.map((e: string, i: number) => (
+                <span key={i} className="bg-white border border-slate-200 px-2 py-1 rounded text-xs text-slate-600 shadow-sm font-medium">{e}</span>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 const CustomModelDemo = () => {
   return (
-    <div style={{ background: '#0F172A', borderRadius: 24, padding: 24, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', height: 400, display: 'flex', flexDirection: 'column', color: '#F8FAFC' }}>
-      <div style={{ fontSize: 14, fontWeight: 700, color: '#94A3B8', marginBottom: 16, display: 'flex', justifyContent: 'space-between' }}>
-        <span>MODEL TRAINING LOOP</span>
-        <span style={{ color: '#8B5CF6' }}>EPOCH 42/100</span>
-      </div>
-      <div style={{ flex: 1, fontFamily: 'monospace', fontSize: 13, background: '#020617', padding: 16, borderRadius: 12, overflow: 'hidden', position: 'relative' }}>
-        <div style={{ animation: 'scrollUp 5s linear infinite', position: 'absolute', bottom: -100 }}>
-          <div style={{ color: '#10B981' }}>[OK] Batch 1400: Loss = 0.0421</div>
-          <div style={{ color: '#10B981' }}>[OK] Batch 1401: Loss = 0.0418</div>
-          <div style={{ color: '#10B981' }}>[OK] Batch 1402: Loss = 0.0415</div>
-          <div style={{ color: '#0EA5E9' }}>-- Adjusting learning rate --</div>
-          <div style={{ color: '#10B981' }}>[OK] Batch 1403: Loss = 0.0390</div>
-          <div style={{ color: '#10B981' }}>[OK] Batch 1404: Loss = 0.0385</div>
-          <div style={{ color: '#E2E8F0' }}>Evaluating validation set...</div>
-          <div style={{ color: '#8B5CF6' }}>Val Accuracy: 96.4%</div>
+    <div className="bg-[#111827] rounded-3xl p-6 shadow-2xl border border-slate-800 h-[450px] flex flex-col font-jakarta relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#1F8844]/10 blur-[60px] rounded-full pointer-events-none" />
+
+      <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800 relative z-10">
+        <div className="flex items-center gap-3">
+          <div style={{ width: 40, height: 40, borderRadius: 12, background: '#1F8844', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(31,136,68,0.3)' }}>
+            <Cpu className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <h4 className="font-bold text-white font-outfit">Model Training Loop</h4>
+            <p className="text-xs text-slate-400 font-medium">PyTorch Distributed</p>
+          </div>
         </div>
+        <span className="text-xs font-bold px-3 py-1.5 rounded-lg" style={{color:'#1F8844', background:'rgba(31,136,68,0.1)', border:'1px solid rgba(31,136,68,0.2)'}}>EPOCH 42/100</span>
       </div>
-      <style>{`@keyframes scrollUp { from { transform: translateY(0); } to { transform: translateY(-100px); } }`}</style>
+
+      <div className="flex-1 font-mono text-xs bg-slate-950 p-5 rounded-2xl overflow-hidden relative border border-slate-800/50 shadow-inner">
+        <motion.div 
+          animate={{ y: [0, -150] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+          className="flex flex-col gap-3"
+        >
+          <div className="text-emerald-400">[OK] Batch 1400: Loss = 0.0421</div>
+          <div className="text-emerald-400">[OK] Batch 1401: Loss = 0.0418</div>
+          <div className="text-emerald-400">[OK] Batch 1402: Loss = 0.0415</div>
+          <div className="text-cyan-400">-- Adjusting learning rate --</div>
+          <div className="text-emerald-400">[OK] Batch 1403: Loss = 0.0390</div>
+          <div className="text-emerald-400">[OK] Batch 1404: Loss = 0.0385</div>
+          <div className="text-emerald-400">[OK] Batch 1405: Loss = 0.0382</div>
+          <div className="text-slate-400 mt-2 mb-2">Evaluating validation set...</div>
+          <div className="font-bold inline-block px-2 py-1 rounded" style={{color:'#1F8844', background:'rgba(31,136,68,0.12)'}}>Val Accuracy: 96.4%</div>
+          <div className="text-emerald-400 mt-2">[OK] Batch 1406: Loss = 0.0379</div>
+          <div className="text-emerald-400">[OK] Batch 1407: Loss = 0.0375</div>
+        </motion.div>
+        {/* Gradient fade at bottom to hide scrolling text seamlessly */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none" />
+      </div>
     </div>
   );
 }
@@ -200,46 +359,46 @@ export const aiPageData: Record<string, any> = {
     slug: 'generative-ai',
     metaTitle: 'Generative AI Integration | DevBotics',
     heroH1: ['Generative AI', 'Integration'],
-    heroSub: 'Build autonomous agents and custom LLMs tailored to your enterprise data. We deploy private, secure GPT and Claude models that understand your business.',
+    heroSub: 'Build autonomous agents and custom LLMs tailored to your enterprise data. We deploy private, secure GPT and Claude models that understand your business context and vocabulary.',
     heroAccentWord: 'Intelligent.',
     color: '#6366F1',
     DemoComponent: GenAiDemo,
     features: [
-      { t: 'Custom Chatbots', d: 'Context-aware agents integrated into your product.' },
-      { t: 'Retrieval Augmented Generation', d: 'Connect LLMs to your private databases securely.' },
-      { t: 'Content Automation', d: 'Auto-generate reports, marketing copy, and emails.' }
+      { t: 'Custom Chatbots', d: 'Context-aware conversational agents seamlessly integrated into your product.' },
+      { t: 'Retrieval Augmented Generation', d: 'Connect LLMs to your private vector databases securely.' },
+      { t: 'Content Automation', d: 'Auto-generate intelligent reports, marketing copy, and automated emails.' }
     ],
-    tech: ['OpenAI', 'Anthropic', 'LangChain', 'Pinecone', 'LlamaIndex'],
+    tech: ['OpenAI / GPT-4o', 'Anthropic Claude', 'LangChain', 'Pinecone', 'LlamaIndex'],
     related: ['natural-language-processing', 'intelligent-automation']
   },
   'computer-vision': {
     slug: 'computer-vision',
     metaTitle: 'Computer Vision Systems | DevBotics',
     heroH1: ['Computer', 'Vision'],
-    heroSub: 'Real-time image recognition, object detection, and visual QA systems. Turn raw video feeds into structured, actionable business intelligence.',
+    heroSub: 'Real-time image recognition, object detection, and visual QA systems. Turn raw video feeds and imagery into structured, actionable business intelligence.',
     heroAccentWord: 'Visualized.',
     color: '#0EA5E9',
     DemoComponent: VisionDemo,
     features: [
-      { t: 'Object Detection', d: 'Identify and track multiple objects in real-time.' },
-      { t: 'Facial Recognition', d: 'Secure biometric authentication and analysis.' },
-      { t: 'Quality Control', d: 'Automated visual inspection for manufacturing.' }
+      { t: 'Object Detection', d: 'Identify and track multiple objects in real-time video streams.' },
+      { t: 'Facial Recognition', d: 'Highly secure biometric authentication and identity analysis.' },
+      { t: 'Quality Control', d: 'Automated visual defect inspection for manufacturing floors.' }
     ],
-    tech: ['OpenCV', 'YOLO', 'TensorFlow', 'PyTorch', 'CUDA'],
+    tech: ['OpenCV', 'YOLOv8', 'TensorFlow', 'PyTorch', 'CUDA / TensorRT'],
     related: ['predictive-analytics', 'custom-ai-architectures']
   },
   'predictive-analytics': {
     slug: 'predictive-analytics',
     metaTitle: 'Predictive Analytics | DevBotics',
     heroH1: ['Predictive', 'Analytics'],
-    heroSub: 'Advanced Machine Learning models that forecast sales, detect anomalies, and predict customer churn before it happens.',
+    heroSub: 'Advanced Machine Learning models that forecast sales, detect anomalies, and predict customer churn before it happens with unprecedented accuracy.',
     heroAccentWord: 'Foresight.',
     color: '#10B981',
     DemoComponent: PredictiveDemo,
     features: [
-      { t: 'Demand Forecasting', d: 'Predict inventory needs with 95%+ accuracy.' },
-      { t: 'Anomaly Detection', d: 'Identify fraud or system failures instantly.' },
-      { t: 'Customer Churn', d: 'ML models that flag at-risk users early.' }
+      { t: 'Demand Forecasting', d: 'Predict inventory needs and sales volume with 95%+ accuracy.' },
+      { t: 'Anomaly Detection', d: 'Identify financial fraud or critical system failures instantly.' },
+      { t: 'Customer Churn', d: 'Intelligent ML models that flag at-risk users before they leave.' }
     ],
     tech: ['Scikit-Learn', 'XGBoost', 'Prophet', 'Pandas', 'AWS SageMaker'],
     related: ['generative-ai', 'computer-vision']
@@ -248,30 +407,30 @@ export const aiPageData: Record<string, any> = {
     slug: 'intelligent-automation',
     metaTitle: 'Intelligent Automation | DevBotics',
     heroH1: ['Intelligent', 'Automation'],
-    heroSub: 'Replace repetitive operational tasks with self-learning AI workflows. Reduce manual overhead by up to 80% with smart agents.',
+    heroSub: 'Replace repetitive operational tasks with self-learning AI workflows. Reduce manual overhead by up to 80% with smart, autonomous agents.',
     heroAccentWord: 'Seamless.',
     color: '#F59E0B',
     DemoComponent: AutomationDemo,
     features: [
-      { t: 'Document Parsing', d: 'Extract structured data from PDFs and images.' },
-      { t: 'Workflow Agents', d: 'AI that operates your SaaS tools autonomously.' },
-      { t: 'Support Triage', d: 'Auto-route tickets based on intent and sentiment.' }
+      { t: 'Document Parsing', d: 'Extract structured data from unstructured PDFs and receipts.' },
+      { t: 'Workflow Agents', d: 'Autonomous AI that operates your SaaS tools via API.' },
+      { t: 'Support Triage', d: 'Auto-route and categorize tickets based on NLP intent analysis.' }
     ],
-    tech: ['Make', 'Zapier', 'Python', 'UiPath', 'OpenAI APIs'],
+    tech: ['Make / Zapier', 'Python Automation', 'UiPath', 'OpenAI APIs', 'Custom Webhooks'],
     related: ['natural-language-processing', 'generative-ai']
   },
   'natural-language-processing': {
     slug: 'natural-language-processing',
     metaTitle: 'Natural Language Processing | DevBotics',
     heroH1: ['Natural Language', 'Processing'],
-    heroSub: 'Deep document understanding, sentiment analysis, and intelligent text extraction. Turn unstructured text into a structured database.',
+    heroSub: 'Deep document understanding, sentiment analysis, and intelligent text extraction. Turn massive amounts of unstructured text into a highly queried database.',
     heroAccentWord: 'Understood.',
     color: '#EC4899',
     DemoComponent: NlpDemo,
     features: [
-      { t: 'Sentiment Analysis', d: 'Measure user emotion across millions of reviews.' },
-      { t: 'Entity Extraction', d: 'Pull names, dates, and amounts from raw text.' },
-      { t: 'Semantic Search', d: 'Search engines that understand context, not just keywords.' }
+      { t: 'Sentiment Analysis', d: 'Measure user emotion and satisfaction across millions of reviews.' },
+      { t: 'Entity Extraction', d: 'Pull names, dates, organizations, and amounts from raw text.' },
+      { t: 'Semantic Search', d: 'Intelligent search engines that understand context, not just keywords.' }
     ],
     tech: ['Hugging Face', 'Spacy', 'BERT', 'Transformers', 'Elasticsearch'],
     related: ['generative-ai', 'intelligent-automation']
@@ -280,16 +439,16 @@ export const aiPageData: Record<string, any> = {
     slug: 'custom-ai-architectures',
     metaTitle: 'Custom AI Models | DevBotics',
     heroH1: ['Custom AI', 'Architectures'],
-    heroSub: 'Proprietary Machine Learning models built from scratch. When off-the-shelf APIs aren\'t enough, we engineer bespoke AI for your exact needs.',
+    heroSub: 'Proprietary Machine Learning models built entirely from scratch. When off-the-shelf APIs aren\'t enough, we engineer bespoke AI architectures for your exact domain.',
     heroAccentWord: 'Bespoke.',
     color: '#8B5CF6',
     DemoComponent: CustomModelDemo,
     features: [
-      { t: 'Model Training', d: 'From data collection to hyperparameter tuning.' },
-      { t: 'Edge AI', d: 'Deploy lightweight models directly to mobile or IoT.' },
-      { t: 'Fine-Tuning', d: 'Adapt open-source models (Llama 3, Mistral) to your data.' }
+      { t: 'Model Training', d: 'End-to-end pipeline from data collection to hyperparameter tuning.' },
+      { t: 'Edge AI Deployment', d: 'Deploy lightweight, quantized models directly to mobile or IoT.' },
+      { t: 'Fine-Tuning', d: 'Adapt powerful open-source models (Llama 3, Mistral) to your data.' }
     ],
-    tech: ['PyTorch', 'TensorFlow', 'CUDA', 'Ray', 'Kubernetes'],
+    tech: ['PyTorch', 'TensorFlow', 'CUDA', 'Ray', 'Kubernetes / Docker'],
     related: ['computer-vision', 'predictive-analytics']
   }
 };

@@ -1,7 +1,7 @@
 // Final CTA with rotating circular text
 const CTA = () => (
   <section style={{
-    background: '#E8FF47', padding: '120px 32px',
+    background: '#1F8844', padding: '120px 32px',
     textAlign: 'center', position: 'relative', overflow: 'hidden',
   }}>
     {/* Rotating circular text — top right */}
@@ -32,7 +32,7 @@ const CTA = () => (
         <defs>
           <path id="circle-path-2" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
         </defs>
-        <text fill="#08090A" fontSize="13" fontFamily="Montserrat,sans-serif" fontWeight="700" letterSpacing="3">
+        <text fill="#FFFFFF" fontSize="13" fontFamily="Montserrat,sans-serif" fontWeight="700" letterSpacing="3">
           <textPath href="#circle-path-2">
             BUILD · LAUNCH · GROW · BUILD ·
           </textPath>
@@ -44,21 +44,21 @@ const CTA = () => (
       <div className="fade-up">
         <h2 style={{
           fontFamily: 'Montserrat, sans-serif', fontWeight: 900,
-          fontSize: 'clamp(48px, 8vw, 96px)', color: '#08090A',
+          fontSize: 'clamp(48px, 8vw, 96px)', color: '#FFFFFF',
           lineHeight: 1.0, letterSpacing: '-0.03em', marginBottom: 24,
         }}>
           Ready to Build?
         </h2>
         <p style={{
           fontFamily: 'Lexend, sans-serif', fontWeight: 400,
-          fontSize: 20, color: '#3A3D42', marginBottom: 48, lineHeight: 1.6,
+          fontSize: 20, color: '#9CA3AF', marginBottom: 48, lineHeight: 1.6,
         }}>
           Let's talk about your project. No commitment, just a conversation.
         </p>
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="#" style={{
             fontFamily: 'Lexend, sans-serif', fontWeight: 700, fontSize: 15,
-            background: '#08090A', color: '#F0F0F0', textDecoration: 'none',
+            background: '#FFFFFF', color: '#111827', textDecoration: 'none',
             padding: '16px 36px', borderRadius: 8,
             transition: 'transform 0.2s ease, box-shadow 0.2s ease',
             display: 'inline-block',
@@ -76,7 +76,7 @@ const CTA = () => (
           </a>
           <a href="#" style={{
             fontFamily: 'Lexend, sans-serif', fontWeight: 600, fontSize: 15,
-            background: 'transparent', color: '#08090A', textDecoration: 'none',
+            background: 'transparent', color: '#FFFFFF', textDecoration: 'none',
             padding: '16px 36px', borderRadius: 8,
             border: '2px solid rgba(8,9,10,0.2)',
             transition: 'border-color 0.2s ease',

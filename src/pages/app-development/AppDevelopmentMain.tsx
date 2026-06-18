@@ -21,7 +21,7 @@ export default function AppDevelopmentMain() {
   }, []);
 
   return (
-    <main style={{ background: '#08090A', minHeight: '100vh', paddingTop: 72 }}>
+    <main style={{ background: '#FFFFFF', minHeight: '100vh', paddingTop: 72 }}>
       <AppDevHero />
       <AppDevShowcase />
       <AppDevTechProcess />

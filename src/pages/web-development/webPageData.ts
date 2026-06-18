@@ -4,7 +4,7 @@ export const webPageData: Record<string, any> = {
     h1: 'Shopify Development\nCompany.',
     sub: 'Custom Shopify stores engineered for conversions, speed & brand identity.',
     stats: '50+ Stores · Avg 3× Conversion · 1.1s Load Time · 4.9★ Rating',
-    heroImage: 'https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=1600',
+    heroImage: '/images/generic-1.png',
     meta: 'Shopify Development Company | DevBotics',
     features: [
       { name: 'Custom Shopify Theme Development', desc: 'Zero templates. Fully bespoke design.' },
@@ -17,9 +17,9 @@ export const webPageData: Record<string, any> = {
       { name: 'Performance & Speed Optimisation', desc: 'Sub-second load times.' }
     ],
     keyFeatures: [
-      { title: 'Custom Theme — Zero Templates', desc: 'We build themes from scratch to perfectly match your brand identity without the bloat of standard themes.', img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80' },
-      { title: 'Conversion-Optimised Product Pages', desc: 'Our layouts are designed based on user testing to maximize your Add To Cart and checkout rates.', img: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80' },
-      { title: 'Headless Shopify with Next.js', desc: 'Decouple your frontend for blazing fast load times and limitless design possibilities.', img: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&q=80' }
+      { title: 'Custom Theme — Zero Templates', desc: 'We build themes from scratch to perfectly match your brand identity without the bloat of standard themes.', img: '/images/generic-2.png' },
+      { title: 'Conversion-Optimised Product Pages', desc: 'Our layouts are designed based on user testing to maximize your Add To Cart and checkout rates.', img: '/images/generic-1.png' },
+      { title: 'Headless Shopify with Next.js', desc: 'Decouple your frontend for blazing fast load times and limitless design possibilities.', img: '/images/generic-2.png' }
     ],
     techStack: ['Shopify', 'Liquid', 'Hydrogen', 'Next.js', 'Tailwind', 'Klaviyo', 'Razorpay', 'Stripe', 'Metafields'],
     platforms: ['Customer Store', 'Admin Panel', 'Mobile-Optimised', 'Analytics', 'App Integrations'],
@@ -44,7 +44,7 @@ export const webPageData: Record<string, any> = {
     h1: 'WordPress Development\nCompany.',
     sub: 'Blazing-fast, custom WordPress websites — no page builders, no compromises.',
     stats: '60+ Sites · 95 Lighthouse · 0.8s Load · 100% Custom',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600',
+    heroImage: '/images/generic-1.png',
     meta: 'WordPress Development Company | DevBotics',
     features: [
       { name: 'Custom WordPress Theme Development', desc: 'Bespoke themes coded from scratch.' },
@@ -57,9 +57,9 @@ export const webPageData: Record<string, any> = {
       { name: 'WordPress to Custom Migration', desc: 'Move away from bloated templates.' }
     ],
     keyFeatures: [
-      { title: 'Zero Bloat Architecture', desc: 'We never use generic page builders like Elementor unless requested. We code custom Gutenberg blocks for max speed.', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80' },
-      { title: 'Advanced Custom Fields (ACF)', desc: 'We build complex content architectures making it easy for your team to update the site.', img: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80' },
-      { title: 'Enterprise Security', desc: 'Custom login URLs, 2FA, firewall integration, and strict file permissions.', img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80' }
+      { title: 'Zero Bloat Architecture', desc: 'We never use generic page builders like Elementor unless requested. We code custom Gutenberg blocks for max speed.', img: '/images/generic-2.png' },
+      { title: 'Advanced Custom Fields (ACF)', desc: 'We build complex content architectures making it easy for your team to update the site.', img: '/images/generic-1.png' },
+      { title: 'Enterprise Security', desc: 'Custom login URLs, 2FA, firewall integration, and strict file permissions.', img: '/images/generic-2.png' }
     ],
     techStack: ['WordPress', 'PHP', 'ACF', 'WooCommerce', 'MySQL', 'Redis', 'Cloudflare', 'Gutenberg'],
     platforms: ['Public Website', 'WP Admin Panel', 'Custom Post Types', 'REST API', 'WooCommerce'],
@@ -84,7 +84,7 @@ export const webPageData: Record<string, any> = {
     h1: 'Next.js & React\nDevelopment Company.',
     sub: 'Server-side rendered, edge-optimised React applications built to scale globally.',
     stats: '80+ Apps · 98 Lighthouse · Sub-1s Load · TypeScript Always',
-    heroImage: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1600',
+    heroImage: '/images/generic-1.png',
     meta: 'Next.js Development Company | DevBotics',
     features: [
       { name: 'Next.js App Router Development', desc: 'Leveraging the latest React server components.' },
@@ -97,9 +97,9 @@ export const webPageData: Record<string, any> = {
       { name: 'Deployment on Vercel / AWS', desc: 'Edge network deployment.' }
     ],
     keyFeatures: [
-      { title: 'Server Components Architecture', desc: 'We utilize Next.js 14 App Router to ship zero JS to the client where possible, maximizing performance.', img: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80' },
-      { title: 'Headless Integration', desc: 'We connect Next.js frontends to any backend: Shopify, Strapi, WordPress, or custom APIs.', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80' },
-      { title: 'Edge Network Deployment', desc: 'Deployed globally on Vercel so your users experience single-digit millisecond latency.', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80' }
+      { title: 'Server Components Architecture', desc: 'We utilize Next.js 14 App Router to ship zero JS to the client where possible, maximizing performance.', img: '/images/generic-2.png' },
+      { title: 'Headless Integration', desc: 'We connect Next.js frontends to any backend: Shopify, Strapi, WordPress, or custom APIs.', img: '/images/generic-1.png' },
+      { title: 'Edge Network Deployment', desc: 'Deployed globally on Vercel so your users experience single-digit millisecond latency.', img: '/images/generic-2.png' }
     ],
     techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Tailwind CSS', 'Prisma', 'tRPC', 'Vercel', 'Supabase', 'Stripe'],
     platforms: ['Web App', 'Admin Dashboard', 'API Routes', 'Edge Functions', 'Headless CMS'],
@@ -124,7 +124,7 @@ export const webPageData: Record<string, any> = {
     h1: 'PHP & Laravel\nDevelopment Company.',
     sub: 'Enterprise-grade web applications on Laravel\'s battle-tested MVC framework.',
     stats: '40+ Laravel Apps · MVC Architecture · Robust APIs · Eloquent ORM',
-    heroImage: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=1600',
+    heroImage: '/images/generic-1.png',
     meta: 'PHP Laravel Development Company | DevBotics',
     features: [
       { name: 'Custom Laravel Application Development', desc: 'From scratch, tailored business logic.' },
@@ -137,9 +137,9 @@ export const webPageData: Record<string, any> = {
       { name: 'PHP Legacy Code Migration', desc: 'Modernizing old PHP codebases to Laravel 11.' }
     ],
     keyFeatures: [
-      { title: 'Filament Admin Panels', desc: 'We build beautiful, highly functional admin interfaces using Filament PHP rapidly.', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
-      { title: 'Robust API Architecture', desc: 'Sanctum-secured REST or GraphQL APIs to power your mobile apps or JS frontends.', img: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
-      { title: 'Multi-tenant SaaS', desc: 'We configure database routing and subdomains for scalable SaaS applications.', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' }
+      { title: 'Filament Admin Panels', desc: 'We build beautiful, highly functional admin interfaces using Filament PHP rapidly.', img: '/images/generic-2.png' },
+      { title: 'Robust API Architecture', desc: 'Sanctum-secured REST or GraphQL APIs to power your mobile apps or JS frontends.', img: '/images/generic-1.png' },
+      { title: 'Multi-tenant SaaS', desc: 'We configure database routing and subdomains for scalable SaaS applications.', img: '/images/generic-2.png' }
     ],
     techStack: ['Laravel 11', 'PHP 8.2', 'MySQL', 'Redis', 'Livewire', 'Filament', 'AWS', 'Docker', 'Sanctum'],
     platforms: ['Web App', 'Admin Dashboard', 'REST API', 'Queue Workers', 'Cron Jobs'],
@@ -164,7 +164,7 @@ export const webPageData: Record<string, any> = {
     h1: 'E-commerce Website\nDevelopment Company.',
     sub: 'Multi-vendor marketplaces, B2B portals & custom shopping experiences that convert.',
     stats: '100+ Stores · ₹50Cr+ GMV Processed · 3.5% Avg CVR · Multi-currency',
-    heroImage: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?w=1600',
+    heroImage: '/images/generic-1.png',
     meta: 'E-commerce Website Development | DevBotics',
     features: [
       { name: 'Multi-vendor Marketplace Development', desc: 'Like Amazon or Etsy.' },
@@ -177,9 +177,9 @@ export const webPageData: Record<string, any> = {
       { name: 'Progressive Web App (PWA) Commerce', desc: 'App-like experience on the web.' }
     ],
     keyFeatures: [
-      { title: 'Omnichannel Integrations', desc: 'We connect your store to Instagram Shopping, Google Merchant Center, and POS systems.', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
-      { title: 'Advanced Search & Filtering', desc: 'Using Algolia or ElasticSearch for lightning-fast, typo-tolerant product discovery.', img: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=80' },
-      { title: 'Headless Commerce', desc: 'Decoupled frontends using Next.js to provide unparalleled speed and UX.', img: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&q=80' }
+      { title: 'Omnichannel Integrations', desc: 'We connect your store to Instagram Shopping, Google Merchant Center, and POS systems.', img: '/images/generic-2.png' },
+      { title: 'Advanced Search & Filtering', desc: 'Using Algolia or ElasticSearch for lightning-fast, typo-tolerant product discovery.', img: '/images/generic-1.png' },
+      { title: 'Headless Commerce', desc: 'Decoupled frontends using Next.js to provide unparalleled speed and UX.', img: '/images/generic-2.png' }
     ],
     techStack: ['Next.js', 'Node.js', 'MongoDB', 'Stripe', 'Razorpay', 'Algolia', 'Redis', 'AWS', 'Cloudflare'],
     platforms: ['Customer Storefront', 'Vendor Dashboard', 'Super Admin', 'PWA', 'Analytics'],
@@ -204,7 +204,7 @@ export const webPageData: Record<string, any> = {
     h1: 'SaaS Web Application\nDevelopment Company.',
     sub: 'Scalable, multi-tenant SaaS platforms with auth, billing & beautiful dashboards.',
     stats: '30+ SaaS Launched · MRR Ready · Multi-tenant · SOC2 Compliant architecture',
-    heroImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600',
+    heroImage: '/images/generic-1.png',
     meta: 'SaaS Development Company India | DevBotics',
     features: [
       { name: 'Multi-tenant Architecture Design', desc: 'Secure data isolation between accounts.' },
@@ -217,9 +217,9 @@ export const webPageData: Record<string, any> = {
       { name: 'SaaS Onboarding Flow Design', desc: 'Frictionless signup to activation.' }
     ],
     keyFeatures: [
-      { title: 'Robust Billing Engine', desc: 'Complex Stripe integrations including proration, seat-based pricing, and usage metering.', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' },
-      { title: 'Enterprise Security', desc: 'Built with SOC2 compliance in mind. Encrypted data, audit logs, and secure sessions.', img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80' },
-      { title: 'Real-time Features', desc: 'WebSockets for live collaboration, notifications, and real-time dashboard updates.', img: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80' }
+      { title: 'Robust Billing Engine', desc: 'Complex Stripe integrations including proration, seat-based pricing, and usage metering.', img: '/images/generic-2.png' },
+      { title: 'Enterprise Security', desc: 'Built with SOC2 compliance in mind. Encrypted data, audit logs, and secure sessions.', img: '/images/generic-1.png' },
+      { title: 'Real-time Features', desc: 'WebSockets for live collaboration, notifications, and real-time dashboard updates.', img: '/images/generic-2.png' }
     ],
     techStack: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe', 'Auth.js', 'Prisma', 'Redis', 'AWS', 'Vercel'],
     platforms: ['User Dashboard', 'Super Admin', 'Marketing Site', 'Developer API', 'Webhooks'],
@@ -244,7 +244,7 @@ export const webPageData: Record<string, any> = {
     h1: 'Landing Page\nDesign & Development.',
     sub: 'High-performance, conversion-optimised landing pages built for paid traffic & SEO.',
     stats: '200+ Pages Built · 12% Avg CVR · <1s Load Time · A/B Testing Ready',
-    heroImage: 'https://images.unsplash.com/photo-1618005192384-a83a8bd57fbe?w=1600',
+    heroImage: '/images/generic-1.png',
     meta: 'Landing Page Design & Development | DevBotics',
     features: [
       { name: 'Single-page Landing Page Development', desc: 'Focused entirely on one call-to-action.' },
@@ -257,9 +257,9 @@ export const webPageData: Record<string, any> = {
       { name: 'Mobile-First Responsive Design', desc: 'Perfect rendering on all devices.' }
     ],
     keyFeatures: [
-      { title: 'Sub-Second Load Times', desc: 'We build static pages with Next.js/Tailwind that load instantly, preventing ad bounce.', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
-      { title: 'Engaging Micro-interactions', desc: 'Subtle Framer Motion animations that guide the user\'s eye to the CTA.', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' },
-      { title: 'Pixel-Perfect Tracking', desc: 'We ensure Facebook Pixel, Google Tag Manager, and UTM tracking are flawless.', img: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=80' }
+      { title: 'Sub-Second Load Times', desc: 'We build static pages with Next.js/Tailwind that load instantly, preventing ad bounce.', img: '/images/generic-2.png' },
+      { title: 'Engaging Micro-interactions', desc: 'Subtle Framer Motion animations that guide the user\'s eye to the CTA.', img: '/images/generic-1.png' },
+      { title: 'Pixel-Perfect Tracking', desc: 'We ensure Facebook Pixel, Google Tag Manager, and UTM tracking are flawless.', img: '/images/generic-2.png' }
     ],
     techStack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Vercel', 'Google Analytics', 'Hotjar', 'Figma', 'GTM'],
     platforms: ['Landing Page', 'Thank You Page', 'Lead Capture API', 'Analytics Dashboard', 'Email Autoresponder'],
@@ -284,7 +284,7 @@ export const webPageData: Record<string, any> = {
     h1: 'Custom Web\nDevelopment Company.',
     sub: 'Fully bespoke web solutions — no templates, no limits, built exactly to your vision.',
     stats: '150+ Projects · Limitless Scale · 100% Bespoke · Complex Logic',
-    heroImage: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1600',
+    heroImage: '/images/generic-1.png',
     meta: 'Custom Web Development Company | DevBotics',
     features: [
       { name: 'Custom Web Application Development', desc: 'Solving unique business problems.' },
@@ -297,9 +297,9 @@ export const webPageData: Record<string, any> = {
       { name: 'API-first Architecture Design', desc: 'Headless from day one.' }
     ],
     keyFeatures: [
-      { title: 'Complex Business Logic', desc: 'We specialize in translating convoluted spreadsheet workflows into elegant web software.', img: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80' },
-      { title: 'Modern Tech Stacks', desc: 'We don\'t force you into one language. We pick the right tool (Node, Go, Python) for the job.', img: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80' },
-      { title: 'Scalable Cloud Infrastructure', desc: 'AWS/GCP architectures designed to scale from 10 to 100,000 concurrent users seamlessly.', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80' }
+      { title: 'Complex Business Logic', desc: 'We specialize in translating convoluted spreadsheet workflows into elegant web software.', img: '/images/generic-2.png' },
+      { title: 'Modern Tech Stacks', desc: 'We don\'t force you into one language. We pick the right tool (Node, Go, Python) for the job.', img: '/images/generic-1.png' },
+      { title: 'Scalable Cloud Infrastructure', desc: 'AWS/GCP architectures designed to scale from 10 to 100,000 concurrent users seamlessly.', img: '/images/generic-2.png' }
     ],
     techStack: ['React', 'Vue', 'Angular', 'Node.js', 'Python', 'Go', 'AWS', 'Docker', 'Kubernetes'],
     platforms: ['Web Client', 'Admin Dashboard', 'Microservices', 'GraphQL API', 'Data Pipelines'],

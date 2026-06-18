@@ -23,25 +23,25 @@ export default function AppDevBottom() {
   const right = faqs.slice(6);
 
   const FaqItem = ({ f, idx }: { f: typeof faqs[0]; idx: number }) => (
-    <div style={{ borderBottom: '1px solid #1C1E21', borderLeft: openFaq === idx ? '2px solid #E8FF47' : '2px solid transparent', paddingLeft: openFaq === idx ? 14 : 0, transition: 'all 0.2s ease' }}>
+    <div style={{ borderBottom: '1px solid #E5E7EB', borderLeft: openFaq === idx ? '2px solid #1F8844' : '2px solid transparent', paddingLeft: openFaq === idx ? 14 : 0, transition: 'all 0.2s ease' }}>
       <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} style={{
         width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         padding: '22px 0', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left', gap: 12,
       }}>
-        <span style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 600, fontSize: 16, color: '#F0F0F0' }}>{f.q}</span>
-        <span style={{ color: '#E8FF47', fontSize: 20, flexShrink: 0, lineHeight: 1 }}>{openFaq === idx ? '−' : '+'}</span>
+        <span style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 600, fontSize: 16, color: '#111827' }}>{f.q}</span>
+        <span style={{ color: '#1F8844', fontSize: 20, flexShrink: 0, lineHeight: 1 }}>{openFaq === idx ? '−' : '+'}</span>
       </button>
-      {openFaq === idx && <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 14, color: '#6B6F76', lineHeight: 1.75, paddingBottom: 20 }}>{f.a}</div>}
+      {openFaq === idx && <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 14, color: '#4B5563', lineHeight: 1.75, paddingBottom: 20 }}>{f.a}</div>}
     </div>
   );
 
   return (
     <>
-      <section style={{ padding: '100px 0', background: '#08090A' }}>
+      <section style={{ padding: '100px 0', background: '#FFFFFF' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 40px' }}>
           <div style={{ marginBottom: 64 }}>
-            <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 12, color: '#E8FF47', letterSpacing: '0.2em', marginBottom: 12 }}>// QUESTIONS</div>
-            <h2 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 'clamp(28px,4vw,52px)', color: '#F0F0F0', margin: 0 }}>Everything You Want<br />to Know.</h2>
+            <div style={{ fontFamily: 'Lexend,sans-serif', fontSize: 12, color: '#1F8844', letterSpacing: '0.2em', marginBottom: 12 }}>// QUESTIONS</div>
+            <h2 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 'clamp(28px,4vw,52px)', color: '#111827', margin: 0 }}>Everything You Want<br />to Know.</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 80px' }} className="faq-grid">
             <div>{left.map((f, i) => <FaqItem key={i} f={f} idx={i} />)}</div>
@@ -51,10 +51,10 @@ export default function AppDevBottom() {
         <style>{`@media(max-width:768px){.faq-grid{grid-template-columns:1fr!important;}}`}</style>
       </section>
 
-      <section id="contact" style={{ padding: '100px 60px', background: '#E8FF47', position: 'relative', overflow: 'hidden' }}>
+      <section id="contact" style={{ padding: '100px 60px', background: '#1F8844', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <div style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 11, color: '#08090A', letterSpacing: '0.2em', marginBottom: 24 }}>READY TO BUILD?</div>
-          <h2 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 'clamp(48px,8vw,88px)', color: '#08090A', lineHeight: 0.95, marginBottom: 28 }}>
+          <div style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 11, color: '#FFFFFF', letterSpacing: '0.2em', marginBottom: 24 }}>READY TO BUILD?</div>
+          <h2 style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 900, fontSize: 'clamp(48px,8vw,88px)', color: '#FFFFFF', lineHeight: 0.95, marginBottom: 28 }}>
             Your App.<br />Our Obsession.
           </h2>
           <p style={{ fontFamily: 'Lexend,sans-serif', fontWeight: 500, fontSize: 18, color: 'rgba(8,9,10,0.6)', marginBottom: 44, lineHeight: 1.5 }}>
@@ -63,7 +63,7 @@ export default function AppDevBottom() {
           <div style={{ display: 'flex', gap: 32, alignItems: 'center', flexWrap: 'wrap' }}>
             <a href="mailto:hello@devbotics.in" style={{
               fontFamily: 'Montserrat,sans-serif', fontWeight: 700, fontSize: 14,
-              background: '#08090A', color: '#E8FF47', textDecoration: 'none',
+              background: '#FFFFFF', color: '#1F8844', textDecoration: 'none',
               padding: '14px 32px', borderRadius: 4, letterSpacing: '0.05em',
               transition: 'opacity 0.2s',
             }}

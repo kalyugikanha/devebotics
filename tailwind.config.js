@@ -8,14 +8,14 @@ export default {
     extend: {
       colors: {
         brand: {
-          bg:           "#08090A",
-          bgSurface:    "#111214",
-          card:         "#0E1012",
-          border:       "#1C1E21",
-          accent:       "#E8FF47",
-          textPrimary:  "#F0F0F0",
-          textSecondary:"#6B6F76",
-          textTertiary: "#3A3D42",
+          bg:           "#FFFFFF",
+          bgSurface:    "#F9FAFB",
+          card:         "#F3F4F6",
+          border:       "#E5E7EB",
+          accent:       "#1F8844",
+          textPrimary:  "#111827",
+          textSecondary:"#4B5563",
+          textTertiary: "#9CA3AF",
         }
       },
       fontFamily: {

@@ -46,7 +46,7 @@ const FloatingButtons = () => {
         style={{
           position: 'fixed', bottom: 28, right: 24, zIndex: 1000,
           width: 48, height: 48, borderRadius: '50%',
-          background: '#F0F0F0', border: 'none', cursor: 'pointer',
+          background: '#111827', border: 'none', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
           transition: 'opacity 0.3s ease, transform 0.2s ease, background 0.2s ease',
@@ -54,16 +54,16 @@ const FloatingButtons = () => {
           transform: showTop ? 'translateY(0)' : 'translateY(12px)',
         }}
         onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.background = '#E8FF47';
+          (e.currentTarget as HTMLElement).style.background = '#1F8844';
           (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
         }}
         onMouseLeave={e => {
-          (e.currentTarget as HTMLElement).style.background = '#F0F0F0';
+          (e.currentTarget as HTMLElement).style.background = '#111827';
           (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
         }}
       >
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M9 14V4M4 9l5-5 5 5" stroke="#08090A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M9 14V4M4 9l5-5 5 5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
     </>

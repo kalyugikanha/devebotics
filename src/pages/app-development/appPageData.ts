@@ -26,7 +26,7 @@ export const appPageData: Record<string, AppPageData> = {
     heroH1: ['Food Delivery App', 'Development'],
     heroAccentWord: 'Company.',
     heroSub: 'Build your own Swiggy or Zomato — feature-rich, scalable, and ready to launch in your city.',
-    heroImage: 'https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=1600',
+    heroImage: '/images/generic-2.png',
     overviewFeatures: [
       { title: 'Real-Time Order Tracking', desc: 'Live GPS map tracking for customers from order to doorstep.' },
       { title: 'Multi-Restaurant Support', desc: 'Multiple vendors on one platform with individual dashboards.' },
@@ -60,7 +60,7 @@ export const appPageData: Record<string, AppPageData> = {
     heroH1: ['Taxi Booking App', 'Development'],
     heroAccentWord: 'Company.',
     heroSub: 'Launch your own Ola or Uber — complete ride-hailing platform, fully white-labeled and ready to scale.',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600',
+    heroImage: '/images/generic-1.png',
     overviewFeatures: [
       { title: 'Live Driver Tracking', desc: 'Real-time GPS tracking of driver on interactive map.' },
       { title: 'Smart Fare Calculator', desc: 'Dynamic pricing based on distance, time and surge.' },
@@ -94,7 +94,7 @@ export const appPageData: Record<string, AppPageData> = {
     heroH1: ['E-commerce App', 'Development'],
     heroAccentWord: 'Company.',
     heroSub: 'Build a shopping app your customers can\'t stop using — fast, beautiful, and built to convert.',
-    heroImage: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1600',
+    heroImage: '/images/generic-2.png',
     overviewFeatures: [
       { title: 'Product Catalog & Search', desc: 'Advanced filters, smart search and category browsing.' },
       { title: 'Secure Checkout', desc: 'One-tap checkout with saved addresses and payment methods.' },
@@ -128,7 +128,7 @@ export const appPageData: Record<string, AppPageData> = {
     heroH1: ['Healthcare App', 'Development'],
     heroAccentWord: 'Company.',
     heroSub: 'HIPAA-compliant patient apps, telemedicine platforms and hospital management systems built to scale.',
-    heroImage: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=1600',
+    heroImage: '/images/generic-1.png',
     overviewFeatures: [
       { title: 'Doctor Appointment Booking', desc: 'Calendar management with slot booking and reminders.' },
       { title: 'Telemedicine / Video Calls', desc: 'Encrypted video consultations between patient and doctor.' },
@@ -162,7 +162,7 @@ export const appPageData: Record<string, AppPageData> = {
     heroH1: ['EdTech App', 'Development'],
     heroAccentWord: 'Company.',
     heroSub: 'Online learning platforms, live class apps and school management systems built to scale.',
-    heroImage: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?w=1600',
+    heroImage: '/images/generic-2.png',
     overviewFeatures: [
       { title: 'Live Video Classes', desc: 'Real-time streaming with chat, reactions and polls.' },
       { title: 'Course & Content Management', desc: 'Video, PDF, quiz and interactive content organization.' },
@@ -196,7 +196,7 @@ export const appPageData: Record<string, AppPageData> = {
     heroH1: ['On-Demand Service App', 'Development'],
     heroAccentWord: 'Company.',
     heroSub: 'Build your on-demand platform for any service — home cleaning, beauty, plumbing and more.',
-    heroImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600',
+    heroImage: '/images/generic-1.png',
     overviewFeatures: [
       { title: 'Service Booking & Scheduling', desc: 'Real-time slot booking with calendar management.' },
       { title: 'Service Provider App', desc: 'Dedicated app for professionals to manage bookings.' },
@@ -230,7 +230,7 @@ export const appPageData: Record<string, AppPageData> = {
     heroH1: ['Matrimonial App', 'Development'],
     heroAccentWord: 'Company.',
     heroSub: 'Build the next Shaadi.com — AI-powered matchmaking with privacy controls and smart profiles.',
-    heroImage: 'https://images.unsplash.com/photo-1618005192384-a83a8bd57fbe?w=1600',
+    heroImage: '/images/generic-2.png',
     overviewFeatures: [
       { title: 'Smart Matchmaking', desc: 'AI-based compatibility scoring and profile suggestions.' },
       { title: 'Advanced Profile Filters', desc: 'Caste, profession, location, height, horoscope filters.' },
@@ -264,7 +264,7 @@ export const appPageData: Record<string, AppPageData> = {
     heroH1: ['Custom Mobile App', 'Development'],
     heroAccentWord: 'Company.',
     heroSub: 'Your unique idea deserves expert execution. We build exactly what you envision — no templates, no compromises.',
-    heroImage: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1600',
+    heroImage: '/images/generic-1.png',
     overviewFeatures: [
       { title: 'Idea-to-App Service', desc: 'From concept and wireframe to live app store listing.' },
       { title: 'Any Industry', desc: 'No limitation on domain, complexity or tech stack.' },
@@ -293,13 +293,13 @@ export const appPageData: Record<string, AppPageData> = {
 };
 
 export const appTypeCards = [
-  { slug: 'food-delivery', name: 'Food Delivery App', desc: 'End-to-end food ordering with real-time tracking.', tags: ['React Native', 'Node.js', 'Firebase'], img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80' },
-  { slug: 'taxi-booking', name: 'Taxi Booking App', desc: 'Uber-style ride booking with live driver tracking.', tags: ['Flutter', 'Node.js', 'Google Maps'], img: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80' },
-  { slug: 'ecommerce-app', name: 'E-commerce App', desc: 'Feature-rich shopping app with seamless checkout.', tags: ['React Native', 'Shopify', 'Stripe'], img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
-  { slug: 'healthcare-app', name: 'Healthcare App', desc: 'Patient management, telemedicine & health tracking.', tags: ['Flutter', 'Firebase', 'Node.js'], img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80' },
-  { slug: 'edtech-app', name: 'EdTech App', desc: 'Live classes, quizzes & progress tracking for students.', tags: ['React Native', 'MongoDB', 'AWS'], img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80' },
-  { slug: 'on-demand-app', name: 'On-Demand App', desc: 'Any service, on-demand. Laundry, beauty, home services.', tags: ['Flutter', 'Node.js', 'Stripe'], img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
-  { slug: 'matrimonial-app', name: 'Matrimonial App', desc: 'Smart matchmaking with AI-based profile suggestions.', tags: ['React Native', 'Python', 'Firebase'], img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80' },
-  { slug: 'custom-mobile-app', name: 'Custom Mobile App', desc: 'Your unique idea. Our expert execution. Let\'s build.', tags: ['React Native', 'Flutter', 'Any Stack'], img: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80' },
+  { slug: 'food-delivery', name: 'Food Delivery App', desc: 'End-to-end food ordering with real-time tracking.', tags: ['React Native', 'Node.js', 'Firebase'], img: '/images/generic-2.png' },
+  { slug: 'taxi-booking', name: 'Taxi Booking App', desc: 'Uber-style ride booking with live driver tracking.', tags: ['Flutter', 'Node.js', 'Google Maps'], img: '/images/generic-1.png' },
+  { slug: 'ecommerce-app', name: 'E-commerce App', desc: 'Feature-rich shopping app with seamless checkout.', tags: ['React Native', 'Shopify', 'Stripe'], img: '/images/generic-2.png' },
+  { slug: 'healthcare-app', name: 'Healthcare App', desc: 'Patient management, telemedicine & health tracking.', tags: ['Flutter', 'Firebase', 'Node.js'], img: '/images/generic-1.png' },
+  { slug: 'edtech-app', name: 'EdTech App', desc: 'Live classes, quizzes & progress tracking for students.', tags: ['React Native', 'MongoDB', 'AWS'], img: '/images/generic-2.png' },
+  { slug: 'on-demand-app', name: 'On-Demand App', desc: 'Any service, on-demand. Laundry, beauty, home services.', tags: ['Flutter', 'Node.js', 'Stripe'], img: '/images/generic-1.png' },
+  { slug: 'matrimonial-app', name: 'Matrimonial App', desc: 'Smart matchmaking with AI-based profile suggestions.', tags: ['React Native', 'Python', 'Firebase'], img: '/images/generic-2.png' },
+  { slug: 'custom-mobile-app', name: 'Custom Mobile App', desc: 'Your unique idea. Our expert execution. Let\'s build.', tags: ['React Native', 'Flutter', 'Any Stack'], img: '/images/generic-1.png' },
 ];
 

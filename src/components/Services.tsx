@@ -5,37 +5,37 @@ const services = [
     num: '01',
     name: 'App Development',
     desc: 'iOS, Android & Cross-Platform apps that users love — built with Flutter & React Native.',
-    img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80&fit=crop',
+    img: '/images/generic-2.png',
   },
   {
     num: '02',
     name: 'Web Development',
     desc: 'Shopify, WordPress, Next.js, PHP & custom web solutions that convert.',
-    img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80&fit=crop',
+    img: '/images/generic-1.png',
   },
   {
     num: '03',
     name: 'AI & Automation',
     desc: 'Custom AI models, chatbots & intelligent workflow automation powered by OpenAI.',
-    img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80&fit=crop',
+    img: '/images/generic-2.png',
   },
   {
     num: '04',
     name: 'Software Development',
     desc: 'Scalable CRM, ERP, HRM & enterprise software solutions that save hours daily.',
-    img: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80&fit=crop',
+    img: '/images/generic-1.png',
   },
   {
     num: '05',
     name: 'Digital Marketing',
     desc: 'SEO, SMO, Influencer & YouTube growth strategies with measurable ROI.',
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop',
+    img: '/images/generic-2.png',
   },
   {
     num: '06',
     name: 'Hire Developers',
     desc: 'Dedicated React, Flutter, Node, Python & Full Stack experts integrated into your team.',
-    img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&fit=crop',
+    img: '/images/generic-1.png',
   },
 ];
 
@@ -55,7 +55,7 @@ const Services = () => {
   };
 
   return (
-    <section style={{ padding: '120px 0', background: '#08090A' }}>
+    <section style={{ padding: '120px 0', background: '#FFFFFF' }}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
         {/* Heading */}
         <div className="fade-up" style={{ marginBottom: 80 }}>
@@ -76,7 +76,7 @@ const Services = () => {
             <div style={{
               borderRadius: 12, overflow: 'hidden',
               aspectRatio: '4/3', position: 'relative',
-              background: '#0E1012',
+              background: '#F9FAFB',
             }}>
               <img
                 src={services[activeIdx].img}
@@ -96,7 +96,7 @@ const Services = () => {
               <div style={{
                 position: 'absolute', bottom: 20, left: 20,
                 fontFamily: 'Montserrat, sans-serif', fontWeight: 800,
-                fontSize: 18, color: '#F0F0F0',
+                fontSize: 18, color: '#111827',
                 opacity: imgVisible ? 1 : 0,
                 transition: 'opacity 0.3s ease',
               }}>
