@@ -95,11 +95,15 @@ export const getNavItems = async (): Promise<NavItem[]> => {
 };
 
 export const saveNavItem = async (item: NavItem) => {
+  const data: any = { ...item };
+  delete data.id;
+  if (data.href === undefined) delete data.href;
+  if (data.children === undefined) delete data.children;
+
   if (item.id) {
-    const { id, ...data } = item;
-    await updateDoc(doc(db, 'navigation', id), data as DocumentData);
+    await updateDoc(doc(db, 'navigation', item.id), data);
   } else {
-    await addDoc(collection(db, 'navigation'), item);
+    await addDoc(collection(db, 'navigation'), data);
   }
 };
 

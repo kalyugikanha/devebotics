@@ -46,7 +46,8 @@ export default function NavigationManager() {
     try {
       const nav = await getNavItems();
       setItems(nav.length > 0 ? nav : DEFAULT_NAV);
-    } catch {
+    } catch (err) {
+      console.error("Load error:", err);
       setItems(DEFAULT_NAV);
     }
     setLoading(false);
@@ -61,7 +62,8 @@ export default function NavigationManager() {
       await load();
       setEditingItem(null);
       showToast('Navigation item saved!');
-    } catch {
+    } catch (err) {
+      console.error("Save error:", err);
       showToast('Failed to save. Try again.', 'error');
     }
     setSaving(false);
