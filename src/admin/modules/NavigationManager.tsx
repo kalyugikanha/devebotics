@@ -129,6 +129,29 @@ export default function NavigationManager() {
     transition: 'border-color 0.2s',
   };
 
+  const handleRestoreDefaults = async () => {
+    setSaving(true);
+    let added = 0;
+    try {
+      for (const def of DEFAULT_NAV) {
+        if (!items.find(i => i.label === def.label)) {
+          await saveNavItem({ ...def, order: items.length + added });
+          added++;
+        }
+      }
+      if (added > 0) {
+        await load();
+        showToast(`${added} default items restored!`);
+      } else {
+        showToast('All defaults are already present.');
+      }
+    } catch (err) {
+      console.error(err);
+      showToast('Failed to restore items.', 'error');
+    }
+    setSaving(false);
+  };
+
   return (
     <div>
       {toast && <Toast msg={toast.msg} type={toast.type} />}
@@ -138,15 +161,26 @@ export default function NavigationManager() {
           <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 24, color: '#111827' }}>Navigation Manager</h1>
           <p style={{ fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#6B7280', marginTop: 4 }}>Manage menu items, sub-menus, and mega menus</p>
         </div>
-        <button onClick={() => setAddingNew(true)} style={{
-          display: 'flex', alignItems: 'center', gap: 8,
-          background: '#1F8844', color: '#FFFFFF', border: 'none',
-          borderRadius: 8, padding: '10px 18px', cursor: 'pointer',
-          fontFamily: 'Lexend, sans-serif', fontSize: 14, fontWeight: 500,
-        }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add Menu Item
-        </button>
+        <div style={{ display: 'flex', gap: 12 }}>
+          <button onClick={handleRestoreDefaults} disabled={saving} style={{
+            display: 'flex', alignItems: 'center', gap: 8,
+            background: 'transparent', color: '#1F8844', border: '1px solid #1F8844',
+            borderRadius: 8, padding: '10px 18px', cursor: 'pointer',
+            fontFamily: 'Lexend, sans-serif', fontSize: 14, fontWeight: 500,
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            Restore Missing
+          </button>
+          <button onClick={() => setAddingNew(true)} style={{
+            display: 'flex', alignItems: 'center', gap: 8,
+            background: '#1F8844', color: '#FFFFFF', border: 'none',
+            borderRadius: 8, padding: '10px 18px', cursor: 'pointer',
+            fontFamily: 'Lexend, sans-serif', fontSize: 14, fontWeight: 500,
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Menu Item
+          </button>
+        </div>
       </div>
 
       {/* Add new item form */}
