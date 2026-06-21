@@ -1,51 +1,27 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import { getNavItems, NavItem } from '../lib/firestore';
 
-const aboutLinks = ['About Us', 'Careers'];
-
-const megaMenus: Record<string, { columns: { heading: string; links: string[] }[]; featured: { img: string; title: string; cta: string } }> = {
-  'Development Hub': {
-    columns: [
-      { heading: 'Services', links: ['Custom Development', 'Web Development', 'App Development'] },
-    ],
-    featured: { img: '/images/dev-hub.png', title: 'Build your dream app', cta: 'Start building →' },
-  },
-  'AI Development': {
-    columns: [
-      { heading: 'Services', links: ['AI Website Development', 'AI Software', 'WhatsApp Admin Development', 'Telegram App Development'] },
-    ],
-    featured: { img: '/images/ai-dev.png', title: 'AI-powered solutions', cta: 'Explore AI →' },
-  },
-  'Hire Us': {
-    columns: [
-      { heading: 'Roles', links: ['Frontend', 'Backend', 'DevOps', 'Website'] },
-    ],
-    featured: { img: '/images/hire-us.png', title: 'Dedicated team ready', cta: 'Hire now →' },
-  },
-  Marketing: {
-    columns: [
-      { heading: 'Services', links: ['Social Media Marketing', 'Influencer Marketing', 'Model Provide'] },
-    ],
-    featured: { img: '/images/marketing.png', title: 'Grow your brand', cta: 'See marketing →' },
-  },
+const featuredData: Record<string, { img: string; title: string; cta: string }> = {
+  'Development Hub': { img: '/images/dev-hub.png', title: 'Build your dream app', cta: 'Start building →' },
+  'AI Development': { img: '/images/ai-dev.png', title: 'AI-powered solutions', cta: 'Explore AI →' },
+  'Hire Us': { img: '/images/hire-us.png', title: 'Dedicated team ready', cta: 'Hire now →' },
+  'Marketing': { img: '/images/marketing.png', title: 'Grow your brand', cta: 'See marketing →' },
 };
+const defaultFeatured = { img: '/images/dev-hub.png', title: 'Explore more', cta: 'Learn more →' };
 
-const megaNavItems = ['Development Hub', 'AI Development', 'Hire Us', 'Marketing'];
-
-const getLinkPath = (heading: string, linkName: string) => {
-  let slug = linkName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-  if (['Development Hub', 'Services'].includes(heading)) return `/development/${slug}`;
-  if (['AI Development'].includes(heading)) return `/ai-services/${slug}`;
-  if (linkName === 'Contact Us') return `/contact`;
-  return `/${slug}`;
-};
-
-const getHeadingPath = (heading: string) => {
-  return '#';
-};
+const DEFAULT_NAV: NavItem[] = [
+  { label: 'Home', type: 'link', href: '/', order: 0 },
+  { label: 'About Us', type: 'simple', order: 1, children: [{ label: 'About Us', href: '/about-us', order: 0 }, { label: 'Careers', href: '/careers', order: 1 }] },
+  { label: 'Development Hub', type: 'mega', order: 2, children: [{ label: 'Custom Development', href: '/development/custom-development', order: 0 }, { label: 'Web Development', href: '/web-development', order: 1 }, { label: 'App Development', href: '/app-development', order: 2 }] },
+  { label: 'AI Development', type: 'mega', order: 3, children: [{ label: 'AI Website Development', href: '/ai-services/ai-website-development', order: 0 }, { label: 'AI Software', href: '/ai-services/ai-software', order: 1 }, { label: 'WhatsApp Admin Development', href: '/ai-services/whatsapp-admin-development', order: 2 }] },
+  { label: 'Blog', type: 'link', href: '/blog', order: 4 },
+  { label: 'Contact', type: 'link', href: '/contact', order: 5 },
+];
 
 const Navbar = () => {
+  const [navItems, setNavItems] = useState<NavItem[]>(DEFAULT_NAV);
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,7 +29,14 @@ const Navbar = () => {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
-  // Close menus when location changes
+  useEffect(() => {
+    getNavItems().then(items => {
+      if (items && items.length > 0) {
+        setNavItems(items);
+      }
+    }).catch(err => console.error("Error fetching nav items:", err));
+  }, []);
+
   useEffect(() => {
     setActiveMenu(null);
     setMobileOpen(false);
@@ -107,51 +90,45 @@ const Navbar = () => {
 
           {/* Desktop links */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 0, marginLeft: 36, flex: 1 }} className="desktop-nav">
-            {/* Home */}
-            <Link to="/" style={navLinkStyle(location.pathname === '/')}
-              onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
-              onMouseLeave={e => (e.currentTarget.style.color = location.pathname === '/' ? '#111827' : '#4B5563')}>
-              Home
-            </Link>
+            {navItems.map(item => {
+              if (item.type === 'link') {
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link key={item.id || item.label} to={item.href || '/'} style={navLinkStyle(isActive)}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+                    onMouseLeave={e => (e.currentTarget.style.color = isActive ? '#111827' : '#4B5563')}>
+                    {item.label}
+                  </Link>
+                );
+              }
 
-            {/* About Us — simple dropdown */}
-            <div style={{ position: 'relative' }} onMouseEnter={() => open('About Us')} onMouseLeave={close}>
-              <button style={navLinkStyle(activeMenu === 'About Us')}>About Us {chevron(activeMenu === 'About Us')}</button>
-              <div onMouseEnter={() => { open('About Us'); keep(); }} onMouseLeave={close} style={{
-                position: 'absolute', top: 'calc(100% + 8px)', left: 0,
-                background: '#F9FAFB', border: '1px solid #E5E7EB', borderTop: '2px solid #1F8844',
-                minWidth: 200, zIndex: 800, padding: '8px 0',
-                opacity: activeMenu === 'About Us' ? 1 : 0,
-                transform: activeMenu === 'About Us' ? 'translateY(0)' : 'translateY(-8px)',
-                pointerEvents: activeMenu === 'About Us' ? 'auto' : 'none',
-                transition: 'opacity 0.2s ease, transform 0.2s ease',
-                boxShadow: '0 16px 40px rgba(0,0,0,0.05)',
-              }}>
-                {aboutLinks.map(l => <Link key={l} to={getLinkPath('About Us', l)} className="mega-link" style={{ padding: '9px 20px' }}>{l}</Link>)}
-              </div>
-            </div>
-
-            {/* Mega items */}
-            {megaNavItems.map(name => (
-              <div key={name} style={{ position: 'relative' }} onMouseEnter={() => open(name)} onMouseLeave={close}>
-                <button style={navLinkStyle(activeMenu === name)}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
-                  onMouseLeave={e => { if (activeMenu !== name) e.currentTarget.style.color = '#4B5563'; }}>
-                  {name} {chevron(activeMenu === name)}
-                </button>
-              </div>
-            ))}
-
-            {/* Blog & Contact */}
-            {['Blog', 'Contact'].map(name => {
-              const path = `/${name.toLowerCase()}`;
-              const isActive = location.pathname.startsWith(path);
               return (
-                <Link key={name} to={path} style={navLinkStyle(isActive)}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
-                  onMouseLeave={e => (e.currentTarget.style.color = isActive ? '#111827' : '#4B5563')}>
-                  {name}
-                </Link>
+                <div key={item.id || item.label} style={{ position: 'relative' }} onMouseEnter={() => open(item.label)} onMouseLeave={close}>
+                  <button style={navLinkStyle(activeMenu === item.label)}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+                    onMouseLeave={e => { if (activeMenu !== item.label) e.currentTarget.style.color = '#4B5563'; }}>
+                    {item.label} {chevron(activeMenu === item.label)}
+                  </button>
+                  
+                  {item.type === 'simple' && (
+                    <div onMouseEnter={() => { open(item.label); keep(); }} onMouseLeave={close} style={{
+                      position: 'absolute', top: 'calc(100% + 8px)', left: 0,
+                      background: '#F9FAFB', border: '1px solid #E5E7EB', borderTop: '2px solid #1F8844',
+                      minWidth: 200, zIndex: 800, padding: '8px 0',
+                      opacity: activeMenu === item.label ? 1 : 0,
+                      transform: activeMenu === item.label ? 'translateY(0)' : 'translateY(-8px)',
+                      pointerEvents: activeMenu === item.label ? 'auto' : 'none',
+                      transition: 'opacity 0.2s ease, transform 0.2s ease',
+                      boxShadow: '0 16px 40px rgba(0,0,0,0.05)',
+                    }}>
+                      {(item.children || []).map(child => (
+                        <Link key={child.label} to={child.href} className="mega-link" style={{ padding: '9px 20px' }}>
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>
@@ -179,12 +156,12 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mega panels */}
-        {megaNavItems.map(name => {
-          const menu = megaMenus[name];
-          const isOpen = activeMenu === name;
+        {/* Mega panels rendering */}
+        {navItems.filter(i => i.type === 'mega').map(item => {
+          const isOpen = activeMenu === item.label;
+          const feat = featuredData[item.label] || defaultFeatured;
           return (
-            <div key={name} onMouseEnter={() => { open(name); keep(); }} onMouseLeave={close}
+            <div key={item.id || item.label} onMouseEnter={() => { open(item.label); keep(); }} onMouseLeave={close}
               style={{
                 position: 'absolute', top: 'calc(100% + 8px)', left: '50%', marginLeft: '-300px', background: '#F9FAFB',
                 border: '1px solid #E5E7EB', borderTop: '2px solid #1F8844', borderRadius: '8px', zIndex: 800,
@@ -194,48 +171,35 @@ const Navbar = () => {
                 boxShadow: '0 16px 40px rgba(0,0,0,0.05)',
                 width: '600px'
               }}>
-              <div style={{
-                padding: '24px', display: 'grid', gridTemplateColumns: '1fr 200px', gap: 24,
-              }}>
-                {menu.columns.map(col => {
-                  const headingPath = getHeadingPath(col.heading);
-                  return (
-                    <div key={col.heading}>
-                      <div style={{ marginBottom: 18 }}>
-                        {headingPath !== '#' ? (
-                           <Link to={headingPath} style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: 11, color: '#111827', marginBottom: 8, letterSpacing: '0.07em', textTransform: 'uppercase', textDecoration: 'none', display: 'block' }}>
-                             {col.heading}
-                           </Link>
-                        ) : (
-                           <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: 11, color: '#111827', marginBottom: 8, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
-                             {col.heading}
-                           </div>
-                        )}
-                        <div style={{ width: 28, height: 2, background: '#1F8844', borderRadius: 1 }} />
-                      </div>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-                        {col.links.map(l => (
-                          <Link key={l} to={getLinkPath(col.heading, l)} className="mega-link" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                            <ChevronRight size={14} color="#1F8844" />
-                            {l}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
+              <div style={{ padding: '24px', display: 'grid', gridTemplateColumns: '1fr 200px', gap: 24 }}>
+                <div>
+                  <div style={{ marginBottom: 18 }}>
+                     <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: 11, color: '#111827', marginBottom: 8, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
+                       Services
+                     </div>
+                     <div style={{ width: 28, height: 2, background: '#1F8844', borderRadius: 1 }} />
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+                    {(item.children || []).map(child => (
+                      <Link key={child.label} to={child.href} className="mega-link" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <ChevronRight size={14} color="#1F8844" />
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
                 {/* Featured card */}
                 <div style={{ background: '#F3F4F6', borderRadius: 10, overflow: 'hidden', border: '1px solid #E5E7EB' }}>
                   <div style={{ position: 'relative', height: 120 }}>
-                    <img src={menu.featured.img} alt="" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={feat.img} alt="" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(255,255,255,0.7), transparent 60%)' }} />
                   </div>
                   <div style={{ padding: '18px 18px 22px' }}>
-                    <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 14, color: '#111827', marginBottom: 12, lineHeight: 1.3 }}>{menu.featured.title}</div>
+                    <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 14, color: '#111827', marginBottom: 12, lineHeight: 1.3 }}>{feat.title}</div>
                     <Link to="/contact" style={{ fontFamily: 'Lexend, sans-serif', fontWeight: 600, fontSize: 13, color: '#FFFFFF', background: '#1F8844', textDecoration: 'none', padding: '7px 14px', borderRadius: 5, display: 'inline-block', transition: 'opacity 0.2s ease' }}
                       onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
                       onMouseLeave={e => (e.currentTarget.style.opacity = '1')}>
-                      {menu.featured.cta}
+                      {feat.cta}
                     </Link>
                   </div>
                 </div>
@@ -252,56 +216,42 @@ const Navbar = () => {
         transition: 'opacity 0.3s ease', overflowY: 'auto', paddingTop: 80,
       }}>
         <div style={{ padding: '24px 24px 48px' }}>
-          {/* Home */}
-          <div style={{ borderBottom: '1px solid #E5E7EB' }}>
-            <Link to="/" style={{ display: 'block', padding: '20px 0', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 20, color: '#111827', textDecoration: 'none' }}>Home</Link>
-          </div>
-          {/* About Us */}
-          <div style={{ borderBottom: '1px solid #E5E7EB' }}>
-            <button onClick={() => setMobileExpanded(mobileExpanded === 'About Us' ? null : 'About Us')}
-              style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0', background: 'transparent', border: 'none', cursor: 'pointer', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 20, color: '#111827' }}>
-              About Us
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ transform: mobileExpanded === 'About Us' ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease', flexShrink: 0 }}>
-                <path d="M3 6l5 5 5-5" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            {mobileExpanded === 'About Us' && (
-              <div style={{ paddingBottom: 16 }}>
-                {aboutLinks.map(l => <Link key={l} to={getLinkPath('About Us', l)} style={{ display: 'block', padding: '8px 0', fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#4B5563', textDecoration: 'none' }}>{l}</Link>)}
-              </div>
-            )}
-          </div>
-          {/* Mega items */}
-          {megaNavItems.map(name => (
-            <div key={name} style={{ borderBottom: '1px solid #E5E7EB' }}>
-              <button onClick={() => setMobileExpanded(mobileExpanded === name ? null : name)}
-                style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0', background: 'transparent', border: 'none', cursor: 'pointer', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 20, color: '#111827' }}>
-                {name}
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ transform: mobileExpanded === name ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease', flexShrink: 0 }}>
-                  <path d="M3 6l5 5 5-5" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              {mobileExpanded === name && (
-                <div style={{ paddingBottom: 20 }}>
-                  {megaMenus[name].columns.map(col => (
-                    <div key={col.heading} style={{ marginBottom: 16 }}>
-                      {getHeadingPath(col.heading) !== '#' ? (
-                        <Link to={getHeadingPath(col.heading)} style={{ display: 'block', fontFamily: 'Lexend, sans-serif', fontSize: 11, color: '#1F8844', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8, textDecoration: 'none' }}>{col.heading}</Link>
-                      ) : (
-                        <div style={{ fontFamily: 'Lexend, sans-serif', fontSize: 11, color: '#1F8844', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8 }}>{col.heading}</div>
-                      )}
-                      {col.links.map(l => <Link key={l} to={getLinkPath(col.heading, l)} style={{ display: 'block', padding: '6px 0', fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#4B5563', textDecoration: 'none' }}>{l}</Link>)}
-                    </div>
-                  ))}
+          {navItems.map(item => {
+            if (item.type === 'link') {
+              return (
+                <div key={item.id || item.label} style={{ borderBottom: '1px solid #E5E7EB' }}>
+                  <Link to={item.href || '/'} style={{ display: 'block', padding: '20px 0', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 20, color: '#111827', textDecoration: 'none' }}>{item.label}</Link>
                 </div>
-              )}
-            </div>
-          ))}
-          {['Blog', 'Contact'].map(name => (
-            <div key={name} style={{ borderBottom: '1px solid #E5E7EB' }}>
-              <Link to={`/${name.toLowerCase()}`} style={{ display: 'block', padding: '20px 0', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 20, color: '#111827', textDecoration: 'none' }}>{name}</Link>
-            </div>
-          ))}
+              );
+            }
+            
+            return (
+              <div key={item.id || item.label} style={{ borderBottom: '1px solid #E5E7EB' }}>
+                <button onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                  style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0', background: 'transparent', border: 'none', cursor: 'pointer', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 20, color: '#111827' }}>
+                  {item.label}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ transform: mobileExpanded === item.label ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease', flexShrink: 0 }}>
+                    <path d="M3 6l5 5 5-5" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                {mobileExpanded === item.label && (
+                  <div style={{ paddingBottom: item.type === 'mega' ? 20 : 16 }}>
+                    {item.type === 'mega' && (
+                       <div style={{ fontFamily: 'Lexend, sans-serif', fontSize: 11, color: '#1F8844', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8 }}>
+                         Services
+                       </div>
+                    )}
+                    {(item.children || []).map(child => (
+                      <Link key={child.label} to={child.href} style={{ display: 'block', padding: item.type === 'mega' ? '6px 0' : '8px 0', fontFamily: 'Lexend, sans-serif', fontSize: 14, color: '#4B5563', textDecoration: 'none' }}>
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          
           <div style={{ marginTop: 32 }}>
             <Link to="/contact" style={{ display: 'block', textAlign: 'center', fontFamily: 'Lexend, sans-serif', fontWeight: 600, fontSize: 15, background: '#1F8844', color: '#FFFFFF', textDecoration: 'none', padding: '14px', borderRadius: 8 }}>Get Free Quote</Link>
           </div>
@@ -319,3 +269,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
