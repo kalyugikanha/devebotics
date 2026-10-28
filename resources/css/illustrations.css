@@ -1,0 +1,198 @@
+/*
+|--------------------------------------------------------------------------
+| Illustration system — theme tokens + animation utilities
+|--------------------------------------------------------------------------
+| Illustrations (resources/views/components/illustrations/*.blade.php) use
+| these variables so they adapt to light and dark mode automatically.
+*/
+
+:root {
+    --ill-canvas: #f6f5ff;
+    --ill-panel: #ffffff;
+    --ill-panel-2: #f3f4fb;
+    --ill-line: #e3e5f0;
+    --ill-text: #1e2340;
+    --ill-muted: #9aa1bd;
+    --ill-shadow: rgba(76, 54, 160, 0.16);
+}
+
+.dark {
+    --ill-canvas: #0d1226;
+    --ill-panel: #141a33;
+    --ill-panel-2: #1b2241;
+    --ill-line: #283055;
+    --ill-text: #e9ecf8;
+    --ill-muted: #6f7799;
+    --ill-shadow: rgba(0, 0, 0, 0.45);
+}
+
+.illustration svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+/* The root SVG fills its wrapper so the artwork stays centred in tall or wide frames. */
+.illustration > svg {
+    height: 100%;
+}
+
+.illustration .ill-anim,
+.illustration [class*='ill-'] {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes ill-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes ill-float-x {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+}
+
+@keyframes ill-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.92); }
+}
+
+@keyframes ill-ping {
+    0% { opacity: 0.8; transform: scale(0.6); }
+    100% { opacity: 0; transform: scale(1.8); }
+}
+
+@keyframes ill-dash {
+    to { stroke-dashoffset: -48; }
+}
+
+@keyframes ill-grow-y {
+    from { transform: scaleY(0.08); }
+    to { transform: scaleY(1); }
+}
+
+@keyframes ill-grow-x {
+    from { transform: scaleX(0.05); }
+    to { transform: scaleX(1); }
+}
+
+@keyframes ill-blink {
+    0%, 45% { opacity: 1; }
+    50%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes ill-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes ill-draw {
+    from { stroke-dashoffset: var(--ill-length, 600); }
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes ill-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+}
+
+.ill-float { animation: ill-float 6s ease-in-out infinite; }
+.ill-float-slow { animation: ill-float 9s ease-in-out infinite; }
+.ill-float-x { animation: ill-float-x 7s ease-in-out infinite; }
+.ill-pulse { animation: ill-pulse 2.4s ease-in-out infinite; }
+.ill-ping { animation: ill-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite; }
+.ill-dash { stroke-dasharray: 6 10; animation: ill-dash 1.6s linear infinite; }
+.ill-grow-y { transform-origin: bottom !important; animation: ill-grow-y 1.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.ill-grow-x { transform-origin: left !important; animation: ill-grow-x 1.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.ill-blink { animation: ill-blink 1.1s steps(1) infinite; }
+.ill-spin { animation: ill-spin 14s linear infinite; }
+.ill-spin-slow { animation: ill-spin 28s linear infinite; }
+.ill-draw { stroke-dasharray: var(--ill-length, 600); animation: ill-draw 2.2s cubic-bezier(0.65, 0, 0.35, 1) both; }
+.ill-fade-in { animation: ill-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes ill-scan {
+    0%, 100% { transform: translateY(0); opacity: 0.2; }
+    10%, 90% { opacity: 0.9; }
+    50% { transform: translateY(210px); opacity: 0.9; }
+}
+
+@keyframes ill-move-x {
+    0% { transform: translateX(0); opacity: 0; }
+    12%, 82% { opacity: 1; }
+    100% { transform: translateX(150px); opacity: 0; }
+}
+
+.ill-scan { animation: ill-scan 4.5s ease-in-out infinite; }
+.ill-move-x { animation: ill-move-x 4s linear infinite; }
+
+.ill-delay-1 { animation-delay: 0.15s; }
+.ill-delay-2 { animation-delay: 0.3s; }
+.ill-delay-3 { animation-delay: 0.45s; }
+.ill-delay-4 { animation-delay: 0.6s; }
+.ill-delay-5 { animation-delay: 0.9s; }
+
+/* Ambient/decorative motion off → illustrations become static. */
+html.no-ambient .illustration [class*='ill-'] {
+    animation-iteration-count: 1;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Feature spots (resources/views/components/spots) — small 200×140 scenes
+|--------------------------------------------------------------------------
+*/
+
+.spot > svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.spot [class*='ill-'],
+.spot [class*='spot-'] {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes spot-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes spot-dash {
+    to { stroke-dashoffset: -16; }
+}
+
+@keyframes spot-scan {
+    0%, 100% { transform: translateY(0); opacity: 0.15; }
+    15%, 85% { opacity: 0.95; }
+    50% { transform: translateY(72px); opacity: 0.95; }
+}
+
+@keyframes spot-travel {
+    0% { transform: translateX(0); opacity: 0; }
+    15%, 80% { opacity: 1; }
+    100% { transform: translateX(var(--spot-distance, 80px)); opacity: 0; }
+}
+
+@keyframes spot-rise {
+    0% { transform: translateY(0); opacity: 0; }
+    20%, 70% { opacity: 1; }
+    100% { transform: translateY(-14px); opacity: 0; }
+}
+
+.spot-float { animation: spot-float 5s ease-in-out infinite; }
+.spot-dash { stroke-dasharray: 3 5; animation: spot-dash 1.4s linear infinite; }
+.spot-scan { animation: spot-scan 3.6s ease-in-out infinite; }
+.spot-travel { animation: spot-travel 3.2s linear infinite; }
+.spot-rise { animation: spot-rise 2.4s ease-out infinite; }
+.spot-spin { animation: ill-spin 1.6s linear infinite; }
+
+/* Ambient/decorative motion off → spots become static. */
+html.no-ambient .spot [class*='ill-'],
+html.no-ambient .spot [class*='spot-'] {
+    animation-iteration-count: 1;
+}

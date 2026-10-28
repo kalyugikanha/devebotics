@@ -1,0 +1,1 @@
+@include('errors.standalone', ['title' => 'Something went wrong', 'message' => 'An unexpected error occurred on our side. Our team has been notified — please try again in a few minutes.', 'link' => true])

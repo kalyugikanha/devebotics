@@ -1,0 +1,1 @@
+@include('errors.standalone', ['title' => 'We’ll be back shortly', 'message' => 'We are performing scheduled maintenance to improve the website. Thank you for your patience — please check back soon.', 'link' => false])

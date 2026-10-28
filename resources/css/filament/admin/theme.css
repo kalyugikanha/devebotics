@@ -1,0 +1,54 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/plus-jakarta-sans';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+/*
+ * Softec Ai Solution admin theme — brand typography and subtle polish on top
+ * of Filament. Brand colours are injected at runtime from Appearance settings.
+ */
+@layer components {
+    .fi-sidebar-header,
+    .fi-topbar nav {
+        backdrop-filter: saturate(140%) blur(10px);
+    }
+
+    .fi-sidebar-header::after {
+        content: '';
+        position: absolute;
+        inset-inline: 1rem;
+        bottom: 0;
+        height: 2px;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #7c3aed, #4f46e5, #2563eb, #06b6d4, #10b981);
+        opacity: 0.55;
+    }
+
+    .fi-section,
+    .fi-ta-ctn,
+    .fi-wi-stats-overview-stat {
+        border-radius: 1rem;
+    }
+
+    .fi-header-heading,
+    .fi-section-header-heading,
+    .fi-simple-header-heading {
+        font-family: 'Plus Jakarta Sans Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+        letter-spacing: -0.015em;
+    }
+
+    .softec-brand-wordmark {
+        font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+    }
+
+    .softec-brand-gradient {
+        background: linear-gradient(120deg, #6d28d9, #4f46e5 45%, #2563eb 70%, #0ea5e9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
