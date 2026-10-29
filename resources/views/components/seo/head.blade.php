@@ -16,6 +16,11 @@
 <meta property="og:description" content="{{ $seo->ogDescription ?: $seo->metaDescription() }}">
 <meta property="og:url" content="{{ $seo->canonicalUrl() }}">
 <meta property="og:image" content="{{ $seo->imageUrl() }}">
+<meta property="og:image:secure_url" content="{{ $seo->imageUrl() }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="{{ $seo->ogTitle ?: $seo->fullTitle() }}">
 <meta property="og:locale" content="{{ str_replace('-', '_', app()->getLocale()) === 'en' ? 'en_US' : str_replace('-', '_', app()->getLocale()) }}">
 @if ($seo->publishedTime)
     <meta property="article:published_time" content="{{ $seo->publishedTime }}">
@@ -23,7 +28,11 @@
 @if ($seo->modifiedTime)
     <meta property="article:modified_time" content="{{ $seo->modifiedTime }}">
 @endif
+
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $seo->ogTitle ?: $seo->fullTitle() }}">
+<meta name="twitter:description" content="{{ $seo->ogDescription ?: $seo->metaDescription() }}">
+<meta name="twitter:image" content="{{ $seo->imageUrl() }}">
 @if (filled(settings('seo.x_handle')))
     <meta name="twitter:site" content="{{ '@'.ltrim((string) settings('seo.x_handle'), '@') }}">
 @endif
