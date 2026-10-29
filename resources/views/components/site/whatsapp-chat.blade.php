@@ -15,7 +15,7 @@
              class="absolute right-0 bottom-[4.5rem] w-[min(23rem,calc(100vw-2rem))] origin-bottom-right overflow-hidden rounded-3xl bg-background shadow-[0_30px_80px_-20px_rgba(5,8,22,0.45)] ring-1 ring-black/5 dark:ring-white/10">
             <div class="relative flex items-center gap-3 bg-[linear-gradient(135deg,#075e54,#0b7a6e)] px-5 py-4 text-white">
                 <span class="relative grid size-11 shrink-0 place-items-center rounded-full bg-white">
-                    <img src="{{ \App\Support\Branding::markUrl() }}" alt="" width="32" height="26" class="h-6 w-auto">
+                    <img src="{{ \App\Support\Branding::markUrl() }}" alt="Softec AI Support" width="32" height="26" class="h-6 w-auto">
                     <span class="absolute right-0 bottom-0 size-3 rounded-full border-2 border-[#075e54] bg-whatsapp" aria-hidden="true"></span>
                 </span>
                 <div class="min-w-0 flex-1">

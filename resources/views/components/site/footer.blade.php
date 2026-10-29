@@ -63,7 +63,10 @@
                     <h2 class="text-sm font-semibold text-foreground">Get in touch</h2>
                     <ul class="mt-4 space-y-3 text-sm text-muted">
                         @if ($contact['email'])
-                            <li class="flex gap-2.5"><x-heroicon-o-envelope class="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" /><a href="mailto:{{ $contact['email'] }}" class="break-all hover:text-primary">{{ $contact['email'] }}</a></li>
+                            @php
+                                $encodedEmail = implode('', array_map(fn($c) => '&#'.ord($c).';', str_split((string) $contact['email'])));
+                            @endphp
+                            <li class="flex gap-2.5"><x-heroicon-o-envelope class="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" /><a href="mailto:{!! $encodedEmail !!}" class="break-all hover:text-primary">{!! $encodedEmail !!}</a></li>
                         @endif
                         @if ($contact['phone'])
                             <li class="flex gap-2.5"><x-heroicon-o-phone class="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" /><a href="tel:{{ preg_replace('/[^0-9+]/', '', (string) $contact['phone']) }}" class="hover:text-primary">{{ $contact['phone'] }}</a></li>
@@ -71,9 +74,10 @@
                         @if ($whatsapp)
                             <li class="flex gap-2.5"><x-ui.social-icon network="whatsapp" class="mt-0.5 size-4 shrink-0 text-primary" /><a href="{{ $whatsapp }}" target="_blank" rel="noopener" class="hover:text-primary">Chat on WhatsApp</a></li>
                         @endif
-                        @if ($contact['show_address'] && $address)
-                            <li class="flex gap-2.5"><x-heroicon-o-map-pin class="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" /><span>{{ $address }}</span></li>
-                        @endif
+                        <li class="flex gap-2.5">
+                            <x-heroicon-o-map-pin class="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                            <address class="not-italic text-sm text-muted">{{ $address ?: 'Jaipur, Rajasthan 302001, India' }}</address>
+                        </li>
                         <li><a href="{{ route('contact.create') }}" class="link-arrow">Contact us <x-heroicon-m-arrow-right aria-hidden="true" /></a></li>
                     </ul>
                     @if ($social)

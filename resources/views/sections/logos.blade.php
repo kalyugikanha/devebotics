@@ -14,7 +14,7 @@
                     @foreach ([$records, $records] as $pass => $set)
                         @foreach ($set as $org)
                             <li @if ($pass === 1) aria-hidden="true" @endif class="flex h-12 shrink-0 items-center">
-                                <x-media.image :media="$org->logo" sizes="180px" :alt="$pass === 0 ? $org->name : ''" class="logo-mono h-10 w-auto max-w-[11rem] object-contain" />
+                                <x-media.image :media="$org->logo" sizes="180px" :alt="$org->name . ($pass === 1 ? ' Partner' : '')" class="logo-mono h-10 w-auto max-w-[11rem] object-contain" />
                             </li>
                         @endforeach
                     @endforeach

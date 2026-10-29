@@ -8,7 +8,7 @@
 @endphp
 <a href="{{ route('home') }}" {{ $attributes->merge(['class' => 'group inline-flex items-center gap-2.5 rounded-xl']) }} @unless ($wordmark) aria-label="{{ $name }}" @endunless>
     @if ($wordmark)
-        <img src="{{ \App\Support\Branding::markUrl() }}" alt="" width="48" height="39"
+        <img src="{{ \App\Support\Branding::markUrl() }}" alt="Softec AI Solution" width="48" height="39"
              class="{{ $size === 'lg' ? 'h-12' : 'h-9 sm:h-10' }} w-auto transition-transform duration-500 ease-out-expo group-hover:-rotate-6 group-hover:scale-105">
         <span class="flex flex-col leading-none">
             <span class="font-display {{ $size === 'lg' ? 'text-2xl' : 'text-[1.35rem]' }} font-extrabold tracking-[-0.03em] text-foreground">

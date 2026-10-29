@@ -2,7 +2,7 @@
 @if ($media)
     @php
         $srcset = $media->isImage() && ! $media->isSvg() ? $media->webpSrcset() : null;
-        $altText = $alt ?? (string) $media->alt_text;
+        $altText = filled($alt) ? (string) $alt : (filled($media->alt_text) ? (string) $media->alt_text : (filled($media->title) ? (string) $media->title : 'Softec AI Solution'));
     @endphp
     <picture>
         @if ($srcset)

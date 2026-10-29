@@ -42,7 +42,7 @@
             <div class="relative grid size-full place-items-center rounded-full border border-white/15 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,.15),0_30px_80px_-20px_rgba(79,70,229,.6)] backdrop-blur-xl">
                 <span class="ambient absolute inset-0 animate-pulse-ring rounded-full border border-[#818cf8]/40"></span>
                 <span class="absolute inset-3 rounded-full bg-[conic-gradient(from_180deg,rgba(139,92,246,.18),rgba(217,70,239,.08),rgba(34,211,238,.18),rgba(139,92,246,.18))]"></span>
-                <img src="{{ \App\Support\Branding::markUrl() }}" alt="" width="240" height="194" class="relative w-[64%] drop-shadow-[0_22px_40px_rgba(79,70,229,.55)]">
+                <img src="{{ \App\Support\Branding::markUrl() }}" alt="Softec AI Core Technology Platform" width="240" height="194" class="relative w-[64%] drop-shadow-[0_22px_40px_rgba(79,70,229,.55)]">
             </div>
         </div>
 

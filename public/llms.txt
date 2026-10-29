@@ -1,0 +1,30 @@
+# Softec AI Solution
+
+> Custom Software Development, Generative AI Agents, Cloud & DevOps Engineering, and Cybersecurity Solutions.
+
+## About Softec AI Solution
+Softec AI Solution (https://softecai.com) is an enterprise software engineering and artificial intelligence innovation company headquartered in Jaipur, Rajasthan, India, serving modern startups, scale-ups, and global enterprises. We architect scalable full-stack web and mobile systems, autonomous agentic AI workflows, high-throughput cloud backends, and cybersecurity architectures.
+
+## Core Capabilities & Services
+- Custom Software Development (https://softecai.com/services/custom-software-development): High-performance SaaS applications, microservices, enterprise web systems, and API integrations.
+- Generative AI & Autonomous Agents (https://softecai.com/services/generative-ai-solutions): Custom LLM fine-tuning, autonomous task agents, retrieval-augmented generation (RAG) platforms, and intelligent business chatbots.
+- Cloud Architecture & DevOps (https://softecai.com/services/cloud-architecture-devops): Multi-cloud infrastructure (AWS, GCP, DigitalOcean), Kubernetes orchestration, automated CI/CD pipelines, and high-availability operations.
+- Mobile Application Development (https://softecai.com/services/mobile-application-development): Native iOS (Swift), Android (Kotlin), and cross-platform Flutter/React Native solutions.
+- Cybersecurity & Compliance (https://softecai.com/services/cybersecurity-solutions): Vulnerability scanning, penetration testing, compliance enforcement, data encryption, and zero-trust security postures.
+- Technical SEO & SMO Growth (https://softecai.com/services/technical-seo-growth): Core Web Vitals optimization, programmatic SEO, schema architecture, and brand visibility strategies.
+
+## Primary Technologies
+- Backend & Frameworks: PHP 8.4, Laravel, Python, Node.js, Go
+- Frontend & UI: TypeScript, React, Vue.js, Alpine.js, Tailwind CSS
+- AI & ML: OpenAI GPT models, Anthropic Claude, Google Gemini, LangChain, LlamaIndex, PyTorch, Hugging Face
+- Databases: PostgreSQL, MySQL, Redis, Vector Databases (Pinecone, Qdrant)
+- Cloud & Infrastructure: Docker, Kubernetes, Linux (Ubuntu), Nginx, Caddy, AWS, GCP
+
+## Location & Verification
+- Organization: Softec AI Solution
+- Head Office: Jaipur, Rajasthan 302001, India
+- Phone: +91-6397013739
+- WhatsApp: https://wa.me/916397013739
+- Email: contact@softecai.com
+- Primary URL: https://softecai.com
+- Sitemap: https://softecai.com/sitemap.xml

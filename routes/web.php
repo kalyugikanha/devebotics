@@ -84,6 +84,7 @@ Route::post('/cookie-consent', CookieConsentController::class)->middleware('thro
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 Route::get('/sitemaps/{type}.xml', [SitemapController::class, 'show'])->where('type', '[a-z\-]+')->name('sitemap.type');
 Route::get('/robots.txt', RobotsController::class)->name('robots');
+Route::get('/llms.txt', fn () => response()->file(public_path('llms.txt'), ['Content-Type' => 'text/plain; charset=UTF-8']))->name('llms');
 
 /*
 |--------------------------------------------------------------------------
