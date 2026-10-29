@@ -8,7 +8,7 @@
             <svg class="ambient absolute -top-28 -right-28 -z-10 size-[30rem] animate-orbit text-white/10" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="none" stroke="currentColor" stroke-dasharray="3 9"/><circle cx="200" cy="200" r="140" fill="none" stroke="currentColor"/><circle cx="200" cy="60" r="8" fill="#22d3ee"/></svg>
             <div class="mx-auto max-w-3xl">
                 <span class="mx-auto grid size-16 place-items-center rounded-2xl border border-white/15 bg-white/5 backdrop-blur">
-                    <img src="{{ \App\Support\Branding::markUrl() }}" alt="" width="48" height="39" class="h-9 w-auto">
+                    <img src="{{ \App\Support\Branding::markUrl() }}" alt="Softec AI Solution" width="48" height="39" class="h-9 w-auto">
                 </span>
                 <h2 id="section-heading-{{ $section->id }}" class="mt-8 font-display text-4xl font-extrabold tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">{!! \App\Support\Typography::highlight($section->title) !!}</h2>
                 @if ($section->subtitle)

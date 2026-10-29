@@ -27,7 +27,7 @@
 <body>
     <main>
         <div class="bar"></div>
-        <img src="/images/brand/softec-mark.png" alt="">
+        <img src="/images/brand/softec-mark.png" alt="Softec AI Solution">
         <h1>{{ $title }}</h1>
         <p>{{ $message }}</p>
         @if (! empty($link))<a href="/">Back to home</a>@endif

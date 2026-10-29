@@ -1,6 +1,6 @@
 @php($name = (string) settings('company.name'))
 <span class="flex items-center gap-2.5">
-    <img src="{{ \App\Support\Branding::markUrl() }}" alt="" class="h-9 w-auto" width="44" height="36">
+    <img src="{{ \App\Support\Branding::markUrl() }}" alt="Softec AI Solution" class="h-9 w-auto" width="44" height="36">
     <span class="softec-brand-wordmark text-lg leading-none text-gray-950 dark:text-white">
         @if (str_ends_with($name, 'Ai Solution'))
             Softec<span class="softec-brand-gradient">Ai</span>
