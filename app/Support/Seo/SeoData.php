@@ -146,7 +146,7 @@ final class SeoData
         $suffix = (string) settings('seo.title_suffix', '');
         $siteName = (string) settings('company.name');
 
-        if (! $this->appendSuffix || $suffix === '' || Str::contains($this->title, $siteName)) {
+        if (! $this->appendSuffix || $suffix === '' || Str::contains($this->title, $siteName, ignoreCase: true) || Str::contains($this->title, 'Softec AI', ignoreCase: true)) {
             return $this->title;
         }
 
