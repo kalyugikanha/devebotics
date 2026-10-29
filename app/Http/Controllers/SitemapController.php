@@ -37,10 +37,25 @@ class SitemapController extends Controller
 
     public function index(): Response
     {
-        $sitemaps = collect(self::types())->map(fn (string $type) => [
-            'loc' => route('sitemap.type', $type),
-            'lastmod' => optional($this->entries($type)->max('lastmod'))->toAtomString(),
-        ]);
+        $sitemaps = collect(self::types())->map(function (string $type) {
+            $entries = $this->entries($type);
+            $max = $entries->max('lastmod');
+            $lastmod = null;
+            if ($max instanceof \DateTimeInterface) {
+                $lastmod = $max->format(\DateTimeInterface::ATOM);
+            } elseif (is_string($max) && trim($max) !== '') {
+                try {
+                    $lastmod = Carbon::parse($max)->toAtomString();
+                } catch (\Throwable) {
+                    $lastmod = null;
+                }
+            }
+
+            return [
+                'loc' => route('sitemap.type', $type),
+                'lastmod' => $lastmod,
+            ];
+        });
 
         return response()->view('sitemap.index', ['sitemaps' => $sitemaps])->header('Content-Type', 'application/xml; charset=UTF-8');
     }
@@ -63,11 +78,11 @@ class SitemapController extends Controller
 
         $rawEntries = Cache::remember("sitemap.{$type}", self::CACHE_TTL, function () use ($type): array {
             $indexable = fn (Builder $q) => $q->whereDoesntHave('seo', fn (Builder $s) => $s->where('robots_index', false));
-            $map = fn ($model) => ['loc' => (string) $model->publicUrl(), 'lastmod' => $model->updated_at?->toAtomString()];
+            $map = fn ($model) => ['loc' => (string) $model->publicUrl(), 'lastmod' => $model->updated_at];
 
             $items = match ($type) {
                 'pages' => collect([
-                    ['loc' => route('home'), 'lastmod' => Page::query()->where('slug', 'home')->value('updated_at')?->toAtomString()],
+                    ['loc' => route('home'), 'lastmod' => Page::query()->where('slug', 'home')->value('updated_at')],
                     ['loc' => route('services.index'), 'lastmod' => Service::query()->published()->max('updated_at')],
                     ['loc' => route('products.index'), 'lastmod' => Product::query()->published()->max('updated_at')],
                     ['loc' => route('industries.index'), 'lastmod' => Industry::query()->published()->max('updated_at')],
@@ -78,15 +93,15 @@ class SitemapController extends Controller
                     ['loc' => route('testimonials.index'), 'lastmod' => null],
                     ['loc' => route('faq.index'), 'lastmod' => null],
                 ])->merge(Page::query()->published()->where('slug', '!=', 'home')->where('show_in_sitemap', true)->where($indexable)->get()->map($map))
-                    ->merge(BlogCategory::query()->active()->whereHas('posts', fn (Builder $q) => $q->published())->get()->map(fn ($c) => ['loc' => (string) $c->publicUrl(), 'lastmod' => $c->updated_at?->toAtomString()]))
-                    ->merge(Author::query()->active()->whereHas('posts', fn (Builder $q) => $q->published())->get()->map(fn ($a) => ['loc' => (string) $a->publicUrl(), 'lastmod' => $a->updated_at?->toAtomString()])),
+                    ->merge(BlogCategory::query()->active()->whereHas('posts', fn (Builder $q) => $q->published())->get()->map(fn ($c) => ['loc' => (string) $c->publicUrl(), 'lastmod' => $c->updated_at]))
+                    ->merge(Author::query()->active()->whereHas('posts', fn (Builder $q) => $q->published())->get()->map(fn ($a) => ['loc' => (string) $a->publicUrl(), 'lastmod' => $a->updated_at])),
                 'services' => Service::query()->published()->where($indexable)->ordered()->get()->map($map),
                 'products' => Product::query()->published()->where($indexable)->ordered()->get()->map($map),
                 'industries' => Industry::query()->published()->where($indexable)->ordered()->get()->map($map),
                 'case-studies' => Portfolio::query()->published()->where($indexable)->latest('published_at')->get()->map($map),
                 'blog' => BlogPost::query()->published()->where($indexable)->latest('published_at')->get()->map($map),
                 'careers' => settings('features.careers_enabled')
-                    ? collect([['loc' => route('careers.index'), 'lastmod' => JobOpening::query()->open()->max('updated_at')?->toAtomString()]])->merge(JobOpening::query()->open()->where($indexable)->get()->map($map))
+                    ? collect([['loc' => route('careers.index'), 'lastmod' => JobOpening::query()->open()->max('updated_at')]])->merge(JobOpening::query()->open()->where($indexable)->get()->map($map))
                     : collect(),
                 default => collect(),
             };
@@ -95,7 +110,7 @@ class SitemapController extends Controller
                 $lastmod = $entry['lastmod'] ?? null;
                 if ($lastmod instanceof \DateTimeInterface) {
                     $lastmod = $lastmod->format(\DateTimeInterface::ATOM);
-                } elseif (is_string($lastmod) && $lastmod !== '') {
+                } elseif (is_string($lastmod) && trim($lastmod) !== '') {
                     try {
                         $lastmod = Carbon::parse($lastmod)->toAtomString();
                     } catch (\Throwable) {
