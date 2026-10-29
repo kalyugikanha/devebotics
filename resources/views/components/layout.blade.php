@@ -39,6 +39,17 @@
             <script nonce="{{ $nonce }}">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ $ga4 }}',{anonymize_ip:true});window.__softecAnalyticsLoaded=true;</script>
         @endif
     @endif
+
+    {{-- ThirdEye Analytics & Session Tracking --}}
+    <script nonce="{{ $nonce }}">
+      (function(t,h,i,r,d){
+        t.ThirdEye=t.ThirdEye||{};
+        var s=h.createElement('script');
+        s.src='https://thirdeye.colladome.com/public/te.js';
+        s.setAttribute('data-key',i);
+        h.head.appendChild(s);
+      })(window,document,'te_live_ebf1194a23bb487a84058e67dabe9a68');
+    </script>
 </head>
 <body class="min-h-dvh {{ $bodyClass }}" data-hero-dark="{{ $heroDark ? '1' : '0' }}" @if ($ga4) data-ga4="{{ $ga4 }}" @endif @if ($gtm) data-gtm="{{ $gtm }}" @endif>
     <div class="scroll-progress" aria-hidden="true"></div>

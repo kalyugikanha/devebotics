@@ -57,7 +57,7 @@ class SecurityHeaders
         $hot = $this->viteDevServer();
 
         $frames = ['https://www.youtube-nocookie.com', 'https://www.youtube.com', 'https://player.vimeo.com', 'https://www.google.com', 'https://maps.google.com', 'https://challenges.cloudflare.com'];
-        $connect = array_filter(["'self'", 'https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://*.googletagmanager.com', 'https://challenges.cloudflare.com', $hot, $hot ? str_replace('http', 'ws', $hot) : null]);
+        $connect = array_filter(["'self'", 'https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://*.googletagmanager.com', 'https://challenges.cloudflare.com', 'https://thirdeye.colladome.com', 'https://*.colladome.com', $hot, $hot ? str_replace('http', 'ws', $hot) : null]);
 
         return implode('; ', array_filter([
             "default-src 'self'",
