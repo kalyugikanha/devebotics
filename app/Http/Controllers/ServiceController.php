@@ -51,6 +51,10 @@ class ServiceController extends Controller
             ->breadcrumbs([['Services', route('services.index')], [$service->title, null]])
             ->withSchema(SchemaFactory::service($service));
 
+        if ($service->faqs && $service->faqs->isNotEmpty()) {
+            $seo->withSchema(SchemaFactory::faqPage($service->faqs));
+        }
+
         if ($isPreview) {
             $seo->noindex();
         }

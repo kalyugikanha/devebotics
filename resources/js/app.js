@@ -45,3 +45,47 @@ window.Alpine = Alpine;
 Alpine.start();
 
 initMotion();
+
+// Global Conversion Event Tracking (GA4 & GTM)
+document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    const href = link.href || '';
+    if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'whatsapp_click', {
+                event_category: 'conversion',
+                event_label: (link.innerText || href).trim(),
+            });
+        }
+        if (window.dataLayer) {
+            window.dataLayer.push({ event: 'whatsapp_click', target_url: href });
+        }
+    } else if (href.startsWith('tel:')) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'call_click', {
+                event_category: 'conversion',
+                event_label: href,
+            });
+        }
+        if (window.dataLayer) {
+            window.dataLayer.push({ event: 'call_click', phone_number: href });
+        }
+    }
+});
+
+document.addEventListener('submit', (e) => {
+    const form = e.target;
+    const action = form.action || '';
+    if (action.includes('contact') || action.includes('start-a-project') || action.includes('careers') || action.includes('feedback')) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', {
+                event_category: 'conversion',
+                form_action: action,
+            });
+        }
+        if (window.dataLayer) {
+            window.dataLayer.push({ event: 'generate_lead', form_action: action });
+        }
+    }
+});

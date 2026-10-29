@@ -1,5 +1,5 @@
 {{-- Interactive hero scene: orbit system around the brand mark with floating product-UI cards (illustrative, not data). --}}
-<div class="relative mx-auto aspect-square w-full max-w-[36rem]" data-parallax-scene aria-hidden="true">
+<div class="relative mx-auto aspect-square w-full max-w-[30rem] lg:max-w-[33rem] xl:max-w-[36rem]" data-parallax-scene aria-hidden="true">
     <div class="absolute inset-0" data-tilt="5">
         {{-- Glow --}}
         <div class="absolute inset-[16%] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,.55),rgba(217,70,239,.22)_45%,transparent_70%)] blur-2xl"></div>
@@ -47,7 +47,7 @@
         </div>
 
         {{-- AI assistant card --}}
-        <div class="ambient absolute top-[9%] right-[-3%] w-52 animate-float rounded-2xl border border-white/12 bg-[#0f1530]/80 p-3.5 text-left shadow-2xl backdrop-blur-xl sm:w-60" data-depth="30">
+        <div class="ambient absolute top-[9%] right-0 lg:right-[-1%] xl:right-[-2%] w-52 animate-float rounded-2xl border border-white/12 bg-[#0f1530]/80 p-3.5 text-left shadow-2xl backdrop-blur-xl sm:w-60" data-depth="30">
             <div class="flex items-center gap-2.5">
                 <span class="grid size-8 place-items-center rounded-lg bg-[linear-gradient(135deg,#6d28d9,#4f46e5)] text-white"><x-heroicon-s-sparkles class="size-4" /></span>
                 <div class="min-w-0">
@@ -63,7 +63,7 @@
         </div>
 
         {{-- Analytics card --}}
-        <div class="ambient absolute top-[46%] right-[-6%] hidden w-44 animate-float rounded-2xl border border-white/12 bg-[#0f1530]/80 p-3.5 shadow-2xl backdrop-blur-xl [animation-delay:-4s] sm:block" data-depth="26">
+        <div class="ambient absolute top-[46%] right-0 lg:right-[-2%] xl:right-[-3%] hidden w-44 animate-float rounded-2xl border border-white/12 bg-[#0f1530]/80 p-3.5 shadow-2xl backdrop-blur-xl [animation-delay:-4s] sm:block" data-depth="26">
             <p class="text-[0.6875rem] font-semibold text-white/60">Performance</p>
             <svg viewBox="0 0 140 48" class="mt-2 h-12 w-full">
                 <defs><linearGradient id="hero-spark" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#22d3ee" stop-opacity=".45" /><stop offset="1" stop-color="#22d3ee" stop-opacity="0" /></linearGradient></defs>
@@ -73,7 +73,7 @@
         </div>
 
         {{-- Deploy pipeline card --}}
-        <div class="ambient absolute bottom-[10%] left-[-5%] w-56 animate-float rounded-2xl border border-white/12 bg-[#0f1530]/80 p-3.5 shadow-2xl backdrop-blur-xl [animation-delay:-3s] sm:w-60" data-depth="34">
+        <div class="ambient absolute bottom-[10%] left-0 lg:left-[-1%] xl:left-[-3%] w-56 animate-float rounded-2xl border border-white/12 bg-[#0f1530]/80 p-3.5 shadow-2xl backdrop-blur-xl [animation-delay:-3s] sm:w-60" data-depth="34">
             <div class="flex items-center justify-between">
                 <p class="text-xs font-bold text-white">Deploy pipeline</p>
                 <span class="inline-flex items-center gap-1 rounded-full bg-emerald-400/15 px-2 py-0.5 text-[0.625rem] font-bold text-emerald-300"><span class="size-1.5 rounded-full bg-emerald-400"></span>Passed</span>

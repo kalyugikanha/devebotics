@@ -1,15 +1,15 @@
 @props(['consent' => null, 'policyUrl' => null])
 <div x-data="cookieConsent" x-show="open" x-cloak data-endpoint="{{ route('cookie-consent') }}" data-version="{{ settings('privacy.consent_version') }}"
-     class="fixed inset-x-3 bottom-3 z-[60] sm:inset-x-auto sm:left-6 sm:bottom-6 sm:w-[24rem] no-print"
+     class="fixed inset-x-3 bottom-3 z-[60] sm:inset-x-auto sm:left-6 sm:bottom-6 sm:w-[22rem] no-print"
      role="dialog" aria-modal="false" aria-labelledby="cookie-title" aria-describedby="cookie-desc"
      x-transition:enter="transition duration-500 ease-out" x-transition:enter-start="opacity-0 translate-y-6" x-transition:enter-end="opacity-100 translate-y-0">
-    <div class="glass rounded-panel p-5">
+    <div class="glass rounded-2xl p-4 shadow-xl backdrop-blur-md">
         <div class="flex items-start gap-3">
-            <span class="icon-tile-soft"><x-heroicon-o-shield-check aria-hidden="true" /></span>
+            <span class="icon-tile-soft size-9 shrink-0"><x-heroicon-o-shield-check class="size-5" aria-hidden="true" /></span>
             <div>
-                <h2 id="cookie-title" class="font-display text-base font-bold">Your privacy choices</h2>
-                <p id="cookie-desc" class="mt-1 text-sm text-muted">
-                    We use essential cookies to run this site. With your permission we would also use analytics to improve it.
+                <h2 id="cookie-title" class="font-display text-sm font-bold">Privacy & Cookies</h2>
+                <p id="cookie-desc" class="mt-0.5 text-xs text-muted leading-relaxed">
+                    We use cookies to ensure optimal site performance and analytics.
                     @if ($policyUrl)<a href="{{ $policyUrl }}" class="font-semibold text-primary underline-offset-4 hover:underline">Cookie policy</a>@endif
                 </p>
             </div>

@@ -242,6 +242,37 @@ final class SchemaFactory
     }
 
     /**
+     * @param  iterable<mixed>  $faqs
+     * @return array<string, mixed>
+     */
+    public static function faqPage(iterable $faqs): array
+    {
+        $entities = [];
+
+        foreach ($faqs as $faq) {
+            $question = is_array($faq) ? ($faq['question'] ?? '') : ($faq->question ?? '');
+            $answer = is_array($faq) ? ($faq['answer'] ?? '') : ($faq->answer ?? '');
+
+            if ($question && $answer) {
+                $entities[] = [
+                    '@type' => 'Question',
+                    'name' => strip_tags((string) $question),
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => strip_tags((string) $answer),
+                    ],
+                ];
+            }
+        }
+
+        return [
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => $entities,
+        ];
+    }
+
+    /**
      * @param  array<string, mixed>  $contact
      * @return array<string, mixed>
      */

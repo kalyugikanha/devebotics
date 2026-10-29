@@ -27,7 +27,7 @@
                     @php
                         $menuId = 'menu-'.$index;
                         $active = $itemIsActive($item);
-                        $itemClasses = 'nav-link inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors duration-300 xl:px-3.5 xl:text-[0.9375rem] '.($active ? 'text-foreground' : 'text-foreground/70 hover:text-foreground');
+                        $itemClasses = 'nav-link inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2 py-1.5 text-xs lg:px-2.5 lg:text-[0.84rem] xl:px-3.5 xl:text-[0.9375rem] font-medium transition-colors duration-300 '.($active ? 'text-foreground' : 'text-foreground/70 hover:text-foreground');
                     @endphp
                     <li @class(['relative' => ! $item['mega']]) x-on:mouseenter="enterItem" x-on:mouseleave="closeOnLeave" data-menu="{{ ($item['mega'] || $item['children']) ? $menuId : '' }}">
                         @if ($item['mega'] || $item['children'])
@@ -139,16 +139,11 @@
         </nav>
 
         <div class="flex items-center gap-1 sm:gap-2">
-            @if (settings('features.search_enabled'))
-                <a href="{{ route('search') }}" class="grid size-10 shrink-0 place-items-center rounded-full text-foreground/80 transition hover:bg-foreground/5 hover:text-foreground" aria-label="Search the site">
-                    <x-heroicon-o-magnifying-glass class="size-5" aria-hidden="true" />
-                </a>
-            @endif
             @if ($themeSwitcher)
                 <x-site.theme-toggle />
             @endif
             @if ($ctaLabel && $ctaUrl)
-                <a href="{{ $ctaUrl }}" class="btn btn-primary btn-sm ml-1 hidden sm:inline-flex lg:hidden xl:inline-flex" data-magnetic="0.2">{{ $ctaLabel }} <x-heroicon-m-arrow-right class="btn-arrow" aria-hidden="true" /></a>
+                <a href="{{ $ctaUrl }}" class="btn btn-primary btn-sm ml-1 hidden sm:inline-flex" data-magnetic="0.2">{{ $ctaLabel }} <x-heroicon-m-arrow-right class="btn-arrow" aria-hidden="true" /></a>
             @endif
             <button type="button" x-on:click="toggleMobile" class="grid size-10 place-items-center rounded-full text-foreground transition hover:bg-foreground/5 lg:hidden"
                     :aria-expanded="mobileOpen" aria-controls="mobile-menu" aria-label="Open menu">
