@@ -22,6 +22,7 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:alt" content="{{ $seo->ogTitle ?: $seo->fullTitle() }}">
 <meta property="og:locale" content="{{ str_replace('-', '_', app()->getLocale()) === 'en' ? 'en_US' : str_replace('-', '_', app()->getLocale()) }}">
+<link rel="image_src" href="{{ $seo->imageUrl() }}">
 @if ($seo->publishedTime)
     <meta property="article:published_time" content="{{ $seo->publishedTime }}">
 @endif

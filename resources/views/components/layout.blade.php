@@ -12,11 +12,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    
+    <x-seo.head :seo="$seo" />
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- Applies the visitor's theme before first paint (prevents a flash of the wrong theme). --}}
     <script nonce="{{ $nonce }}">(function(){var d=document.documentElement,m=null,dark;try{if(d.dataset.themeSwitcher==='1'){m=localStorage.getItem('softec-theme')}if(localStorage.getItem('softec-reduce-motion')==='1'){d.classList.add('reduce-motion','motion-reduced')}}catch(e){}if(['light','dark','system'].indexOf(m)<0){m=d.dataset.themeDefault||'system'}dark=m==='dark'||(m==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);d.classList.toggle('dark',dark);d.style.colorScheme=dark?'dark':'light';})();</script>
-
-    <x-seo.head :seo="$seo" />
 
     <link rel="icon" href="{{ \App\Support\Branding::faviconUrl() }}" sizes="32x32">
     <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
