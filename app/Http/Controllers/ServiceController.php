@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogPost;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Support\Html\ContentProcessor;
@@ -59,9 +60,61 @@ class ServiceController extends Controller
             $seo->noindex();
         }
 
+        $serviceBlogMap = [
+            'generative-ai-ai-agent-development' => [
+                'what-are-ai-agents-a-practical-guide-for-business-leaders',
+                'retrieval-augmented-generation-explained-for-business-leaders',
+                'generative-ai-use-cases-for-small-and-mid-sized-businesses',
+            ],
+            'ai-machine-learning-solutions' => [
+                'how-to-identify-high-value-ai-use-cases-in-your-business',
+                'what-are-ai-agents-a-practical-guide-for-business-leaders',
+            ],
+            'custom-software-development' => [
+                'how-much-does-custom-software-development-cost',
+                'how-to-choose-a-software-development-company',
+                'custom-software-vs-off-the-shelf-how-to-choose',
+            ],
+            'web-application-development' => [
+                'web-app-vs-mobile-app-vs-pwa',
+                'laravel-for-business-web-applications',
+                'how-much-does-custom-software-development-cost',
+            ],
+            'mobile-application-development' => [
+                'web-app-vs-mobile-app-vs-pwa',
+                'how-to-choose-a-software-development-company',
+            ],
+            'saas-product-development' => [
+                'saas-product-development-from-mvp-to-scale',
+                'how-much-does-custom-software-development-cost',
+            ],
+            'business-process-automation' => [
+                'business-process-automation-where-to-start',
+                'how-to-identify-high-value-ai-use-cases-in-your-business',
+            ],
+            'cloud-computing-cloud-migration' => [
+                'a-practical-checklist-for-migrating-to-the-cloud',
+            ],
+            'devops-cicd' => [
+                'a-practical-checklist-for-migrating-to-the-cloud',
+            ],
+            'cybersecurity-consulting' => [
+                'cybersecurity-checklist-for-growing-businesses',
+            ],
+            'uiux-design' => [
+                'why-design-systems-speed-up-product-development',
+            ],
+        ];
+
+        $postSlugs = $serviceBlogMap[$service->slug] ?? [];
+        $relatedPosts = $postSlugs !== []
+            ? BlogPost::query()->published()->whereIn('slug', $postSlugs)->with(['author', 'category', 'featuredMedia'])->get()
+            : collect();
+
         return view('services.show', [
             'service' => $service,
             'description' => app(ContentProcessor::class)->process($service->description, false)['html'],
+            'relatedPosts' => $relatedPosts,
             'seo' => $seo,
             'isPreview' => $isPreview,
         ]);

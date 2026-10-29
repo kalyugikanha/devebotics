@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTag;
+use App\Models\Service;
 use App\Support\Html\ContentProcessor;
 use App\Support\Seo\SchemaFactory;
 use App\Support\Seo\SeoData;
@@ -111,12 +112,33 @@ class BlogController extends Controller
             $seo->noindex();
         }
 
+        $postServiceMap = [
+            'what-are-ai-agents-a-practical-guide-for-business-leaders' => 'generative-ai-ai-agent-development',
+            'retrieval-augmented-generation-explained-for-business-leaders' => 'generative-ai-ai-agent-development',
+            'generative-ai-use-cases-for-small-and-mid-sized-businesses' => 'generative-ai-ai-agent-development',
+            'how-to-identify-high-value-ai-use-cases-in-your-business' => 'ai-machine-learning-solutions',
+            'how-much-does-custom-software-development-cost' => 'custom-software-development',
+            'how-to-choose-a-software-development-company' => 'custom-software-development',
+            'custom-software-vs-off-the-shelf-how-to-choose' => 'custom-software-development',
+            'web-app-vs-mobile-app-vs-pwa' => 'web-application-development',
+            'saas-product-development-from-mvp-to-scale' => 'saas-product-development',
+            'business-process-automation-where-to-start' => 'business-process-automation',
+            'cybersecurity-checklist-for-growing-businesses' => 'cybersecurity-consulting',
+            'a-practical-checklist-for-migrating-to-the-cloud' => 'cloud-computing-cloud-migration',
+            'laravel-for-business-web-applications' => 'web-application-development',
+            'why-design-systems-speed-up-product-development' => 'uiux-design',
+        ];
+
+        $serviceSlug = $postServiceMap[$post->slug] ?? 'custom-software-development';
+        $featuredService = Service::query()->published()->where('slug', $serviceSlug)->first();
+
         return view('blog.show', [
             'post' => $post,
             'content' => $content,
             'comments' => $comments,
             'commentsEnabled' => $commentsEnabled,
             'related' => $related,
+            'featuredService' => $featuredService,
             'seo' => $seo,
             'isPreview' => $isPreview,
         ]);

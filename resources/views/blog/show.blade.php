@@ -35,6 +35,29 @@
             <div class="mx-auto w-full max-w-3xl">
                 <div class="prose-brand text-[1.0625rem]" data-toc-content>{!! $content['html'] !!}</div>
 
+                @if (isset($featuredService) && $featuredService)
+                    <aside aria-label="Related service" class="my-10 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 via-card to-card p-6 sm:p-7 shadow-sm">
+                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div class="max-w-xl">
+                                <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary">
+                                    <x-heroicon-s-sparkles class="size-3.5" />
+                                    Softec AI Capability
+                                </span>
+                                <h3 class="font-display mt-2 text-lg font-bold text-foreground sm:text-xl">{{ $featuredService->title }}</h3>
+                                <p class="mt-1 text-sm text-muted leading-relaxed">{{ $featuredService->tagline ?: $featuredService->excerpt }}</p>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2.5 sm:flex-col sm:items-stretch sm:shrink-0">
+                                <a href="{{ $featuredService->publicUrl() }}" class="btn btn-primary btn-sm">
+                                    Explore service <x-heroicon-m-arrow-right class="size-4" />
+                                </a>
+                                <a href="{{ route('project.create', ['service' => $featuredService->id]) }}" class="btn btn-secondary btn-sm text-xs">
+                                    Get custom quote
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
+                @endif
+
                 @if ($post->is_ai_assisted)
                     <p class="mt-10 text-sm text-muted">This article was drafted with AI assistance and reviewed by our editorial team.</p>
                 @endif

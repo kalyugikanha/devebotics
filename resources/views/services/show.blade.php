@@ -111,6 +111,19 @@
         </section>
     @endif
 
+    @if (isset($relatedPosts) && $relatedPosts->isNotEmpty())
+        <section class="section section-muted" aria-labelledby="service-insights-heading">
+            <div class="container-site">
+                <x-ui.section-heading eyebrow="Engineering perspectives" title="Expert guides & [insights]" id="service-insights-heading" />
+                <div class="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                    @foreach ($relatedPosts as $post)
+                        <x-cards.post :post="$post" :index="$loop->index" />
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
     <x-site.faq-list :faqs="$service->faqs" :title="'Questions about '.$service->title" />
 
     @if ($service->relatedServices->isNotEmpty())
