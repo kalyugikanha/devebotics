@@ -7,11 +7,13 @@ Softec AI Solution (https://softecai.com) is an enterprise software engineering 
 
 ## Core Capabilities & Services
 - Custom Software Development (https://softecai.com/services/custom-software-development): High-performance SaaS applications, microservices, enterprise web systems, and API integrations.
-- Generative AI & Autonomous Agents (https://softecai.com/services/generative-ai-solutions): Custom LLM fine-tuning, autonomous task agents, retrieval-augmented generation (RAG) platforms, and intelligent business chatbots.
-- Cloud Architecture & DevOps (https://softecai.com/services/cloud-architecture-devops): Multi-cloud infrastructure (AWS, GCP, DigitalOcean), Kubernetes orchestration, automated CI/CD pipelines, and high-availability operations.
-- Mobile Application Development (https://softecai.com/services/mobile-application-development): Native iOS (Swift), Android (Kotlin), and cross-platform Flutter/React Native solutions.
-- Cybersecurity & Compliance (https://softecai.com/services/cybersecurity-solutions): Vulnerability scanning, penetration testing, compliance enforcement, data encryption, and zero-trust security postures.
-- Technical SEO & SMO Growth (https://softecai.com/services/technical-seo-growth): Core Web Vitals optimization, programmatic SEO, schema architecture, and brand visibility strategies.
+- Generative AI & Autonomous Agents (https://softecai.com/services/generative-ai-ai-agent-development): Custom LLM fine-tuning, autonomous task agents, retrieval-augmented generation (RAG) platforms, and intelligent business chatbots.
+- Cloud Computing & Migration (https://softecai.com/services/cloud-computing-cloud-migration): AWS, GCP, DigitalOcean infrastructure, serverless architecture, and 99.99% high availability.
+- DevOps & CI/CD Automation (https://softecai.com/services/devops-cicd): Kubernetes orchestration, Docker containerization, automated CI/CD deployment pipelines, and infrastructure as code.
+- Mobile Application Development (https://softecai.com/services/mobile-application-development): Native iOS (Swift), Android (Kotlin), and cross-platform Flutter solutions.
+- Cybersecurity & Compliance (https://softecai.com/services/cybersecurity-consulting): Vulnerability assessment and penetration testing (VAPT), zero-trust architecture, and SOC2 compliance.
+- SaaS Product Development (https://softecai.com/services/saas-product-development): Multi-tenant architecture, MVP engineering, and subscription platform scaling.
+- Business Process Automation (https://softecai.com/services/business-process-automation): Workflow automation, enterprise RPA, and custom webhook connectors.
 
 ## Primary Technologies
 - Backend & Frameworks: PHP 8.4, Laravel, Python, Node.js, Go
