@@ -23,6 +23,7 @@ import tableOfContents from './components/table-of-contents';
 import motionToggle from './components/motion-toggle';
 import { initMotion } from './motion';
 import whatsappChat from './components/whatsapp-chat';
+import projectCalculator from './components/project-calculator';
 
 Alpine.plugin(focus);
 Alpine.plugin(collapse);
@@ -40,6 +41,7 @@ Alpine.data('shareLinks', shareLinks);
 Alpine.data('tableOfContents', tableOfContents);
 Alpine.data('motionToggle', motionToggle);
 Alpine.data('whatsappChat', whatsappChat);
+Alpine.data('projectCalculator', projectCalculator);
 
 window.Alpine = Alpine;
 Alpine.start();
