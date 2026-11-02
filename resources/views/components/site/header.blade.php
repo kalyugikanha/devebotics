@@ -142,6 +142,10 @@
             @if ($themeSwitcher)
                 <x-site.theme-toggle />
             @endif
+            <a href="{{ route('calculator.index') }}" class="btn btn-ghost btn-sm hidden xl:inline-flex items-center gap-1.5 text-xs text-foreground/80 hover:text-foreground">
+                <x-heroicon-m-calculator class="size-3.5 text-brand-violet" />
+                <span>Cost Calculator</span>
+            </a>
             @if ($ctaLabel && $ctaUrl)
                 <a href="{{ $ctaUrl }}" class="btn btn-primary btn-sm ml-1 hidden sm:inline-flex" data-magnetic="0.2">{{ $ctaLabel }} <x-heroicon-m-arrow-right class="btn-arrow" aria-hidden="true" /></a>
             @endif
@@ -214,7 +218,8 @@
                 </ul>
             </nav>
             @if ($ctaLabel && $ctaUrl)
-                <div class="border-t border-border p-5">
+                <div class="border-t border-border p-5 space-y-2">
+                    <a href="{{ route('calculator.index') }}" class="btn btn-secondary w-full justify-center gap-2 text-sm"><x-heroicon-m-calculator class="size-4 text-brand-violet" /> Project Cost Calculator</a>
                     <a href="{{ $ctaUrl }}" class="btn btn-primary w-full">{{ $ctaLabel }} <x-heroicon-m-arrow-right class="btn-arrow" aria-hidden="true" /></a>
                 </div>
             @endif

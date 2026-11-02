@@ -84,7 +84,7 @@ return [
     // Slugs that CMS pages may not use because public routes own them.
     'reserved_slugs' => [
         'admin', 'api', 'about', 'services', 'products', 'industries', 'case-studies', 'blog',
-        'careers', 'contact', 'start-a-project', 'feedback', 'testimonials', 'faq', 'team',
+        'careers', 'contact', 'start-a-project', 'project-calculator', 'feedback', 'testimonials', 'faq', 'team',
         'search', 'sitemap.xml', 'sitemaps', 'robots.txt', 'storage', 'livewire', 'filament',
         'newsletter', 'cookie-consent', 'company-profile', 'up', 'theme-preview', 'build', 'og',
     ],

@@ -6,6 +6,13 @@
         <div class="container-site grid gap-12 lg:grid-cols-[1.5fr_1fr]">
             <div class="rounded-panel border border-border bg-background p-6 shadow-sm sm:p-10">
                 @include('contact._success')
+                <div class="mb-6 rounded-xl border border-brand-violet/30 bg-brand-violet/5 p-4 text-xs text-foreground flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2">
+                        <x-heroicon-m-sparkles class="size-4 text-brand-violet shrink-0" />
+                        <span>Want an instant price & scope breakdown first?</span>
+                    </div>
+                    <a href="{{ route('calculator.index') }}" class="font-semibold text-brand-violet hover:underline shrink-0">Try AI Project Calculator &rarr;</a>
+                </div>
                 <form method="POST" action="{{ route('contact.store') }}" enctype="multipart/form-data" class="mt-2 space-y-8" x-data="formState" x-on:submit="submit" novalidate>
                     @csrf
                     <input type="hidden" name="type" value="project">
@@ -44,9 +51,9 @@
                                 </select>
                             </x-forms.field>
                         </div>
-                        <x-forms.field name="subject" label="Project title" required><input id="field-subject" name="subject" value="{{ old('subject') }}" required maxlength="200" class="form-control" placeholder="e.g. Customer portal with AI assistant" @error('subject') aria-invalid="true" @enderror></x-forms.field>
+                        <x-forms.field name="subject" label="Project title" required><input id="field-subject" name="subject" value="{{ old('subject', request('subject')) }}" required maxlength="200" class="form-control" placeholder="e.g. Customer portal with AI assistant" @error('subject') aria-invalid="true" @enderror></x-forms.field>
                         <x-forms.field name="message" label="Project details" required help="Goals, users, key features, existing systems and anything else that helps.">
-                            <textarea id="field-message" name="message" rows="8" required minlength="20" maxlength="5000" class="form-control" aria-describedby="field-message-help" @error('message') aria-invalid="true" @enderror>{{ old('message') }}</textarea>
+                            <textarea id="field-message" name="message" rows="8" required minlength="20" maxlength="5000" class="form-control" aria-describedby="field-message-help" @error('message') aria-invalid="true" @enderror>{{ old('message', request('scope')) }}</textarea>
                         </x-forms.field>
                         @if ($attachmentsEnabled)
                             <div>

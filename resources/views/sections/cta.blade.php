@@ -30,6 +30,7 @@
                 </div>
                 @php $number = preg_replace('/\D+/', '', (string) settings('contact.whatsapp_number')); @endphp
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/60">
+                    <a href="{{ route('calculator.index') }}" class="inline-flex items-center gap-2 font-semibold text-brand-cyan hover:text-white"><x-heroicon-m-calculator class="size-4" aria-hidden="true" /> AI Project Calculator</a>
                     @if ($number !== '')
                         <a href="https://wa.me/{{ $number }}?text={{ rawurlencode((string) settings('contact.whatsapp_message')) }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-semibold text-white/85 hover:text-white"><x-ui.social-icon network="whatsapp" class="size-4" /> Chat on WhatsApp</a>
                     @endif

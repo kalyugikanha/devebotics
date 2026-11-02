@@ -17,6 +17,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PreviewController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectCalculatorController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceController;
@@ -63,6 +64,8 @@ Route::get('/feedback/verify/{testimonial}', [FeedbackController::class, 'verify
 
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::get('/start-a-project', [ContactController::class, 'project'])->name('project.create');
+Route::get('/project-calculator', [ProjectCalculatorController::class, 'index'])->name('calculator.index');
+Route::post('/api/calculate-project-cost', [ProjectCalculatorController::class, 'calculate'])->middleware('throttle:30,1')->name('calculator.calculate');
 Route::post('/contact', [ContactController::class, 'store'])->middleware('throttle:public-forms')->name('contact.store');
 
 Route::get('/careers', [CareerController::class, 'index'])->name('careers.index');
