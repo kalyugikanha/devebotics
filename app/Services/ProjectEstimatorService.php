@@ -106,7 +106,7 @@ EOT;
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->timeout(12)->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={$apiKey}", [
+        ])->timeout(12)->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={$apiKey}", [
             'contents' => [
                 [
                     'role' => 'user',
