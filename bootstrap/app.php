@@ -25,6 +25,10 @@ return Application::configure(basePath: dirname(__DIR__))
         // Only the consent cookie is read by JavaScript; it holds no personal data.
         $middleware->encryptCookies(except: ['softec_consent']);
 
+        $middleware->validateCsrfTokens(except: [
+            'api/calculate-project-cost',
+        ]);
+
         $middleware->redirectGuestsTo(fn () => route('filament.admin.auth.login'));
     })
     ->withExceptions(function (Exceptions $exceptions): void {
