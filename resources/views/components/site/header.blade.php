@@ -15,11 +15,11 @@
          class="fixed inset-0 -z-10 hidden bg-ink/30 backdrop-blur-[3px] lg:block"></div>
 
     <div class="mx-auto w-full max-w-7xl px-3 sm:px-4 lg:px-6">
-    <div class="relative flex h-[var(--header-height)] items-center justify-between gap-4 rounded-2xl border px-2 transition-all duration-500 ease-out-expo sm:px-4"
+    <div class="relative flex h-[var(--header-height)] items-center justify-between gap-2 sm:gap-4 rounded-2xl border px-2 transition-all duration-500 ease-out-expo sm:px-4"
          :class="barClasses" x-bind:style="scrolled ? 'height: 4rem' : ''" x-ref="bar">
-        <x-site.logo />
+        <x-site.logo class="shrink-0" />
 
-        <nav aria-label="Primary" class="hidden lg:block" x-on:focusout="focusOut" x-on:mouseleave="restIndicator">
+        <nav aria-label="Primary" class="hidden lg:block shrink min-w-0" x-on:focusout="focusOut" x-on:mouseleave="restIndicator">
             {{-- Gliding highlight that follows the hovered item --}}
             <span x-ref="indicator" class="nav-indicator" aria-hidden="true"></span>
             <ul class="nav-track flex items-center gap-0.5 rounded-full border p-1">
@@ -27,7 +27,7 @@
                     @php
                         $menuId = 'menu-'.$index;
                         $active = $itemIsActive($item);
-                        $itemClasses = 'nav-link inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2 py-1.5 text-xs lg:px-2.5 lg:text-[0.84rem] xl:px-3.5 xl:text-[0.9375rem] font-medium transition-colors duration-300 '.($active ? 'text-foreground' : 'text-foreground/70 hover:text-foreground');
+                        $itemClasses = 'nav-link inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2 py-1.5 text-xs lg:px-2 lg:text-[0.8125rem] xl:px-2.5 xl:text-[0.875rem] 2xl:px-3.5 2xl:text-[0.9375rem] font-medium transition-colors duration-300 '.($active ? 'text-foreground' : 'text-foreground/70 hover:text-foreground');
                     @endphp
                     <li @class(['relative' => ! $item['mega']]) x-on:mouseenter="enterItem" x-on:mouseleave="closeOnLeave" data-menu="{{ ($item['mega'] || $item['children']) ? $menuId : '' }}">
                         @if ($item['mega'] || $item['children'])
@@ -102,7 +102,10 @@
                                             </div>
                                             <p class="relative mt-5 text-[0.6875rem] font-semibold tracking-[0.18em] text-white/60 uppercase">Not sure where to start?</p>
                                             <p class="relative mt-2 font-display text-lg leading-snug font-bold text-white">Book a free discovery call with a solution architect.</p>
-                                            <a href="{{ route('project.create') }}" x-on:click="closeMenus" class="btn btn-inverse btn-sm relative mt-6 w-fit">Start a project <x-heroicon-m-arrow-right class="btn-arrow" aria-hidden="true" /></a>
+                                            <div class="relative mt-6 flex flex-wrap gap-2">
+                                                <a href="{{ route('project.create') }}" x-on:click="closeMenus" class="btn btn-inverse btn-sm">Start a project <x-heroicon-m-arrow-right class="btn-arrow" aria-hidden="true" /></a>
+                                                <a href="{{ route('calculator.index') }}" x-on:click="closeMenus" class="btn btn-ghost btn-sm text-white/80 hover:text-white border border-white/20 hover:border-white/40"><x-heroicon-m-calculator class="size-3.5 mr-1 text-violet-400" /> Cost Calculator</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +123,7 @@
                                                     <span class="min-w-0">
                                                         <span class="block text-sm font-semibold text-foreground">{{ $child['label'] }}</span>
                                                         @if ($child['description'])
-                                                            <span class="mt-0.5 block text-[0.8125rem] leading-snug text-muted">{{ $child['description'] }}</span>
+                                                             <span class="mt-0.5 block text-[0.8125rem] leading-snug text-muted">{{ $child['description'] }}</span>
                                                         @endif
                                                     </span>
                                                 </a>
@@ -138,16 +141,23 @@
             </ul>
         </nav>
 
-        <div class="flex items-center gap-1 sm:gap-2">
+        <div class="flex items-center gap-1 sm:gap-2 shrink-0">
             @if ($themeSwitcher)
                 <x-site.theme-toggle />
             @endif
-            <a href="{{ route('calculator.index') }}" class="btn btn-ghost btn-sm hidden xl:inline-flex items-center gap-1.5 text-xs text-foreground/80 hover:text-foreground">
+            <a href="{{ route('calculator.index') }}"
+               class="btn btn-ghost btn-sm hidden 2xl:inline-flex items-center gap-1.5 text-xs text-foreground/80 hover:text-foreground">
                 <x-heroicon-m-calculator class="size-3.5 text-brand-violet" />
                 <span>Cost Calculator</span>
             </a>
+            <a href="{{ route('calculator.index') }}"
+               title="AI Project Cost Calculator"
+               aria-label="AI Project Cost Calculator"
+               class="btn btn-ghost btn-icon btn-sm hidden xl:inline-flex 2xl:hidden items-center justify-center text-foreground/80 hover:text-foreground">
+                <x-heroicon-m-calculator class="size-4 text-brand-violet" />
+            </a>
             @if ($ctaLabel && $ctaUrl)
-                <a href="{{ $ctaUrl }}" class="btn btn-primary btn-sm ml-1 hidden sm:inline-flex" data-magnetic="0.2">{{ $ctaLabel }} <x-heroicon-m-arrow-right class="btn-arrow" aria-hidden="true" /></a>
+                <a href="{{ $ctaUrl }}" class="btn btn-primary btn-sm ml-1 hidden sm:inline-flex shrink-0" data-magnetic="0.2">{{ $ctaLabel }} <x-heroicon-m-arrow-right class="btn-arrow" aria-hidden="true" /></a>
             @endif
             <button type="button" x-on:click="toggleMobile" class="grid size-10 place-items-center rounded-full text-foreground transition hover:bg-foreground/5 lg:hidden"
                     :aria-expanded="mobileOpen" aria-controls="mobile-menu" aria-label="Open menu">
